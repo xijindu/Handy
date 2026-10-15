@@ -46,3 +46,7 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+
+# Skills (local-only, do not commit)
+.agents/
+skills-lock.json
