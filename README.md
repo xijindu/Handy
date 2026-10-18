@@ -1,4 +1,4 @@
-# handy
+# Handy
 
 A new Flutter project.
 
