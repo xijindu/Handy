@@ -1,7 +1,42 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
+}
+
+// 从 android/key.properties 读取签名信息（该文件与 jks 均不入库）
+val keystoreProperties = Properties()
+val keystorePropertiesFile = rootProject.file("key.properties")
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+}
+
+// release 签名缺失时记录具体原因，构建 release 时直接报错，不回退到 debug 签名
+val releaseSigningError: String? = run {
+    if (!keystorePropertiesFile.exists()) {
+        return@run "未找到 ${keystorePropertiesFile.absolutePath}：release 构建需要签名配置，请填写 storeFile、storePassword、keyAlias、keyPassword"
+    }
+    val missingKeys = listOf("storeFile", "storePassword", "keyAlias", "keyPassword")
+        .filter { keystoreProperties.getProperty(it).isNullOrBlank() }
+    if (missingKeys.isNotEmpty()) {
+        return@run "android/key.properties 缺少字段：${missingKeys.joinToString(", ")}"
+    }
+    val storeFile = file(keystoreProperties.getProperty("storeFile"))
+    if (!storeFile.exists()) {
+        return@run "签名文件不存在：${storeFile.absolutePath}（key.properties 中的 storeFile 相对 android/app）"
+    }
+    null
+}
+
+// 仅 release 变体校验，debug 构建不受影响
+gradle.taskGraph.whenReady {
+    val error = releaseSigningError
+    if (error != null && allTasks.any { it.name.endsWith("Release") }) {
+        throw GradleException("Release 签名配置无效：$error")
+    }
 }
 
 android {
@@ -28,18 +63,28 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
 
-        // Single-arch: only arm64-v8a (disable-abi-filtering in gradle.properties prevents
+        // All Flutter-supported ABIs (disable-abi-filtering in gradle.properties prevents
         // Flutter from injecting its own default ndk abiFilters)
         ndk {
-            abiFilters += listOf("arm64-v8a")
+            abiFilters += listOf("arm64-v8a", "armeabi-v7a", "x86_64")
+        }
+    }
+
+    signingConfigs {
+        if (releaseSigningError == null) {
+            create("release") {
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+                storeFile = file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+            }
         }
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            // 签名缺失时不回退 debug，交由上面的 taskGraph 校验直接报错
+            signingConfig = signingConfigs.findByName("release")
         }
     }
 }
