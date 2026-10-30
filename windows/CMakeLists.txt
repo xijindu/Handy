@@ -1,14 +1,21 @@
 # Project-level configuration.
 cmake_minimum_required(VERSION 3.14)
-project(Handy LANGUAGES CXX)
+project(clashmi LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "Handy")
+set(BINARY_NAME "clashmi")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.
-cmake_policy(VERSION 3.14...3.25)
+cmake_policy(SET CMP0063 NEW)
+# Keep compatibility with plugins that still pass DEPENDS to
+# add_custom_command(TARGET ...). Guard in case older CMake does not know it.
+if(POLICY CMP0175)
+  cmake_policy(SET CMP0175 OLD)
+endif()
+# Ensure subdirectories (including plugin CMake projects) inherit this default.
+set(CMAKE_POLICY_DEFAULT_CMP0175 OLD)
 
 # Define build configuration option.
 get_property(IS_MULTICONFIG GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)
@@ -45,6 +52,14 @@ function(APPLY_STANDARD_SETTINGS TARGET)
   target_compile_definitions(${TARGET} PRIVATE "$<$<CONFIG:Debug>:_DEBUG>")
 endfunction()
 
+if(MSVC)
+    message(STATUS "MSVC parallel compilation enabled")
+    add_compile_definitions(_SILENCE_EXPERIMENTAL_COROUTINE_DEPRECATION_WARNINGS=1)
+    add_compile_options($<$<CXX_COMPILER_ID:MSVC>:/Gm->)
+    cmake_host_system_information(RESULT CPU_NUMBER_OF_LOGICAL_CORES QUERY NUMBER_OF_LOGICAL_CORES)
+    add_compile_options($<$<CXX_COMPILER_ID:MSVC>:/MP${CPU_NUMBER_OF_LOGICAL_CORES}>)
+endif()
+
 # Flutter library and tool build rules.
 set(FLUTTER_MANAGED_DIR "${CMAKE_CURRENT_SOURCE_DIR}/flutter")
 add_subdirectory(${FLUTTER_MANAGED_DIR})
@@ -56,7 +71,9 @@ add_subdirectory("runner")
 # Generated plugin build rules, which manage building the plugins and adding
 # them to the application.
 include(flutter/generated_plugins.cmake)
+#include(./rust.cmake)
 
+target_link_options(${BINARY_NAME} PUBLIC /DEBUG:FULL)
 
 # === Installation ===
 # Support files are copied into place next to the executable, so that it can
@@ -65,6 +82,7 @@ include(flutter/generated_plugins.cmake)
 set(BUILD_BUNDLE_DIR "$<TARGET_FILE_DIR:${BINARY_NAME}>")
 # Make the "install" step default, as it's required to run.
 set(CMAKE_VS_INCLUDE_INSTALL_TO_DEFAULT_BUILD 1)
+set(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT 1)
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
   set(CMAKE_INSTALL_PREFIX "${BUILD_BUNDLE_DIR}" CACHE PATH "..." FORCE)
 endif()
@@ -100,9 +118,44 @@ install(CODE "
   file(REMOVE_RECURSE \"${INSTALL_BUNDLE_DATA_DIR}/${FLUTTER_ASSET_DIR_NAME}\")
   " COMPONENT Runtime)
 install(DIRECTORY "${PROJECT_BUILD_DIR}/${FLUTTER_ASSET_DIR_NAME}"
-  DESTINATION "${INSTALL_BUNDLE_DATA_DIR}" COMPONENT Runtime)
+  DESTINATION "${INSTALL_BUNDLE_DATA_DIR}"
+  CONFIGURATIONS Debug
+  COMPONENT Runtime)
+
+install(DIRECTORY "${PROJECT_BUILD_DIR}/${FLUTTER_ASSET_DIR_NAME}"
+  DESTINATION "${INSTALL_BUNDLE_DATA_DIR}"
+  CONFIGURATIONS Profile;Release
+  COMPONENT Runtime
+  PATTERN "kernel_blob.bin" EXCLUDE)
 
 # Install the AOT library on non-Debug builds only.
 install(FILES "${AOT_LIBRARY}" DESTINATION "${INSTALL_BUNDLE_DATA_DIR}"
+  CONFIGURATIONS Profile;Release
+  COMPONENT Runtime)
+
+message("CMAKE_CURRENT_SOURCE_DIR:${CMAKE_CURRENT_SOURCE_DIR}")
+
+install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../bind/windows/debug/"
+  DESTINATION "${INSTALL_BUNDLE_LIB_DIR}" 
+  CONFIGURATIONS Debug
+  COMPONENT Runtime)
+
+install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../bind/windows/mscrt/x64/"
+  DESTINATION "${INSTALL_BUNDLE_LIB_DIR}" 
+  CONFIGURATIONS Profile;Release
+  COMPONENT Runtime)
+
+install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../bind/windows/ucrt/x64/"
+  DESTINATION "${INSTALL_BUNDLE_LIB_DIR}" 
+  CONFIGURATIONS Profile;Release
+  COMPONENT Runtime)
+
+install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../bind/windows/icu/x64/"
+  DESTINATION "${INSTALL_BUNDLE_LIB_DIR}" 
+  CONFIGURATIONS Debug;Profile;Release
+  COMPONENT Runtime)
+
+install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../bind/windows/core/"
+  DESTINATION "${INSTALL_BUNDLE_LIB_DIR}" 
   CONFIGURATIONS Profile;Release
   COMPONENT Runtime)

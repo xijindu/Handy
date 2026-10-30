@@ -7,15 +7,19 @@
 
 # The following line activates a set of recommended lints for Flutter apps,
 # packages, and plugins designed to encourage good coding practices.
-include: package:flutter_lints/flutter.yaml
-
 analyzer:
+  errors:
+    empty_catches: ignore
+    unnecessary_overrides: ignore
+    unused_catch_stack: ignore
   exclude:
     - build/**
     - android/**
     - ios/**
     - windows/**
     - macos/**
+    - linux/**
+include: package:flutter_lints/flutter.yaml
 
 linter:
   # The lint rules applied to this project can be customized in the
