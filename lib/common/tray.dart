@@ -42,11 +42,11 @@ class AppTray implements TrayPort {
   /// macOS menu bar icons are template images: the system tints them for the
   /// light or dark menu bar, so they must ship without colour. Windows gets the
   /// app icon instead, which it renders as-is.
-  String getTrayIcon({required bool safeMode}) {
+  String getTrayIcon() {
     if (isWindows) {
       return 'assets/images/icon.ico';
     }
-    return 'assets/images/tray/macos/status_${safeMode ? 4 : 1}.png';
+    return 'assets/images/tray/macos/status.png';
   }
 
   @override
@@ -72,7 +72,7 @@ class AppTray implements TrayPort {
     await Tray.instance.show(
       TraySpec(
         icon: TrayIcon.asset(
-          getTrayIcon(safeMode: trayState.safeMode),
+          getTrayIcon(),
           isTemplate: isMacOS,
           size: isMacOS ? 18 : 16,
         ),
