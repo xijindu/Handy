@@ -10,7 +10,7 @@ usage() {
 Usage: tool/bump_version.sh [major|minor|all]
 
 major  Bump app version patch: 0.8.94 -> 0.8.95
-minor  Bump build number: YYYYMMDDNN, NN is today's build count from 01 to 99 (default)
+minor  Bump build number by one: 0.8.94+1 -> 0.8.94+2 (default)
 all    Bump both app version patch and build number
 EOF
 }
@@ -20,7 +20,7 @@ if [[ "$mode" != "major" && "$mode" != "minor" && "$mode" != "all" ]]; then
   exit 64
 fi
 
-version_line="$(grep -E '^version: [0-9]+\.[0-9]+\.[0-9]+\+[0-9]{10}$' "$pubspec_file" || true)"
+version_line="$(grep -E '^version: [0-9]+\.[0-9]+\.[0-9]+\+[0-9]+$' "$pubspec_file" || true)"
 if [[ -z "$version_line" ]]; then
   echo "No valid version line found in $pubspec_file" >&2
   exit 1
@@ -37,19 +37,8 @@ if [[ "$mode" == "major" || "$mode" == "all" ]]; then
 fi
 
 if [[ "$mode" == "minor" || "$mode" == "all" ]]; then
-  today="$(date +%Y%m%d)"
-  build_date="${build_number:0:8}"
-  build_count="${build_number:8:2}"
-  if [[ "$build_date" == "$today" ]]; then
-    count=$((10#$build_count + 1))
-    if ((count > 99)); then
-      echo "Build count for $today exceeds 99" >&2
-      exit 1
-    fi
-  else
-    count=1
-  fi
-  build_number="$today$(printf '%02d' "$count")"
+  # The build number is a plain counter, so it has to grow by one every release.
+  build_number=$((10#$build_number + 1))
 fi
 
 new_version="$app_version+$build_number"
