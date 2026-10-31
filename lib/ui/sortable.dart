@@ -1,12 +1,12 @@
 import 'dart:math' as math;
 import 'dart:ui' show lerpDouble;
 
-import 'package:fl_clash/ui/context.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/ui/l10n.dart';
-import 'package:fl_clash/ui/models.dart';
-import 'package:fl_clash/ui/motion.dart';
-import 'package:fl_clash/ui/shape.dart';
+import 'package:handy/ui/context.dart';
+import 'package:handy/ui/icons/icons.dart';
+import 'package:handy/ui/l10n.dart';
+import 'package:handy/ui/models.dart';
+import 'package:handy/ui/motion.dart';
+import 'package:handy/ui/shape.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:material_ui/material_ui.dart';

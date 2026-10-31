@@ -1,8 +1,8 @@
-import 'package:fl_clash/common/app_ports.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/ui/icons/app_glyphs.dart';
-import 'package:fl_clash/views/views.dart';
+import 'package:handy/common/app_ports.dart';
+import 'package:handy/enum/enum.dart';
+import 'package:handy/models/models.dart';
+import 'package:handy/ui/icons/app_glyphs.dart';
+import 'package:handy/views/views.dart';
 import 'package:material_ui/material_ui.dart';
 
 class Navigation implements NavigationPort {

@@ -1,6 +1,6 @@
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/ui/ui.dart';
+import 'package:handy/models/models.dart';
+import 'package:handy/providers/providers.dart';
+import 'package:handy/ui/ui.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

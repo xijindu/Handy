@@ -1,6 +1,6 @@
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/ui/ui.dart';
+import 'package:handy/common/common.dart';
+import 'package:handy/models/models.dart';
+import 'package:handy/ui/ui.dart';
 import 'package:material_ui/material_ui.dart';
 
 const _expireGap = 12.0;

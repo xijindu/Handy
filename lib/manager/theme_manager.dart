@@ -1,13 +1,13 @@
 import 'dart:math';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/providers/action.dart';
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/providers/config.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/ui/ui.dart';
+import 'package:handy/common/common.dart';
+import 'package:handy/enum/enum.dart';
+import 'package:handy/providers/action.dart';
+import 'package:handy/providers/app.dart';
+import 'package:handy/providers/config.dart';
+import 'package:handy/state.dart';
+import 'package:handy/ui/icons/icons.dart';
+import 'package:handy/ui/ui.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/foundation.dart' show defaultTargetPlatform;
 import 'package:flutter/services.dart';

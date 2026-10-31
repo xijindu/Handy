@@ -1,11 +1,11 @@
 import 'dart:math' as math;
 
-import 'package:fl_clash/ui/context.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/ui/inherited.dart';
-import 'package:fl_clash/ui/metrics.dart';
-import 'package:fl_clash/ui/shape.dart';
-import 'package:fl_clash/ui/surface.dart';
+import 'package:handy/ui/context.dart';
+import 'package:handy/ui/icons/icons.dart';
+import 'package:handy/ui/inherited.dart';
+import 'package:handy/ui/metrics.dart';
+import 'package:handy/ui/shape.dart';
+import 'package:handy/ui/surface.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/physics.dart';
 import 'package:material_ui/material_ui.dart';

@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:fl_clash/ui/context.dart';
-import 'package:fl_clash/ui/item_position.dart';
-import 'package:fl_clash/ui/metrics.dart';
+import 'package:handy/ui/context.dart';
+import 'package:handy/ui/item_position.dart';
+import 'package:handy/ui/metrics.dart';
 import 'package:material_ui/material_ui.dart';
 
 import 'inherited.dart';

@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:fl_clash/ui/shape.dart';
+import 'package:handy/ui/shape.dart';
 import 'package:flutter/foundation.dart' show ValueListenable;
 import 'package:material_ui/material_ui.dart';
 

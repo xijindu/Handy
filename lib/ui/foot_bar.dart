@@ -1,9 +1,9 @@
-import 'package:fl_clash/ui/context.dart';
-import 'package:fl_clash/ui/inherited.dart';
-import 'package:fl_clash/ui/liquid_glass.dart';
-import 'package:fl_clash/ui/navigation_dock.dart';
-import 'package:fl_clash/ui/shape.dart';
-import 'package:fl_clash/ui/surface.dart';
+import 'package:handy/ui/context.dart';
+import 'package:handy/ui/inherited.dart';
+import 'package:handy/ui/liquid_glass.dart';
+import 'package:handy/ui/navigation_dock.dart';
+import 'package:handy/ui/shape.dart';
+import 'package:handy/ui/surface.dart';
 import 'package:material_ui/material_ui.dart';
 
 /// Floats [bar] over the foot of [body] as a sheet's docked search floats,

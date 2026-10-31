@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:fl_clash/common/constant.dart';
-import 'package:fl_clash/core/controller.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:handy/common/constant.dart';
+import 'package:handy/core/controller.dart';
+import 'package:handy/models/models.dart';
 import 'package:flutter/foundation.dart';
 
 const directOutbound = 'DIRECT';

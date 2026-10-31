@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:fl_clash/common/boot_record.dart';
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/common/system_dns.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:handy/common/boot_record.dart';
+import 'package:handy/common/common.dart';
+import 'package:handy/common/system_dns.dart';
+import 'package:handy/enum/enum.dart';
+import 'package:handy/models/models.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

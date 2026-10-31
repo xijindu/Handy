@@ -1,10 +1,10 @@
 import 'dart:math' as math;
 
-import 'package:fl_clash/ui/color.dart';
-import 'package:fl_clash/ui/drag_back.dart';
-import 'package:fl_clash/ui/shape.dart';
-import 'package:fl_clash/ui/sheet_navigator.dart';
-import 'package:fl_clash/ui/surface.dart';
+import 'package:handy/ui/color.dart';
+import 'package:handy/ui/drag_back.dart';
+import 'package:handy/ui/shape.dart';
+import 'package:handy/ui/sheet_navigator.dart';
+import 'package:handy/ui/surface.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/rendering.dart';
 

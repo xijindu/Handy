@@ -1,6 +1,6 @@
-import 'package:fl_clash/ui/context.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/ui/shape.dart';
+import 'package:handy/ui/context.dart';
+import 'package:handy/ui/icons/icons.dart';
+import 'package:handy/ui/shape.dart';
 import 'package:material_ui/material_ui.dart';
 
 class SelectionCheck extends StatelessWidget {

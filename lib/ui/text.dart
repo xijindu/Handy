@@ -1,6 +1,6 @@
 import 'package:emoji_regex/emoji_regex.dart';
-import 'package:fl_clash/ui/measure.dart';
-import 'package:fl_clash/ui/text_style.dart';
+import 'package:handy/ui/measure.dart';
+import 'package:handy/ui/text_style.dart';
 import 'package:material_ui/material_ui.dart';
 
 class TooltipText extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/database/database.dart';
-import 'package:fl_clash/enum/enum.dart';
+import 'package:handy/common/common.dart';
+import 'package:handy/database/database.dart';
+import 'package:handy/enum/enum.dart';
 
 Future<void> clearAppData() async {
   await preferences.clearPreferences();

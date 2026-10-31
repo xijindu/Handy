@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:collection/collection.dart';
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:handy/common/common.dart';
+import 'package:handy/enum/enum.dart';
+import 'package:handy/l10n/l10n.dart';
+import 'package:handy/providers/providers.dart';
+import 'package:handy/state.dart';
+import 'package:handy/widgets/widgets.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

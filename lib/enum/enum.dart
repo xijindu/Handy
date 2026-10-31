@@ -2,11 +2,11 @@
 
 import 'dart:io';
 
-import 'package:fl_clash/common/context.dart';
-import 'package:fl_clash/common/system.dart';
-import 'package:fl_clash/ui/color.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/ui/surface.dart';
+import 'package:handy/common/context.dart';
+import 'package:handy/common/system.dart';
+import 'package:handy/ui/color.dart';
+import 'package:handy/ui/icons/icons.dart';
+import 'package:handy/ui/surface.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

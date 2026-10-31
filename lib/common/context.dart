@@ -1,7 +1,7 @@
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/manager/status_manager.dart';
-import 'package:fl_clash/models/state.dart';
+import 'package:handy/enum/enum.dart';
+import 'package:handy/l10n/l10n.dart';
+import 'package:handy/manager/status_manager.dart';
+import 'package:handy/models/state.dart';
 import 'package:material_ui/material_ui.dart';
 
 extension AppContextExtension on BuildContext {

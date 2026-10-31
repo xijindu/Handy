@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/core/method.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:handy/common/common.dart';
+import 'package:handy/core/method.dart';
+import 'package:handy/models/models.dart';
 import 'package:flutter/foundation.dart';
 import 'package:riverpod/riverpod.dart';
 

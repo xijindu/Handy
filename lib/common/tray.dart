@@ -1,6 +1,6 @@
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/providers.dart';
+import 'package:handy/enum/enum.dart';
+import 'package:handy/models/models.dart';
+import 'package:handy/providers/providers.dart';
 import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:tray/tray.dart';
 

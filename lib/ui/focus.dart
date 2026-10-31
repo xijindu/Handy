@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:math' as math;
 
-import 'package:fl_clash/ui/context.dart';
-import 'package:fl_clash/ui/metrics.dart';
+import 'package:handy/ui/context.dart';
+import 'package:handy/ui/metrics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';

@@ -1,11 +1,11 @@
 import 'dart:math' as math;
 
-import 'package:fl_clash/ui/color.dart';
-import 'package:fl_clash/ui/inherited.dart';
-import 'package:fl_clash/ui/metrics.dart';
-import 'package:fl_clash/ui/scaffold.dart';
-import 'package:fl_clash/ui/typography.dart';
-import 'package:fl_clash/ui/view_scope.dart';
+import 'package:handy/ui/color.dart';
+import 'package:handy/ui/inherited.dart';
+import 'package:handy/ui/metrics.dart';
+import 'package:handy/ui/scaffold.dart';
+import 'package:handy/ui/typography.dart';
+import 'package:handy/ui/view_scope.dart';
 import 'package:material_ui/material_ui.dart';
 
 extension BuildContextExtension on BuildContext {

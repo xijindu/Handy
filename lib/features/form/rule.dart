@@ -1,11 +1,11 @@
 library;
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/clash_config.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:handy/common/common.dart';
+import 'package:handy/enum/enum.dart';
+import 'package:handy/models/clash_config.dart';
+import 'package:handy/state.dart';
+import 'package:handy/ui/icons/icons.dart';
+import 'package:handy/widgets/widgets.dart';
 import 'package:material_ui/material_ui.dart';
 
 import 'form_page.dart';

@@ -1,7 +1,7 @@
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/ui/typography.dart';
+import 'package:handy/enum/enum.dart';
+import 'package:handy/models/models.dart';
+import 'package:handy/state.dart';
+import 'package:handy/ui/typography.dart';
 import 'package:flutter/widgets.dart';
 
 const proxyGridSpacing = 8.0;

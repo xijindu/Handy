@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/providers/config.dart';
-import 'package:fl_clash/providers/on_demand.dart';
+import 'package:handy/common/common.dart';
+import 'package:handy/enum/enum.dart';
+import 'package:handy/providers/app.dart';
+import 'package:handy/providers/config.dart';
+import 'package:handy/providers/on_demand.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wifi_ssid/wifi_ssid.dart';

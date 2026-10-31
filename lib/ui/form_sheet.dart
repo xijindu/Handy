@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:fl_clash/ui/dialog.dart';
-import 'package:fl_clash/ui/inherited.dart';
-import 'package:fl_clash/ui/sheet.dart';
-import 'package:fl_clash/ui/sheet_navigator.dart';
-import 'package:fl_clash/ui/shape.dart';
-import 'package:fl_clash/ui/surface.dart';
+import 'package:handy/ui/dialog.dart';
+import 'package:handy/ui/inherited.dart';
+import 'package:handy/ui/sheet.dart';
+import 'package:handy/ui/sheet_navigator.dart';
+import 'package:handy/ui/shape.dart';
+import 'package:handy/ui/surface.dart';
 import 'package:material_ui/material_ui.dart';
 
 const double _width = 440;

@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:fl_clash/ui/context.dart';
-import 'package:fl_clash/ui/scroll_behavior.dart';
-import 'package:fl_clash/ui/shape.dart';
-import 'package:fl_clash/ui/surface.dart';
-import 'package:fl_clash/ui/typography.dart';
+import 'package:handy/ui/context.dart';
+import 'package:handy/ui/scroll_behavior.dart';
+import 'package:handy/ui/shape.dart';
+import 'package:handy/ui/surface.dart';
+import 'package:handy/ui/typography.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';

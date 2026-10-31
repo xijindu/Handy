@@ -1,10 +1,10 @@
-import 'package:fl_clash/common/constant.dart';
-import 'package:fl_clash/common/exception.dart';
-import 'package:fl_clash/common/network_error.dart';
-import 'package:fl_clash/core/desktop/launch_policy.dart';
-import 'package:fl_clash/core/method.dart';
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/ui/l10n.dart';
+import 'package:handy/common/constant.dart';
+import 'package:handy/common/exception.dart';
+import 'package:handy/common/network_error.dart';
+import 'package:handy/core/desktop/launch_policy.dart';
+import 'package:handy/core/method.dart';
+import 'package:handy/l10n/l10n.dart';
+import 'package:handy/ui/l10n.dart';
 import 'package:flutter/widgets.dart';
 
 final currentAppLocalizations = AppLocalizations.current;

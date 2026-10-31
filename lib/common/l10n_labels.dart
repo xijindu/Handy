@@ -1,5 +1,5 @@
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/ui/color.dart';
+import 'package:handy/enum/enum.dart';
+import 'package:handy/ui/color.dart';
 import 'package:material_ui/material_ui.dart';
 
 import 'app_localizations.dart';

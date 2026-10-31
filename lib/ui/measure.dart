@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:fl_clash/ui/metrics.dart';
-import 'package:fl_clash/ui/typography.dart';
+import 'package:handy/ui/metrics.dart';
+import 'package:handy/ui/typography.dart';
 import 'package:material_ui/material_ui.dart';
 
 typedef _TextMeasureKey = (String?, TextStyle?, int?, TextDirection?, double?);

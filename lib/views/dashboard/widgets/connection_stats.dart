@@ -1,8 +1,8 @@
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/views/dashboard/layout.dart';
-import 'package:fl_clash/views/dashboard/style.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:handy/common/common.dart';
+import 'package:handy/providers/app.dart';
+import 'package:handy/views/dashboard/layout.dart';
+import 'package:handy/views/dashboard/style.dart';
+import 'package:handy/widgets/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 

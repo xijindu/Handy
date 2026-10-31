@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/state.dart';
+import 'package:handy/enum/enum.dart';
+import 'package:handy/models/models.dart';
+import 'package:handy/providers/app.dart';
+import 'package:handy/state.dart';
 import 'package:material_ui/material_ui.dart';
 
 String compactError(Object error) {

@@ -1,19 +1,19 @@
 import 'dart:async';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/core/controller.dart';
-import 'package:fl_clash/core/method.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/features/features.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/providers/core.dart';
-import 'package:fl_clash/views/connection/connections.dart';
-import 'package:fl_clash/views/connection/requests.dart';
-import 'package:fl_clash/views/dashboard/layout.dart';
-import 'package:fl_clash/views/dashboard/style.dart';
-import 'package:fl_clash/views/dns_queries.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:handy/common/common.dart';
+import 'package:handy/core/controller.dart';
+import 'package:handy/core/method.dart';
+import 'package:handy/enum/enum.dart';
+import 'package:handy/features/features.dart';
+import 'package:handy/models/models.dart';
+import 'package:handy/providers/app.dart';
+import 'package:handy/providers/core.dart';
+import 'package:handy/views/connection/connections.dart';
+import 'package:handy/views/connection/requests.dart';
+import 'package:handy/views/dashboard/layout.dart';
+import 'package:handy/views/dashboard/style.dart';
+import 'package:handy/views/dns_queries.dart';
+import 'package:handy/widgets/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 

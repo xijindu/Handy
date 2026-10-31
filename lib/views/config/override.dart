@@ -1,14 +1,14 @@
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/features/form/form.dart';
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/pages/editor.dart';
-import 'package:fl_clash/providers/config.dart';
-import 'package:fl_clash/providers/database.dart';
-import 'package:fl_clash/providers/state.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:handy/common/common.dart';
+import 'package:handy/enum/enum.dart';
+import 'package:handy/features/form/form.dart';
+import 'package:handy/l10n/l10n.dart';
+import 'package:handy/models/models.dart';
+import 'package:handy/pages/editor.dart';
+import 'package:handy/providers/config.dart';
+import 'package:handy/providers/database.dart';
+import 'package:handy/providers/state.dart';
+import 'package:handy/ui/icons/icons.dart';
+import 'package:handy/widgets/widgets.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

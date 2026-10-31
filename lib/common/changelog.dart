@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/models/changelog.dart';
+import 'package:handy/enum/enum.dart';
+import 'package:handy/l10n/l10n.dart';
+import 'package:handy/models/changelog.dart';
 
 import 'common.dart';
 

@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/manager/theme_manager.dart';
-import 'package:fl_clash/plugins/app.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/ui/ui.dart';
+import 'package:handy/common/common.dart';
+import 'package:handy/enum/enum.dart';
+import 'package:handy/manager/theme_manager.dart';
+import 'package:handy/plugins/app.dart';
+import 'package:handy/state.dart';
+import 'package:handy/ui/icons/icons.dart';
+import 'package:handy/ui/ui.dart';
 import 'package:flutter/services.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
-import 'package:fl_clash/providers/config.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/ui/ui.dart';
+import 'package:handy/providers/config.dart';
+import 'package:handy/ui/icons/icons.dart';
+import 'package:handy/ui/ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 

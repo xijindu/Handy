@@ -2,14 +2,14 @@ import 'dart:async';
 import 'dart:math' as math;
 import 'dart:ui' show lerpDouble;
 
-import 'package:fl_clash/ui/context.dart';
-import 'package:fl_clash/ui/fade_box.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/ui/inherited.dart';
-import 'package:fl_clash/ui/l10n.dart';
-import 'package:fl_clash/ui/metrics.dart';
-import 'package:fl_clash/ui/navigator.dart';
-import 'package:fl_clash/ui/typography.dart';
+import 'package:handy/ui/context.dart';
+import 'package:handy/ui/fade_box.dart';
+import 'package:handy/ui/icons/icons.dart';
+import 'package:handy/ui/inherited.dart';
+import 'package:handy/ui/l10n.dart';
+import 'package:handy/ui/metrics.dart';
+import 'package:handy/ui/navigator.dart';
+import 'package:handy/ui/typography.dart';
 import 'package:material_new_shapes/material_new_shapes.dart';
 import 'package:material_ui/material_ui.dart';
 

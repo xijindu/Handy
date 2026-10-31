@@ -1,5 +1,5 @@
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/common.dart';
+import 'package:handy/enum/enum.dart';
+import 'package:handy/models/common.dart';
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart' show NumberFormat;
 import 'package:material_ui/material_ui.dart';

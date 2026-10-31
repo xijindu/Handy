@@ -1,11 +1,11 @@
-import 'package:fl_clash/common/input_limits.dart';
-import 'package:fl_clash/ui/button.dart';
-import 'package:fl_clash/ui/focus.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/ui/l10n.dart';
-import 'package:fl_clash/ui/shape.dart';
-import 'package:fl_clash/ui/surface.dart';
-import 'package:fl_clash/ui/typography.dart';
+import 'package:handy/common/input_limits.dart';
+import 'package:handy/ui/button.dart';
+import 'package:handy/ui/focus.dart';
+import 'package:handy/ui/icons/icons.dart';
+import 'package:handy/ui/l10n.dart';
+import 'package:handy/ui/shape.dart';
+import 'package:handy/ui/surface.dart';
+import 'package:handy/ui/typography.dart';
 import 'package:material_ui/material_ui.dart';
 
 /// Below this many items a sheet is short enough to scan without a search.

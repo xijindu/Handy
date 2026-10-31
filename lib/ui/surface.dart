@@ -1,4 +1,4 @@
-import 'package:fl_clash/ui/color.dart';
+import 'package:handy/ui/color.dart';
 import 'package:material_ui/material_ui.dart';
 
 /// The levels of a surface, and why dark mode never steps back down.
