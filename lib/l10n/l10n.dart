@@ -1031,16 +1031,6 @@ class AppLocalizations {
     );
   }
 
-  /// `Compatibility mode`
-  String get compatible {
-    return Intl.message(
-      'Compatibility mode',
-      name: 'compatible',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `The current proxy group cannot be selected`
   String get notSelectedTip {
     return Intl.message(
@@ -1476,26 +1466,6 @@ class AppLocalizations {
     return Intl.message(
       'External link',
       name: 'externalLink',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Other contributors`
-  String get otherContributors {
-    return Intl.message(
-      'Other contributors',
-      name: 'otherContributors',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `App icon design`
-  String get appIconDesign {
-    return Intl.message(
-      'App icon design',
-      name: 'appIconDesign',
       desc: '',
       args: [],
     );
@@ -2381,11 +2351,6 @@ class AppLocalizations {
     );
   }
 
-  /// `Agree`
-  String get agree {
-    return Intl.message('Agree', name: 'agree', desc: '', args: []);
-  }
-
   /// `Hotkey management`
   String get hotkeyManagement {
     return Intl.message(
@@ -2969,11 +2934,6 @@ class AppLocalizations {
       desc: '',
       args: [],
     );
-  }
-
-  /// `Source IP`
-  String get sourceIp {
-    return Intl.message('Source IP', name: 'sourceIp', desc: '', args: []);
   }
 
   /// `Don't resolve IP`
