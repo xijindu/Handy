@@ -16,7 +16,7 @@ usage() {
 Usage: tool/release.sh <pre|stable> [options]
 
   pre                Tag the next vX.Y.Z-pre.N prerelease.
-  stable             Write the changelog, commit it, and tag vX.Y.Z.
+  stable             Regenerate changelog.json, commit it, and tag vX.Y.Z.
 
 Options:
   --version X.Y.Z    Target app version. Defaults to the pubspec version,
@@ -27,7 +27,7 @@ Options:
   -h, --help         Show this help.
 
 Examples:
-  tool/release.sh pre --push          # v0.8.97-pre.1, notes rendered by CI
+  tool/release.sh pre --push          # v0.8.97-pre.1
   tool/release.sh stable --push       # v0.8.97 with a chore(release) commit
 EOF
 }
@@ -83,8 +83,8 @@ fi
 branch="$(git rev-parse --abbrev-ref HEAD)"
 [[ "$branch" != "HEAD" ]] || die "detached HEAD; check out a branch first"
 if [[ "$branch" != "main" ]]; then
-  echo "note: releasing from '$branch', not main. CI triggers on the tag, so"
-  echo "      this publishes '$branch' while main stays behind."
+  echo "note: releasing from '$branch', not main; the tag points at this branch"
+  echo "      while main stays behind."
 fi
 
 current="$(pubspec_version)"
@@ -122,11 +122,11 @@ echo "branch    : $branch"
 echo "version   : $current -> $version$([[ $bumped == 1 ]] && echo ' (pubspec will be rewritten)')"
 echo "tag       : $tag"
 if [[ "$mode" == "pre" ]]; then
-  echo "changelog : rendered by CI from build --unreleased; nothing committed"
-  echo "publishes : build artifacts + Telegram only, no GitHub release"
+  echo "changelog : built from unreleased commits; nothing committed"
+  echo "publishes : tag only; build and upload artifacts separately"
 else
-  echo "changelog : CHANGELOG.md + changelog.json regenerated and committed"
-  echo "publishes : GitHub release with artifacts, SHA256SUMS, Homebrew cask"
+  echo "changelog : changelog.json regenerated and committed"
+  echo "publishes : tag; attach the build artifacts to the GitHub release yourself"
 fi
 echo "push      : $([[ $do_push == 1 ]] && echo yes || echo 'no (printed at the end)')"
 echo
@@ -134,7 +134,7 @@ echo
 committed=0
 restore() {
   ((committed)) && return 0
-  git checkout -- pubspec.yaml changelog.json CHANGELOG.md 2>/dev/null || true
+  git checkout -- pubspec.yaml changelog.json 2>/dev/null || true
 }
 trap restore EXIT
 
@@ -181,9 +181,9 @@ fi
 if [[ "$mode" == "stable" ]]; then
   dart run tool/changelog.dart release --version "$version"
   echo
-  git --no-pager diff --stat -- CHANGELOG.md changelog.json pubspec.yaml
+  git --no-pager diff --stat -- changelog.json pubspec.yaml
   echo
-  git add CHANGELOG.md changelog.json pubspec.yaml
+  git add changelog.json pubspec.yaml
   git commit -m "chore(release): v$version"
   committed=1
   dart run tool/changelog.dart verify
