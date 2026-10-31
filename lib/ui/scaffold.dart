@@ -1892,7 +1892,7 @@ class _KeywordStrip extends StatelessWidget {
   }
 }
 
-/// Keeps rebuilds in the body to its own layer (.agents/architecture.md).
+/// Keeps rebuilds in the body to its own layer.
 class _BodyScope extends StatelessWidget {
   const _BodyScope({required this.child});
 

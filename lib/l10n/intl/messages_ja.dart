@@ -31,7 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m4(detail) => "データを消去できませんでした：${detail}";
 
   static String m5(code) =>
-      "Windows が FlClashCore.exe の実行を拒否しました（エラー ${code}）。スマート アプリ コントロールや AppLocker などのアプリ制御ポリシーは未署名のプログラムをブロックします。ポリシーで FlClash を許可するか、ポリシーを無効にしてから再試行してください。";
+      "Windows が HandyCore.exe の実行を拒否しました（エラー ${code}）。スマート アプリ コントロールや AppLocker などのアプリ制御ポリシーは未署名のプログラムをブロックします。ポリシーで Handy を許可するか、ポリシーを無効にしてから再試行してください。";
 
   static String m6(name) =>
       "アプリの起動が2回連続で完了しませんでした。クラッシュループを断ち切るため、プロファイル ${name} の選択を解除し、今回の自動セットアップをスキップしました。いつでも選択し直せます。";
@@ -253,10 +253,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "additionalPrefix": MessageLookupByLibrary.simpleMessage("名前のプレフィックス"),
     "additionalSuffix": MessageLookupByLibrary.simpleMessage("名前のサフィックス"),
     "address": MessageLookupByLibrary.simpleMessage("アドレス"),
-    "addressHelp": MessageLookupByLibrary.simpleMessage("WebDAVサーバーのアドレス"),
-    "addressTip": MessageLookupByLibrary.simpleMessage(
-      "有効なWebDAVアドレスを入力してください",
-    ),
     "advancedConfig": MessageLookupByLibrary.simpleMessage("詳細設定"),
     "advancedConfigDesc": MessageLookupByLibrary.simpleMessage(
       "詳細設定には、ネットワーク、DNS、追加ルール、スクリプトがあります。",
@@ -311,12 +307,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "autoUpdateInterval": MessageLookupByLibrary.simpleMessage("自動更新間隔"),
     "back": MessageLookupByLibrary.simpleMessage("戻る"),
     "backgroundBlur": MessageLookupByLibrary.simpleMessage("背景のぼかし"),
-    "backup": MessageLookupByLibrary.simpleMessage("バックアップ"),
-    "backupAndRestore": MessageLookupByLibrary.simpleMessage("バックアップと復元"),
-    "backupFromNewerVersion": MessageLookupByLibrary.simpleMessage(
-      "このバックアップは新しいバージョンのアプリで作成されています。アプリを更新してから復元してください",
-    ),
-    "backupSuccess": MessageLookupByLibrary.simpleMessage("バックアップが完了しました"),
     "basicInfo": MessageLookupByLibrary.simpleMessage("基本情報"),
     "basicStrategy": MessageLookupByLibrary.simpleMessage("基本ポリシー"),
     "batchAdd": MessageLookupByLibrary.simpleMessage("一括追加"),
@@ -337,7 +327,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "batteryOptimizationDesc": MessageLookupByLibrary.simpleMessage(
       "電池の最適化を無視すると、アプリがバックグラウンドで動作し続けます。",
     ),
-    "bind": MessageLookupByLibrary.simpleMessage("連携"),
     "blacklistMode": MessageLookupByLibrary.simpleMessage("ブラックリストモード"),
     "blockConnection": MessageLookupByLibrary.simpleMessage("接続をブロック"),
     "brightness": MessageLookupByLibrary.simpleMessage("明度"),
@@ -377,7 +366,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "changelogReverts": MessageLookupByLibrary.simpleMessage("取り消し"),
     "checkCertificate": MessageLookupByLibrary.simpleMessage("TLS証明書を検証"),
     "checkCertificateDesc": MessageLookupByLibrary.simpleMessage(
-      "TLS 証明書の検証を無効にすると、サブスクリプションとバックアップが中間者攻撃にさらされます。",
+      "TLS 証明書の検証を無効にすると、サブスクリプションとダウンロードが中間者攻撃にさらされます。",
     ),
     "checkUpdate": MessageLookupByLibrary.simpleMessage("更新を確認"),
     "checkUpdateError": MessageLookupByLibrary.simpleMessage("すでに最新バージョンです"),
@@ -433,7 +422,6 @@ class MessageLookup extends MessageLookupByLibrary {
       "ライブ接続、最近のリクエスト、DNS クエリ",
     ),
     "connections": MessageLookupByLibrary.simpleMessage("接続"),
-    "connectivity": MessageLookupByLibrary.simpleMessage("接続状態："),
     "content": MessageLookupByLibrary.simpleMessage("内容"),
     "contentNotEmpty": MessageLookupByLibrary.simpleMessage("内容は空にできません"),
     "controlGlobalAddedRules": MessageLookupByLibrary.simpleMessage(
@@ -446,7 +434,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "core": MessageLookupByLibrary.simpleMessage("コア"),
     "coreBlockedByPolicyTip": m5,
     "coreBlockedBySmartAppControlTip": MessageLookupByLibrary.simpleMessage(
-      "Windows のスマート アプリ コントロールが、署名されていない FlClashCore.exe をブロックしました。Windows セキュリティ → アプリとブラウザーの制御 → スマート アプリ コントロールの設定で「オフ」を選び、FlClash を再起動してください。一度オフにすると、Windows を再インストールしない限り再度オンにはできません。",
+      "Windows のスマート アプリ コントロールが、署名されていない HandyCore.exe をブロックしました。Windows セキュリティ → アプリとブラウザーの制御 → スマート アプリ コントロールの設定で「オフ」を選び、Handy を再起動してください。一度オフにすると、Windows を再インストールしない限り再度オンにはできません。",
     ),
     "coreStatus": MessageLookupByLibrary.simpleMessage("コアの状態"),
     "country": MessageLookupByLibrary.simpleMessage("地域"),
@@ -535,78 +523,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "disableUDP": MessageLookupByLibrary.simpleMessage("UDPを無効化"),
     "disabled": MessageLookupByLibrary.simpleMessage("無効"),
     "discardChanges": MessageLookupByLibrary.simpleMessage("変更を破棄しますか？"),
-    "disclaimer": MessageLookupByLibrary.simpleMessage("免責事項"),
-    "disclaimerAcceptContent": MessageLookupByLibrary.simpleMessage(
-      "本ソフトウェアをインストール、複製または使用した時点で、本声明のすべての内容を読み、同意したものとみなされます。いずれかの条項に同意いただけない場合は、直ちに使用を中止し、本ソフトウェアをアンインストールしてください。",
-    ),
-    "disclaimerAcceptTitle": MessageLookupByLibrary.simpleMessage("声明への同意"),
-    "disclaimerAcknowledgeLabel": MessageLookupByLibrary.simpleMessage(
-      "この声明を読み、理解しました",
-    ),
-    "disclaimerAcknowledgeTip": MessageLookupByLibrary.simpleMessage(
-      "内容を理解したことを確認するため、以下の声明を読み、下のチェックボックスをオンにしてください：",
-    ),
-    "disclaimerAcknowledgeTitle": MessageLookupByLibrary.simpleMessage("声明の確認"),
-    "disclaimerChangesContent": MessageLookupByLibrary.simpleMessage(
-      "開発者はバージョンの更新に伴い本声明を変更することがあり、変更内容は新しいバージョンの公開とともに効力を生じます。更新後も本ソフトウェアを引き続き使用した場合、変更後の声明に同意したものとみなされます。",
-    ),
-    "disclaimerChangesTitle": MessageLookupByLibrary.simpleMessage("本声明の変更"),
-    "disclaimerDesc": MessageLookupByLibrary.simpleMessage(
-      "FlClash（以下「本ソフトウェア」）をご利用になる前に、本声明の内容をよくお読みになり、十分にご理解ください。「同意する」をタップすると、以下のすべての条項を読み、理解し、承諾したものとみなされます。同意いただけない場合は「終了」をタップし、本ソフトウェアの使用を中止してください。",
-    ),
-    "disclaimerLiabilityContent": MessageLookupByLibrary.simpleMessage(
-      "適用法で認められる最大限の範囲において、開発者およびすべての貢献者は、本ソフトウェアの使用または使用不能に起因する直接的、間接的、偶発的、特別、懲罰的または結果的な損害（データの消失、機器の損傷、ネットワーク障害、業務の中断、逸失利益、およびそれに起因する法的紛争を含むがこれらに限らない）について、その可能性を知らされていた場合であっても、一切責任を負いません。",
-    ),
-    "disclaimerLiabilityTitle": MessageLookupByLibrary.simpleMessage("責任の制限"),
-    "disclaimerLicenseContent": MessageLookupByLibrary.simpleMessage(
-      "本ソフトウェアは GPL-3.0 ライセンスのもとでオープンソースとして公開されています。同ライセンスを遵守する限り、自由に使用、改変、再配布できますが、派生物も GPL-3.0 で公開し、原著作者の著作権表示を保持する必要があります。\n\n本ソフトウェアに含まれるサードパーティのコンポーネント（Clash.Meta コアを含む）は、それぞれのライセンスに従います。改変版や再配布版に起因する問題について、原著作者は責任を負いません。",
-    ),
-    "disclaimerLicenseTitle": MessageLookupByLibrary.simpleMessage(
-      "オープンソースライセンス",
-    ),
-    "disclaimerNoServiceStatement": MessageLookupByLibrary.simpleMessage(
-      "本ソフトウェア自体は、プロキシサーバー、ノード、サブスクリプション、ネットワーク接続サービスを一切提供しておらず、それらのサービス提供者と提携、代理、保証の関係はありません。",
-    ),
-    "disclaimerPrivacyContent": MessageLookupByLibrary.simpleMessage(
-      "本ソフトウェアは、サブスクリプション URL、ノード情報、設定内容、閲覧したウェブサイト、接続記録、通信内容、ログを収集またはアップロードしません。これらのデータは端末内にのみ保存され、開発者がアクセスすることはできません。\n\n本ソフトウェアが外部ネットワークにアクセスするのは、プロファイル更新時に指定されたサブスクリプション URL へアクセスする場合や、アップデート確認時に GitHub へアクセスする場合など、該当する機能を使用したときのみです。\n\n本ソフトウェアには、どのプラットフォームでも統計やクラッシュレポートのサービスは一切組み込まれていません。",
-    ),
-    "disclaimerPrivacyTitle": MessageLookupByLibrary.simpleMessage(
-      "データ収集とプライバシー",
-    ),
-    "disclaimerResponsibilityContent": MessageLookupByLibrary.simpleMessage(
-      "お住まいの国または地域で本ソフトウェアの使用が合法であることはご自身で確認する必要があり、本ソフトウェアを使用したすべての行為とその結果について、ご自身が単独で法的責任を負います。\n\nインポートするサブスクリプション、ノード、設定はご自身の判断で選択したものです。その出所の適法性、内容の安全性、サービスの安定性については、利用者と各提供者の間で解決してください。",
-    ),
-    "disclaimerResponsibilityTitle": MessageLookupByLibrary.simpleMessage(
-      "利用者の責任",
-    ),
-    "disclaimerRestateHint": MessageLookupByLibrary.simpleMessage("上記の声明を入力"),
-    "disclaimerRestateMismatch": MessageLookupByLibrary.simpleMessage(
-      "声明の内容と一致しません",
-    ),
-    "disclaimerRestateTip": MessageLookupByLibrary.simpleMessage(
-      "内容を理解したことを確認するため、以下の声明を下の入力欄に正確に入力してください：",
-    ),
-    "disclaimerRestateTitle": MessageLookupByLibrary.simpleMessage("声明の復唱"),
-    "disclaimerSoftwareContent": MessageLookupByLibrary.simpleMessage(
-      "本ソフトウェアは Clash.Meta（mihomo）コアをベースとしたオープンソースのネットワークプロキシクライアントであり、設定管理、ルールによる振り分け、トラフィック転送などのローカルツール機能のみを提供します。",
-    ),
-    "disclaimerSoftwareTitle": MessageLookupByLibrary.simpleMessage(
-      "ソフトウェアの性質",
-    ),
-    "disclaimerThirdPartyContent": MessageLookupByLibrary.simpleMessage(
-      "サブスクリプションリンク、設定ファイル、ルールセット、スクリプト、外部リソース、外部リンクはすべて第三者が提供するものであり、開発者はその適法性、正確性、安全性、可用性を審査または保証することはできず、また行いません。\n\nサードパーティのコンテンツの使用に起因する情報漏えい、財産上の損失、アカウント停止その他の損失は、利用者と第三者の間で解決するものとし、開発者は一切責任を負いません。",
-    ),
-    "disclaimerThirdPartyTitle": MessageLookupByLibrary.simpleMessage(
-      "サードパーティのコンテンツ",
-    ),
-    "disclaimerUsageContent": MessageLookupByLibrary.simpleMessage(
-      "本ソフトウェアは学習、交流、技術研究などの非商用目的でのみ使用できます。有償配布、抱き合わせ販売、商用サービスの一部としての利用、本ソフトウェアの名義での事業活動など、あらゆる商用目的での使用を固く禁じます。いかなる商業行為も本ソフトウェアおよび開発者とは一切関係ありません。\n\nお住まいの国または地域の法令に違反する目的での使用を固く禁じます。これには、法に基づくネットワークアクセス制限の回避、違法情報の拡散、サイバー攻撃、他者の権利の侵害などが含まれますが、これらに限りません。",
-    ),
-    "disclaimerUsageTitle": MessageLookupByLibrary.simpleMessage("使用の制限"),
-    "disclaimerWarrantyContent": MessageLookupByLibrary.simpleMessage(
-      "本ソフトウェアは「現状のまま」かつ「提供可能な範囲で」提供され、商品性、特定目的への適合性、非侵害、継続的な可用性、エラーやセキュリティ上の脆弱性がないことの保証を含め、明示または黙示を問わずいかなる保証も伴いません。\n\n開発者は、本ソフトウェアが利用者の要件を満たすこと、また中断やエラーなく動作することを保証しません。",
-    ),
-    "disclaimerWarrantyTitle": MessageLookupByLibrary.simpleMessage("無保証"),
     "disconnected": MessageLookupByLibrary.simpleMessage("切断済み"),
     "discoverNewVersion": MessageLookupByLibrary.simpleMessage(
       "新しいバージョンが見つかりました",
@@ -746,7 +662,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "hashByInUser": MessageLookupByLibrary.simpleMessage("インバウンドユーザーでハッシュ"),
     "healthCheck": MessageLookupByLibrary.simpleMessage("ヘルスチェック"),
     "helperCorruptTip": MessageLookupByLibrary.simpleMessage(
-      "Helper サービスが利用できないため、TUN モードを有効にできません。FlClash を再インストールしてください。",
+      "Helper サービスが利用できないため、TUN モードを有効にできません。Handy を再インストールしてください。",
     ),
     "hex": MessageLookupByLibrary.simpleMessage("16進数"),
     "hideFromList": MessageLookupByLibrary.simpleMessage("リストから隠す"),
@@ -809,7 +725,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "init": MessageLookupByLibrary.simpleMessage("初期化"),
     "initFailed": MessageLookupByLibrary.simpleMessage("起動に失敗しました"),
     "initFailedTip": MessageLookupByLibrary.simpleMessage(
-      "FlClash の起動中にエラーが発生したため、続行できません。詳細をコピーして問題を報告できます。繰り返し発生する場合は、データを消去すると起動できるようになることがあります。",
+      "Handy の起動中にエラーが発生したため、続行できません。詳細をコピーして問題を報告できます。繰り返し発生する場合は、データを消去すると起動できるようになることがあります。",
     ),
     "initiator": MessageLookupByLibrary.simpleMessage("発信元"),
     "initiatorShort": MessageLookupByLibrary.simpleMessage("発信元"),
@@ -842,7 +758,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "internet": MessageLookupByLibrary.simpleMessage("インターネット"),
     "interval": MessageLookupByLibrary.simpleMessage("間隔"),
     "intranetIP": MessageLookupByLibrary.simpleMessage("イントラネットIP"),
-    "invalidBackupFile": MessageLookupByLibrary.simpleMessage("無効なバックアップファイル"),
     "invalidCidrContent": MessageLookupByLibrary.simpleMessage(
       "192.168.0.0/16 のような CIDR 形式の IP 範囲を入力してください",
     ),
@@ -941,7 +856,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "listen": MessageLookupByLibrary.simpleMessage("リッスン"),
     "listenRoutingMark": MessageLookupByLibrary.simpleMessage("リッスンのルーティングマーク"),
     "listenRoutingMarkDesc": MessageLookupByLibrary.simpleMessage(
-      "リッスンのルーティングマークは Linux でのみ有効です。",
+      "リッスンのルーティングマークは Android でのみ有効です。",
     ),
     "liveConnections": MessageLookupByLibrary.simpleMessage("リアルタイム接続"),
     "loading": MessageLookupByLibrary.simpleMessage("読み込み中…"),
@@ -1007,7 +922,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "minutesAgoShort": m49,
     "mixedPort": MessageLookupByLibrary.simpleMessage("Mixedポート"),
     "mode": MessageLookupByLibrary.simpleMessage("モード"),
-    "monochromeIcon": MessageLookupByLibrary.simpleMessage("モノクロームアイコン"),
     "monochromeScheme": MessageLookupByLibrary.simpleMessage("モノクローム"),
     "monthsAgo": m50,
     "monthsAgoShort": m51,
@@ -1046,7 +960,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "nextMatch": MessageLookupByLibrary.simpleMessage("次の一致"),
     "no": MessageLookupByLibrary.simpleMessage("いいえ"),
     "noData": MessageLookupByLibrary.simpleMessage("データがありません"),
-    "noInfo": MessageLookupByLibrary.simpleMessage("情報がありません"),
     "noLongerRemind": MessageLookupByLibrary.simpleMessage("今後表示しない"),
     "noNetwork": MessageLookupByLibrary.simpleMessage("ネットワークがありません"),
     "noNetworkApp": MessageLookupByLibrary.simpleMessage("ネットワーク不使用アプリ"),
@@ -1106,7 +1019,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "peers": MessageLookupByLibrary.simpleMessage("ピア"),
     "pickFromAlbum": MessageLookupByLibrary.simpleMessage("アルバムから選択"),
     "pinWindow": MessageLookupByLibrary.simpleMessage("最前面に固定"),
-    "pleaseBindWebDAV": MessageLookupByLibrary.simpleMessage("WebDAVを連携してください"),
     "pleaseEnterScriptName": MessageLookupByLibrary.simpleMessage(
       "スクリプト名を入力してください",
     ),
@@ -1237,13 +1149,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "responseCode": MessageLookupByLibrary.simpleMessage("応答コード"),
     "restart": MessageLookupByLibrary.simpleMessage("再起動"),
     "restartCoreTip": MessageLookupByLibrary.simpleMessage("コアを再起動してもよろしいですか？"),
-    "restore": MessageLookupByLibrary.simpleMessage("復元"),
-    "restoreAllData": MessageLookupByLibrary.simpleMessage("すべてのデータを復元"),
-    "restoreOnlyConfig": MessageLookupByLibrary.simpleMessage("プロファイルのみ復元"),
-    "restoreStrategy": MessageLookupByLibrary.simpleMessage("復元方式"),
-    "restoreStrategyCompatible": MessageLookupByLibrary.simpleMessage("互換"),
-    "restoreStrategyOverride": MessageLookupByLibrary.simpleMessage("上書き"),
-    "restoreSuccess": MessageLookupByLibrary.simpleMessage("復元が完了しました"),
     "result": MessageLookupByLibrary.simpleMessage("結果"),
     "retry": MessageLookupByLibrary.simpleMessage("再試行"),
     "routeAddress": MessageLookupByLibrary.simpleMessage("ルートアドレス"),
@@ -1348,7 +1253,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "サブルールへマッチします。括弧の使い方に注意してください",
     ),
     "ruleActionUidDesc": MessageLookupByLibrary.simpleMessage(
-      "LinuxのユーザーIDにマッチ",
+      "AndroidのユーザーIDにマッチ",
     ),
     "ruleEmpty": MessageLookupByLibrary.simpleMessage("ルールが空です"),
     "ruleListInvalid": MessageLookupByLibrary.simpleMessage(
@@ -1425,10 +1330,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "送信しました。もう一方のデバイスでインポートを確認してください。",
     ),
     "sendFromPhonePageTitle": MessageLookupByLibrary.simpleMessage(
-      "FlClash にリンクを送信",
+      "Handy にリンクを送信",
     ),
     "sendFromPhonePermissionDenied": MessageLookupByLibrary.simpleMessage(
-      "スマートフォンからリンクを受け取るには、FlClash がローカルネットワークにアクセスするための「付近のデバイス」権限が必要です。アプリの設定でオンにしてください。",
+      "スマートフォンからリンクを受け取るには、Handy がローカルネットワークにアクセスするための「付近のデバイス」権限が必要です。アプリの設定でオンにしてください。",
     ),
     "sendFromPhoneTip": MessageLookupByLibrary.simpleMessage(
       "スマートフォンのカメラでコードをスキャンし、開いたページにリンクを貼り付けてください。両方のデバイスを同じネットワークに接続する必要があります。",
@@ -1462,7 +1367,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "リンクからプロキシを読み取れませんでした",
     ),
     "shareQrcodeTip": MessageLookupByLibrary.simpleMessage(
-      "別のデバイスの FlClash でスキャンすると、このプロファイルをインポートできます。",
+      "別のデバイスの Handy でスキャンすると、このプロファイルをインポートできます。",
     ),
     "show": MessageLookupByLibrary.simpleMessage("表示"),
     "showLess": MessageLookupByLibrary.simpleMessage("折りたたむ"),
@@ -1538,7 +1443,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "style": MessageLookupByLibrary.simpleMessage("スタイル"),
     "submit": MessageLookupByLibrary.simpleMessage("送信"),
     "subscriptionInfo": MessageLookupByLibrary.simpleMessage("サブスクリプション情報"),
-    "sudoPasswordTitle": MessageLookupByLibrary.simpleMessage("sudo のパスワードを入力"),
     "suspended": MessageLookupByLibrary.simpleMessage("一時停止中…"),
     "switchProfile": MessageLookupByLibrary.simpleMessage("プロファイルを切り替え"),
     "sync": MessageLookupByLibrary.simpleMessage("同期"),
@@ -1625,7 +1529,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "vpnEnableDesc": MessageLookupByLibrary.simpleMessage(
       "VPN は VpnService でシステムの全トラフィックを自動的にルーティングします。",
     ),
-    "webDAVConfiguration": MessageLookupByLibrary.simpleMessage("WebDAV設定"),
     "whitelistMode": MessageLookupByLibrary.simpleMessage("ホワイトリストモード"),
     "writeToSystem": MessageLookupByLibrary.simpleMessage("システムに書き込む"),
     "writeToSystemDesc": MessageLookupByLibrary.simpleMessage(

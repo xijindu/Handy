@@ -7,7 +7,6 @@ import 'package:yaml/yaml.dart';
 
 const _allTargets = <String, String>{
   'android': 'apk',
-  'linux': 'deb,appimage,rpm',
   'macos': 'dmg',
   'windows': 'exe,zip',
 };
@@ -18,11 +17,7 @@ const _androidFlutterTarget = {
   'amd64': 'android-x64',
 };
 
-const _hostPlatform = {
-  'linux': 'linux',
-  'macos': 'macos',
-  'windows': 'windows',
-};
+const _hostPlatform = {'macos': 'macos', 'windows': 'windows'};
 
 Future<void> main(List<String> args) async {
   final parser = createSetupArgParser();
@@ -52,7 +47,6 @@ Future<void> main(List<String> args) async {
     exit(1);
   }
 
-  final env = results['env'] as String;
   final rootDir = Directory.current.path;
   final skipped = packagesNotBuildingAssets(
     File(p.join(rootDir, 'pubspec.yaml')).readAsStringSync(),
@@ -73,7 +67,6 @@ Future<void> main(List<String> args) async {
 
   final exitCode = await _package(
     platform,
-    env,
     targets,
     rootDir,
     arch,
@@ -85,12 +78,6 @@ Future<void> main(List<String> args) async {
 
 ArgParser createSetupArgParser() {
   return ArgParser()
-    ..addOption(
-      'env',
-      defaultsTo: 'pre',
-      allowed: ['dev', 'pre', 'stable'],
-      help: 'Application environment',
-    )
     ..addOption(
       'targets',
       valueHelp: 'exe,zip,dmg,apk,...',
@@ -116,16 +103,9 @@ List<String> createFlutterBuildArgs({
 }) {
   final flutterBuildArgs = <String>[
     if (verbose) 'verbose',
-    'dart-define-from-file=env.json',
+    if (platform == 'android') 'split-per-abi',
   ];
-  if (platform == 'android') {
-    flutterBuildArgs.add('split-per-abi');
-  }
   return flutterBuildArgs;
-}
-
-Map<String, String> createBuildEnvironment(String env) {
-  return {'APP_ENV': env};
 }
 
 /// Packages whose build hook `pubspec.yaml` turns into a no-op.
@@ -156,16 +136,12 @@ void _showHelp(ArgParser parser) {
 
 Future<int> _package(
   String platform,
-  String env,
   String targets,
   String rootDir,
   String arch, {
   String? androidArch,
   required bool verbose,
 }) async {
-  final file = File(p.join(rootDir, 'env.json'));
-  await file.writeAsString(jsonEncode(createBuildEnvironment(env)));
-
   final flutterBuildArgs = createFlutterBuildArgs(
     platform: platform,
     verbose: verbose,
@@ -247,8 +223,6 @@ Future<int> _ensureDependencies(String platform) async {
   switch (platform) {
     case 'macos':
       return _ensureMacosDependencies();
-    case 'linux':
-      return _ensureLinuxDependencies();
     default:
       return 0;
   }
@@ -265,144 +239,4 @@ Future<int> _ensureMacosDependencies() async {
     stderr.write(result.stderr);
   }
   return result.exitCode;
-}
-
-Future<int> _ensureLinuxDependencies() async {
-  const pkgGroups = <List<String>>[
-    ['ninja-build', 'libgtk-3-dev'],
-    ['libayatana-appindicator3-dev'],
-    ['libsecret-1-dev'],
-    ['locate'],
-    ['rpm', 'patchelf'],
-    ['libfuse2'],
-  ];
-
-  final missingGroups = <List<String>>[];
-  for (final group in pkgGroups) {
-    final missingPkgs = <String>[];
-    for (final pkg in group) {
-      if (!await _isDebianPackageInstalled(pkg)) {
-        missingPkgs.add(pkg);
-      }
-    }
-    if (missingPkgs.isNotEmpty) {
-      missingGroups.add(missingPkgs);
-    }
-  }
-
-  if (missingGroups.isEmpty) {
-    stdout.writeln('All Linux build dependencies already installed, skipping.');
-  } else {
-    stdout.writeln('Updating apt package lists...');
-    final updateExit = await _runLinuxDependencyCommand([
-      'apt-get',
-      'update',
-      '-y',
-    ]);
-    if (updateExit != 0) {
-      stderr.writeln(
-        'apt-get update exited with $updateExit; continuing and verifying '
-        'dependency installation directly.',
-      );
-    }
-
-    for (final missingPkgs in missingGroups) {
-      stdout.writeln(
-        'Installing Linux build dependencies: ${missingPkgs.join(', ')}...',
-      );
-      final installExit = await _installLinuxPackages(missingPkgs);
-      if (installExit != 0) return installExit;
-    }
-  }
-
-  const appimagetool = '/usr/local/bin/appimagetool';
-  if (File(appimagetool).existsSync()) {
-    stdout.writeln('appimagetool already installed, skipping.');
-    return 0;
-  }
-  stdout.writeln('Downloading appimagetool...');
-  final downloadName =
-      'appimagetool-${appImageToolArch(_detectArch())}.AppImage';
-  final dlResult = await Process.run('wget', [
-    '-O',
-    appimagetool,
-    'https://github.com/AppImage/AppImageKit/releases/download/continuous/$downloadName',
-  ]);
-  if (dlResult.exitCode != 0) {
-    stderr.write(dlResult.stderr);
-    return dlResult.exitCode;
-  }
-  await Process.run('chmod', ['+x', appimagetool]);
-  return 0;
-}
-
-String appImageToolArch(String arch) {
-  return arch == 'arm64' ? 'aarch64' : 'x86_64';
-}
-
-/// Ubuntu 24.04 ships libfuse2 under its time64 name, which `dpkg -s libfuse2` cannot see.
-const _debianPackageAliases = <String, List<String>>{
-  'libfuse2': ['libfuse2t64'],
-};
-
-Future<bool> _isDebianPackageInstalled(String pkg) async {
-  for (final name in [pkg, ...?_debianPackageAliases[pkg]]) {
-    final result = await Process.run('dpkg', ['-s', name]);
-    if (result.exitCode == 0 &&
-        (result.stdout as String).contains('Status: install ok installed')) {
-      return true;
-    }
-  }
-  return false;
-}
-
-Future<bool> _areDebianPackagesInstalled(List<String> pkgs) async {
-  for (final pkg in pkgs) {
-    if (!await _isDebianPackageInstalled(pkg)) {
-      return false;
-    }
-  }
-  return true;
-}
-
-Future<int> _installLinuxPackages(List<String> pkgs) async {
-  final exitCode = await _runLinuxDependencyCommand([
-    'apt-get',
-    'install',
-    '-y',
-    ...pkgs,
-  ]);
-  if (exitCode == 0) return 0;
-
-  if (await _areDebianPackagesInstalled(pkgs)) {
-    stderr.writeln(
-      'apt-get install exited with $exitCode, but all requested packages are '
-      'installed; continuing.',
-    );
-    return 0;
-  }
-
-  return exitCode;
-}
-
-Future<int> _runLinuxDependencyCommand(List<String> command) async {
-  final sudoCommand = [
-    'env',
-    'DEBIAN_FRONTEND=noninteractive',
-    'NEEDRESTART_MODE=a',
-    ...command,
-  ];
-  stdout.writeln('exec: sudo ${sudoCommand.join(' ')}');
-  final result = await Process.start('sudo', sudoCommand);
-  result.stdout.listen((data) {
-    stdout.write(utf8.decode(data));
-  });
-  result.stderr.listen((data) {
-    stderr.write(utf8.decode(data));
-  });
-  final exitCode = await result.exitCode;
-  if (exitCode != 0) {
-    stderr.writeln('Linux dependency command failed with exit code $exitCode.');
-  }
-  return exitCode;
 }

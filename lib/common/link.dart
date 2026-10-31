@@ -39,23 +39,11 @@ String? _installConfigUrl(Uri uri) {
 class LinkManager {
   static LinkManager? _instance;
   StreamSubscription? subscription;
-  Uri? _pendingUri;
 
   LinkManager._internal();
 
   @visibleForTesting
   Stream<Uri> Function() uriLinkStream = () => AppLinks().uriLinkStream;
-
-  /// Linux argv: the gtk plugin hooks GApplication too late to see it.
-  void seedInitialLink(List<String> args) {
-    for (final arg in args) {
-      final uri = Uri.tryParse(arg);
-      if (uri != null && protocolSchemes.contains(uri.scheme)) {
-        _pendingUri = uri;
-        return;
-      }
-    }
-  }
 
   Future<void> initAppLinksListen(
     Function(String url) installConfigCallBack,
@@ -64,11 +52,6 @@ class LinkManager {
     subscription = uriLinkStream().listen((uri) {
       _handle(uri, installConfigCallBack);
     });
-    final pending = _pendingUri;
-    _pendingUri = null;
-    if (pending != null) {
-      _handle(pending, installConfigCallBack);
-    }
   }
 
   void _handle(Uri uri, Function(String url) installConfigCallBack) {

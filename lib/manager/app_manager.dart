@@ -5,10 +5,8 @@ import 'package:fl_clash/common/system_dns.dart';
 import 'package:fl_clash/enum/enum.dart';
 import 'package:fl_clash/models/models.dart';
 import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/state.dart';
 import 'package:fl_clash/ui/ui.dart';
 import 'package:fl_clash/widgets/icon.dart';
-import 'package:flutter/foundation.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -106,35 +104,6 @@ class _AppStateManagerState extends ConsumerState<AppStateManager>
   @override
   Widget build(BuildContext context) {
     return widget.child;
-  }
-}
-
-class AppEnvManager extends ConsumerWidget {
-  final Widget child;
-
-  const AppEnvManager({super.key, required this.child});
-
-  String? _bannerMessage({required bool safeMode}) {
-    if (safeMode) {
-      return 'SAFE MODE';
-    }
-    if (!globalState.isPre) {
-      return null;
-    }
-    return kDebugMode ? 'DEBUG' : globalState.appEnv.toUpperCase();
-  }
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final message = _bannerMessage(safeMode: ref.watch(safeModeProvider));
-    if (message == null) {
-      return child;
-    }
-    return Banner(
-      message: message,
-      location: BannerLocation.topEnd,
-      child: child,
-    );
   }
 }
 

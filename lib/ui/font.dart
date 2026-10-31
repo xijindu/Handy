@@ -17,29 +17,6 @@ const _hanFamilies = <TargetPlatform, Map<_HanVariant, List<String>>>{
     _HanVariant.japanese: ['Hiragino Sans'],
     _HanVariant.korean: ['Apple SD Gothic Neo'],
   },
-  TargetPlatform.linux: {
-    _HanVariant.simplified: [
-      'Noto Sans CJK SC',
-      'Noto Sans SC',
-      'Source Han Sans SC',
-      'WenQuanYi Micro Hei',
-    ],
-    _HanVariant.traditional: [
-      'Noto Sans CJK TC',
-      'Noto Sans TC',
-      'Source Han Sans TC',
-    ],
-    _HanVariant.japanese: [
-      'Noto Sans CJK JP',
-      'Noto Sans JP',
-      'Source Han Sans',
-    ],
-    _HanVariant.korean: [
-      'Noto Sans CJK KR',
-      'Noto Sans KR',
-      'Source Han Sans K',
-    ],
-  },
 };
 
 _HanVariant _hanVariantOf(Iterable<Locale> locales) {

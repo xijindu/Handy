@@ -178,10 +178,6 @@ final class Tray {
   static const variantScales = [1.0, 2.0, 3.0, 4.0];
 
   @visibleForTesting
-  static bool Function(String filePath) fileExists = (filePath) =>
-      File(filePath).existsSync();
-
-  @visibleForTesting
   static String variantAsset(String asset, double scale) {
     if (scale == 1.0) {
       return asset;
@@ -203,8 +199,6 @@ final class Tray {
     switch (defaultTargetPlatform) {
       case TargetPlatform.macOS:
         resolved['reps'] = await _loadRepresentations(icon.asset);
-      case TargetPlatform.linux:
-        resolved['path'] = _largestBundledVariant(icon.asset);
       default:
         resolved['path'] = _bundledPath(icon.asset);
     }
@@ -226,16 +220,6 @@ final class Tray {
       });
     }
     return reps;
-  }
-
-  String _largestBundledVariant(String asset) {
-    for (final scale in variantScales.reversed) {
-      final candidate = _bundledPath(variantAsset(asset, scale));
-      if (fileExists(candidate)) {
-        return candidate;
-      }
-    }
-    return _bundledPath(asset);
   }
 
   String _bundledPath(String asset) {

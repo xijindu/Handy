@@ -257,13 +257,10 @@ abstract class AppSettingProps with _$AppSettingProps {
     @Default(true)
     @JsonKey(readValue: _readSidebarExpanded)
     bool sidebarExpanded,
-    @Default(0) int acceptedDisclaimerVersion,
     @Default(true) bool minimizeOnExit,
     @Default(false) bool hidden,
     @Default(false) bool developerMode,
-    @Default(RestoreStrategy.compatible) RestoreStrategy restoreStrategy,
     @Default(true) bool showTrayTitle,
-    @Default(true) bool monochromeTrayIcon,
     @Default(true) bool checkCertificate,
     @Default(defaultUserAgents)
     @JsonKey(readValue: _readUserAgents)
@@ -333,7 +330,7 @@ abstract class WindowProps with _$WindowProps {
 }
 
 /// Four dashboard columns at full density beside the expanded sidebar, with
-/// room for the Windows and Linux title bar.
+/// room for the Windows title bar.
 const defaultWindowSize = Size(1280, 880);
 
 extension WindowPropsExt on WindowProps {
@@ -506,7 +503,6 @@ abstract class Config with _$Config {
     @JsonKey(fromJson: AppSettingProps.safeFromJson)
     @Default(defaultAppSettingProps)
     AppSettingProps appSettingProps,
-    DAVProps? davProps,
     @Default(defaultNetworkProps) NetworkProps networkProps,
     @Default(defaultVpnProps) VpnProps vpnProps,
     @JsonKey(fromJson: ThemeProps.safeFromJson) required ThemeProps themeProps,

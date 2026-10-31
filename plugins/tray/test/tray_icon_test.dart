@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tray/tray.dart';
 
 const MethodChannel _channel = MethodChannel('tray');
-const _asset = 'assets/images/tray/unix/status_1.png';
+const _asset = 'assets/tray/status.png';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +33,6 @@ void main() {
         .setMockMethodCallHandler(_channel, null);
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMessageHandler('flutter/assets', null);
-    Tray.fileExists = (filePath) => false;
     Tray.instance.resetForTesting();
     debugDefaultTargetPlatformOverride = null;
   });
@@ -42,42 +41,16 @@ void main() {
     expect(Tray.variantAsset(_asset, 1.0), _asset);
     expect(
       Tray.variantAsset(_asset, 2.0),
-      'assets/images/tray/unix/2.0x/status_1.png',
+      'assets/tray/2.0x/status.png',
     );
-    expect(Tray.variantAsset('status_1.png', 3.0), '3.0x/status_1.png');
+    expect(Tray.variantAsset('status.png', 3.0), '3.0x/status.png');
   });
-
-  test('linux hands the indicator the largest bundled variant', () async {
-    debugDefaultTargetPlatformOverride = TargetPlatform.linux;
-    Tray.fileExists = (filePath) => filePath.contains('/3.0x/');
-
-    await Tray.instance.show(const TraySpec(icon: TrayIcon.asset(_asset)));
-
-    expect(
-      lastIcon()['path'],
-      endsWith('flutter_assets/assets/images/tray/unix/3.0x/status_1.png'),
-    );
-  });
-
-  test(
-    'linux falls back to the base asset when no variant is bundled',
-    () async {
-      debugDefaultTargetPlatformOverride = TargetPlatform.linux;
-
-      await Tray.instance.show(const TraySpec(icon: TrayIcon.asset(_asset)));
-
-      expect(
-        lastIcon()['path'],
-        endsWith('flutter_assets/assets/images/tray/unix/status_1.png'),
-      );
-    },
-  );
 
   test('macOS sends every bundled scale as a representation', () async {
     debugDefaultTargetPlatformOverride = TargetPlatform.macOS;
     final bundled = {
       _asset: [1],
-      'assets/images/tray/unix/2.0x/status_1.png': [2, 2],
+      'assets/tray/2.0x/status.png': [2, 2],
     };
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMessageHandler('flutter/assets', (message) async {

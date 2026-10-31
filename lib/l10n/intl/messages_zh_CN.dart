@@ -31,7 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m4(detail) => "清除数据失败：${detail}";
 
   static String m5(code) =>
-      "Windows 拒绝运行 FlClashCore.exe（错误 ${code}）。智能应用控制、AppLocker 等应用控制策略会拦截未签名程序，请在该策略中放行 FlClash 或关闭策略后重试。";
+      "Windows 拒绝运行 HandyCore.exe（错误 ${code}）。智能应用控制、AppLocker 等应用控制策略会拦截未签名程序，请在该策略中放行 Handy 或关闭策略后重试。";
 
   static String m6(name) =>
       "应用连续两次未能完成启动。为打断崩溃循环，已取消选中配置 ${name}，并跳过本次自动配置，你可以随时重新选中它。";
@@ -250,8 +250,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "additionalPrefix": MessageLookupByLibrary.simpleMessage("名称前缀"),
     "additionalSuffix": MessageLookupByLibrary.simpleMessage("名称后缀"),
     "address": MessageLookupByLibrary.simpleMessage("地址"),
-    "addressHelp": MessageLookupByLibrary.simpleMessage("WebDAV服务器地址"),
-    "addressTip": MessageLookupByLibrary.simpleMessage("请输入有效的WebDAV地址"),
     "advancedConfig": MessageLookupByLibrary.simpleMessage("进阶配置"),
     "advancedConfigDesc": MessageLookupByLibrary.simpleMessage(
       "进阶配置包含网络、DNS、附加规则与脚本。",
@@ -302,12 +300,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "autoUpdateInterval": MessageLookupByLibrary.simpleMessage("自动更新间隔"),
     "back": MessageLookupByLibrary.simpleMessage("返回"),
     "backgroundBlur": MessageLookupByLibrary.simpleMessage("背景模糊"),
-    "backup": MessageLookupByLibrary.simpleMessage("备份"),
-    "backupAndRestore": MessageLookupByLibrary.simpleMessage("备份与恢复"),
-    "backupFromNewerVersion": MessageLookupByLibrary.simpleMessage(
-      "该备份来自更高版本的应用，请先更新应用再恢复",
-    ),
-    "backupSuccess": MessageLookupByLibrary.simpleMessage("备份成功"),
     "basicInfo": MessageLookupByLibrary.simpleMessage("基础信息"),
     "basicStrategy": MessageLookupByLibrary.simpleMessage("基础策略"),
     "batchAdd": MessageLookupByLibrary.simpleMessage("批量添加"),
@@ -320,7 +312,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "batteryOptimizationDesc": MessageLookupByLibrary.simpleMessage(
       "忽略电池优化可保证应用在后台运行。",
     ),
-    "bind": MessageLookupByLibrary.simpleMessage("绑定"),
     "blacklistMode": MessageLookupByLibrary.simpleMessage("黑名单模式"),
     "blockConnection": MessageLookupByLibrary.simpleMessage("阻止连接"),
     "brightness": MessageLookupByLibrary.simpleMessage("亮度"),
@@ -354,7 +345,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "changelogReverts": MessageLookupByLibrary.simpleMessage("已回滚"),
     "checkCertificate": MessageLookupByLibrary.simpleMessage("校验 TLS 证书"),
     "checkCertificateDesc": MessageLookupByLibrary.simpleMessage(
-      "关闭证书校验后，订阅和备份可能遭中间人攻击。",
+      "关闭证书校验后，订阅和下载可能遭中间人攻击。",
     ),
     "checkUpdate": MessageLookupByLibrary.simpleMessage("检查更新"),
     "checkUpdateError": MessageLookupByLibrary.simpleMessage("当前应用已经是最新版了"),
@@ -400,7 +391,6 @@ class MessageLookup extends MessageLookupByLibrary {
       "实时连接、最近请求、DNS查询",
     ),
     "connections": MessageLookupByLibrary.simpleMessage("连接"),
-    "connectivity": MessageLookupByLibrary.simpleMessage("连通性："),
     "content": MessageLookupByLibrary.simpleMessage("内容"),
     "contentNotEmpty": MessageLookupByLibrary.simpleMessage("内容不能为空"),
     "controlGlobalAddedRules": MessageLookupByLibrary.simpleMessage("控制全局附加规则"),
@@ -411,7 +401,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "core": MessageLookupByLibrary.simpleMessage("内核"),
     "coreBlockedByPolicyTip": m5,
     "coreBlockedBySmartAppControlTip": MessageLookupByLibrary.simpleMessage(
-      "Windows 智能应用控制拦截了未签名的 FlClashCore.exe。请打开 Windows 安全中心 → 应用和浏览器控制 → 智能应用控制设置，选择「关闭」后重新启动 FlClash。智能应用控制关闭后无法再开启，除非重装 Windows。",
+      "Windows 智能应用控制拦截了未签名的 HandyCore.exe。请打开 Windows 安全中心 → 应用和浏览器控制 → 智能应用控制设置，选择「关闭」后重新启动 Handy。智能应用控制关闭后无法再开启，除非重装 Windows。",
     ),
     "coreStatus": MessageLookupByLibrary.simpleMessage("核心状态"),
     "country": MessageLookupByLibrary.simpleMessage("区域"),
@@ -490,70 +480,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "disableUDP": MessageLookupByLibrary.simpleMessage("禁用UDP"),
     "disabled": MessageLookupByLibrary.simpleMessage("已关闭"),
     "discardChanges": MessageLookupByLibrary.simpleMessage("是否放弃更改？"),
-    "disclaimer": MessageLookupByLibrary.simpleMessage("免责声明"),
-    "disclaimerAcceptContent": MessageLookupByLibrary.simpleMessage(
-      "一旦你安装、复制或使用本软件，即视为你已阅读并同意本声明的全部内容。如你不同意本声明的任何条款，请立即停止使用并卸载本软件。",
-    ),
-    "disclaimerAcceptTitle": MessageLookupByLibrary.simpleMessage("接受声明"),
-    "disclaimerAcknowledgeLabel": MessageLookupByLibrary.simpleMessage(
-      "我已阅读并理解此声明",
-    ),
-    "disclaimerAcknowledgeTip": MessageLookupByLibrary.simpleMessage(
-      "为确认你已知悉，请阅读以下声明并勾选下方选项：",
-    ),
-    "disclaimerAcknowledgeTitle": MessageLookupByLibrary.simpleMessage("确认声明"),
-    "disclaimerChangesContent": MessageLookupByLibrary.simpleMessage(
-      "开发者有权随版本更新修改本声明，修改后的内容随新版本发布即生效。你在更新后继续使用本软件，即视为接受修改后的声明。",
-    ),
-    "disclaimerChangesTitle": MessageLookupByLibrary.simpleMessage("声明变更"),
-    "disclaimerDesc": MessageLookupByLibrary.simpleMessage(
-      "在使用 FlClash（以下简称“本软件”）前，请仔细阅读并充分理解本声明的全部内容。点击“同意”即表示你已阅读、理解并接受以下全部条款；如不同意，请点击“退出”并停止使用本软件。",
-    ),
-    "disclaimerLiabilityContent": MessageLookupByLibrary.simpleMessage(
-      "在适用法律允许的最大范围内，开发者及所有贡献者均不对因使用或无法使用本软件而产生的任何直接、间接、偶然、特殊、惩罚性或后果性损害承担责任，包括但不限于数据丢失、设备损坏、网络异常、业务中断、利润损失或因此引起的任何法律纠纷，即使已被告知发生此类损害的可能性。",
-    ),
-    "disclaimerLiabilityTitle": MessageLookupByLibrary.simpleMessage("责任限制"),
-    "disclaimerLicenseContent": MessageLookupByLibrary.simpleMessage(
-      "本软件以 GPL-3.0 协议开源。你可以在遵守该协议的前提下自由使用、修改和分发本软件，但须同样以 GPL-3.0 协议开源并保留原作者的版权声明。\n\n本软件包含的第三方组件（包括 Clash.Meta 内核）分别遵循其各自的开源协议。基于本软件修改或分发的版本所产生的任何问题，与原作者无关。",
-    ),
-    "disclaimerLicenseTitle": MessageLookupByLibrary.simpleMessage("开源协议"),
-    "disclaimerNoServiceStatement": MessageLookupByLibrary.simpleMessage(
-      "本软件自身不提供任何代理服务器、节点、订阅、机场或网络接入服务，也不与任何此类服务的提供者存在合作、代理或担保关系。",
-    ),
-    "disclaimerPrivacyContent": MessageLookupByLibrary.simpleMessage(
-      "本软件不会收集或上传你的订阅地址、节点信息、配置内容、访问的网站、连接记录、流量内容和日志，这些数据仅保存在你的设备本地，开发者无法获取。\n\n本软件只会在你使用相应功能时访问外部网络，例如更新订阅时访问你提供的订阅地址、检查更新时访问 GitHub。\n\n本软件在所有平台上均未集成任何数据统计或崩溃上报服务。",
-    ),
-    "disclaimerPrivacyTitle": MessageLookupByLibrary.simpleMessage("数据收集与隐私"),
-    "disclaimerResponsibilityContent": MessageLookupByLibrary.simpleMessage(
-      "你应自行确认使用本软件在你所在国家或地区是合法的，并对使用本软件的全部行为及其后果独立承担法律责任。\n\n你导入的订阅、节点与配置由你自行选择和判断，其来源是否合法、内容是否安全、服务是否稳定，均由你与相关提供者自行负责。",
-    ),
-    "disclaimerResponsibilityTitle": MessageLookupByLibrary.simpleMessage(
-      "用户责任",
-    ),
-    "disclaimerRestateHint": MessageLookupByLibrary.simpleMessage("在此输入上述声明"),
-    "disclaimerRestateMismatch": MessageLookupByLibrary.simpleMessage(
-      "与声明内容不一致",
-    ),
-    "disclaimerRestateTip": MessageLookupByLibrary.simpleMessage(
-      "为确认你已知悉，请在下方输入框中完整复述以下声明：",
-    ),
-    "disclaimerRestateTitle": MessageLookupByLibrary.simpleMessage("复述声明"),
-    "disclaimerSoftwareContent": MessageLookupByLibrary.simpleMessage(
-      "本软件是基于 Clash.Meta（mihomo）内核的开源网络代理客户端，仅提供配置管理、规则分流与流量转发等本地工具功能。",
-    ),
-    "disclaimerSoftwareTitle": MessageLookupByLibrary.simpleMessage("软件性质"),
-    "disclaimerThirdPartyContent": MessageLookupByLibrary.simpleMessage(
-      "订阅链接、配置文件、规则集、脚本、外部资源及外部链接均由第三方提供，开发者无法也不会对其合法性、准确性、安全性和可用性进行审查或担保。\n\n因使用第三方内容导致的数据泄露、财产损失、账号封禁或其他任何损失，由你与第三方自行解决，开发者不承担任何责任。",
-    ),
-    "disclaimerThirdPartyTitle": MessageLookupByLibrary.simpleMessage("第三方内容"),
-    "disclaimerUsageContent": MessageLookupByLibrary.simpleMessage(
-      "本软件仅供学习交流、技术研究等非商业用途。严禁将本软件用于任何商业目的，包括但不限于付费分发、捆绑销售、作为商业服务的组成部分或以本软件名义开展经营活动；任何商业行为均与本软件及其开发者无关。\n\n严禁将本软件用于违反你所在国家或地区法律法规的活动，包括但不限于绕过依法设置的网络访问限制、传播违法信息、实施网络攻击或侵犯他人合法权益。",
-    ),
-    "disclaimerUsageTitle": MessageLookupByLibrary.simpleMessage("使用限制"),
-    "disclaimerWarrantyContent": MessageLookupByLibrary.simpleMessage(
-      "本软件按“现状”和“可用”的原则提供，不附带任何明示或默示的担保，包括但不限于适销性、特定用途适用性、不侵权以及持续可用、无错误、无安全漏洞的担保。\n\n开发者不保证本软件能满足你的需求，也不保证本软件的运行不会中断或不会出现错误。",
-    ),
-    "disclaimerWarrantyTitle": MessageLookupByLibrary.simpleMessage("无担保声明"),
     "disconnected": MessageLookupByLibrary.simpleMessage("已断开"),
     "discoverNewVersion": MessageLookupByLibrary.simpleMessage("发现新版本"),
     "dnsCacheCleared": MessageLookupByLibrary.simpleMessage("DNS缓存已清除"),
@@ -683,7 +609,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "hashByInUser": MessageLookupByLibrary.simpleMessage("按入站用户哈希"),
     "healthCheck": MessageLookupByLibrary.simpleMessage("健康检查"),
     "helperCorruptTip": MessageLookupByLibrary.simpleMessage(
-      "Helper 服务不可用，无法启用 TUN 模式，请重新安装 FlClash。",
+      "Helper 服务不可用，无法启用 TUN 模式，请重新安装 Handy。",
     ),
     "hex": MessageLookupByLibrary.simpleMessage("十六进制"),
     "hideFromList": MessageLookupByLibrary.simpleMessage("从列表中隐藏"),
@@ -740,7 +666,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "init": MessageLookupByLibrary.simpleMessage("初始化"),
     "initFailed": MessageLookupByLibrary.simpleMessage("启动失败"),
     "initFailedTip": MessageLookupByLibrary.simpleMessage(
-      "FlClash 启动时出错，无法继续运行。可以复制错误详情用于反馈；如果问题反复出现，清除数据后通常可以重新启动。",
+      "Handy 启动时出错，无法继续运行。可以复制错误详情用于反馈；如果问题反复出现，清除数据后通常可以重新启动。",
     ),
     "initiator": MessageLookupByLibrary.simpleMessage("发起方"),
     "initiatorShort": MessageLookupByLibrary.simpleMessage("发起"),
@@ -769,7 +695,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "internet": MessageLookupByLibrary.simpleMessage("互联网"),
     "interval": MessageLookupByLibrary.simpleMessage("间隔"),
     "intranetIP": MessageLookupByLibrary.simpleMessage("内网 IP"),
-    "invalidBackupFile": MessageLookupByLibrary.simpleMessage("无效备份文件"),
     "invalidCidrContent": MessageLookupByLibrary.simpleMessage(
       "请输入 CIDR 格式的 IP 段，如 192.168.0.0/16",
     ),
@@ -856,7 +781,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "listen": MessageLookupByLibrary.simpleMessage("监听"),
     "listenRoutingMark": MessageLookupByLibrary.simpleMessage("监听路由标记"),
     "listenRoutingMarkDesc": MessageLookupByLibrary.simpleMessage(
-      "监听路由标记仅在 Linux 生效。",
+      "监听路由标记仅在 Android 生效。",
     ),
     "liveConnections": MessageLookupByLibrary.simpleMessage("实时连接"),
     "loading": MessageLookupByLibrary.simpleMessage("加载中…"),
@@ -918,7 +843,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "minutesAgoShort": m49,
     "mixedPort": MessageLookupByLibrary.simpleMessage("混合端口"),
     "mode": MessageLookupByLibrary.simpleMessage("模式"),
-    "monochromeIcon": MessageLookupByLibrary.simpleMessage("单色图标"),
     "monochromeScheme": MessageLookupByLibrary.simpleMessage("单色"),
     "monthsAgo": m50,
     "monthsAgoShort": m51,
@@ -955,7 +879,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "nextMatch": MessageLookupByLibrary.simpleMessage("下一个匹配"),
     "no": MessageLookupByLibrary.simpleMessage("否"),
     "noData": MessageLookupByLibrary.simpleMessage("暂无数据"),
-    "noInfo": MessageLookupByLibrary.simpleMessage("暂无信息"),
     "noLongerRemind": MessageLookupByLibrary.simpleMessage("不再提示"),
     "noNetwork": MessageLookupByLibrary.simpleMessage("无网络"),
     "noNetworkApp": MessageLookupByLibrary.simpleMessage("无网络应用"),
@@ -1007,7 +930,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "peers": MessageLookupByLibrary.simpleMessage("初始节点"),
     "pickFromAlbum": MessageLookupByLibrary.simpleMessage("从相册选择"),
     "pinWindow": MessageLookupByLibrary.simpleMessage("窗口置顶"),
-    "pleaseBindWebDAV": MessageLookupByLibrary.simpleMessage("请绑定WebDAV"),
     "pleaseEnterScriptName": MessageLookupByLibrary.simpleMessage("请输入脚本名称"),
     "pleaseUploadValidQrcode": MessageLookupByLibrary.simpleMessage(
       "请上传有效的二维码",
@@ -1132,13 +1054,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "responseCode": MessageLookupByLibrary.simpleMessage("响应码"),
     "restart": MessageLookupByLibrary.simpleMessage("重启"),
     "restartCoreTip": MessageLookupByLibrary.simpleMessage("您确定要重启核心吗？"),
-    "restore": MessageLookupByLibrary.simpleMessage("恢复"),
-    "restoreAllData": MessageLookupByLibrary.simpleMessage("恢复所有数据"),
-    "restoreOnlyConfig": MessageLookupByLibrary.simpleMessage("仅恢复配置文件"),
-    "restoreStrategy": MessageLookupByLibrary.simpleMessage("恢复策略"),
-    "restoreStrategyCompatible": MessageLookupByLibrary.simpleMessage("兼容"),
-    "restoreStrategyOverride": MessageLookupByLibrary.simpleMessage("覆盖"),
-    "restoreSuccess": MessageLookupByLibrary.simpleMessage("恢复成功"),
     "result": MessageLookupByLibrary.simpleMessage("结果"),
     "retry": MessageLookupByLibrary.simpleMessage("重试"),
     "routeAddress": MessageLookupByLibrary.simpleMessage("路由地址"),
@@ -1227,7 +1142,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "匹配至子规则，需要注意括号的使用",
     ),
     "ruleActionUidDesc": MessageLookupByLibrary.simpleMessage(
-      "匹配 Linux USER ID",
+      "匹配 Android USER ID",
     ),
     "ruleEmpty": MessageLookupByLibrary.simpleMessage("规则为空"),
     "ruleListInvalid": MessageLookupByLibrary.simpleMessage(
@@ -1294,10 +1209,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "已发送，请在另一台设备上确认导入。",
     ),
     "sendFromPhonePageTitle": MessageLookupByLibrary.simpleMessage(
-      "把链接发送到 FlClash",
+      "把链接发送到 Handy",
     ),
     "sendFromPhonePermissionDenied": MessageLookupByLibrary.simpleMessage(
-      "从手机接收链接需要「附近的设备」权限，FlClash 才能访问局域网。请在应用设置中开启。",
+      "从手机接收链接需要「附近的设备」权限，Handy 才能访问局域网。请在应用设置中开启。",
     ),
     "sendFromPhoneTip": MessageLookupByLibrary.simpleMessage(
       "用手机相机扫描二维码，在打开的页面里粘贴链接。两台设备需要连在同一个网络。",
@@ -1325,7 +1240,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "shareLinkUnreadable": m78,
     "shareLinksInvalid": MessageLookupByLibrary.simpleMessage("无法从链接中读取代理"),
     "shareQrcodeTip": MessageLookupByLibrary.simpleMessage(
-      "在另一台设备上用 FlClash 扫码即可导入此配置。",
+      "在另一台设备上用 Handy 扫码即可导入此配置。",
     ),
     "show": MessageLookupByLibrary.simpleMessage("显示"),
     "showLess": MessageLookupByLibrary.simpleMessage("收起"),
@@ -1393,7 +1308,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "style": MessageLookupByLibrary.simpleMessage("风格"),
     "submit": MessageLookupByLibrary.simpleMessage("提交"),
     "subscriptionInfo": MessageLookupByLibrary.simpleMessage("订阅信息"),
-    "sudoPasswordTitle": MessageLookupByLibrary.simpleMessage("输入 sudo 密码"),
     "suspended": MessageLookupByLibrary.simpleMessage("挂起中…"),
     "switchProfile": MessageLookupByLibrary.simpleMessage("切换配置"),
     "sync": MessageLookupByLibrary.simpleMessage("同步"),
@@ -1478,7 +1392,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "vpnEnableDesc": MessageLookupByLibrary.simpleMessage(
       "VPN 通过 VpnService 自动路由系统所有流量。",
     ),
-    "webDAVConfiguration": MessageLookupByLibrary.simpleMessage("WebDAV配置"),
     "whitelistMode": MessageLookupByLibrary.simpleMessage("白名单模式"),
     "writeToSystem": MessageLookupByLibrary.simpleMessage("写入系统"),
     "writeToSystemDesc": MessageLookupByLibrary.simpleMessage(

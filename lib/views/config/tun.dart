@@ -43,34 +43,30 @@ extension on TunOverrideKey {
   };
 }
 
-// Where sing-tun reads each key: strict-route in its Linux and Windows
-// routing, the Linux-only ones in its Linux device setup and routing rules.
-bool _isRead(
-  TunOverrideKey key, {
-  required bool isLinux,
-  required bool isWindows,
-}) => switch (key) {
-  TunOverrideKey.strictRoute => isLinux || isWindows,
-  TunOverrideKey.gso ||
-  TunOverrideKey.includeInterface ||
-  TunOverrideKey.excludeInterface ||
-  TunOverrideKey.includeUid ||
-  TunOverrideKey.excludeUid ||
-  TunOverrideKey.excludeSrcPort ||
-  TunOverrideKey.excludeDstPort => isLinux,
-  _ => true,
+/// Keys sing-tun reads only in its Linux device setup and routing rules. The
+/// app no longer targets Linux, so they never appear in the override list.
+const _linuxOnlyKeys = <TunOverrideKey>{
+  TunOverrideKey.gso,
+  TunOverrideKey.includeInterface,
+  TunOverrideKey.excludeInterface,
+  TunOverrideKey.includeUid,
+  TunOverrideKey.excludeUid,
+  TunOverrideKey.excludeSrcPort,
+  TunOverrideKey.excludeDstPort,
 };
+
+// Where sing-tun reads each key: strict-route in its Windows routing.
+bool _isRead(TunOverrideKey key, {required bool isWindows}) =>
+    !_linuxOnlyKeys.contains(key) &&
+    (key != TunOverrideKey.strictRoute || isWindows);
 
 const _maxUid = 0xFFFFFFFF;
 
 const _maxPort = 65535;
 
-List<TunOverrideKey> _tunOverrideKeys({
-  required bool isLinux,
-  required bool isWindows,
-}) => [
+List<TunOverrideKey> _tunOverrideKeys({required bool isWindows}) => [
   for (final key in TunOverrideKey.values)
-    if (_isRead(key, isLinux: isLinux, isWindows: isWindows)) key,
+    if (_isRead(key, isWindows: isWindows)) key,
 ];
 
 typedef _TunState = OverrideState<TunOverrideKey, ProfileTun>;
@@ -92,7 +88,6 @@ String _patchTunDescription(AppLocalizations l) => l.tunOverrideDesc;
 String _profileTunDescription(AppLocalizations l) => l.profileTunSettingsDesc;
 
 OverrideSpec<TunOverrideKey, ProfileTun> appTunOverrideSpec({
-  required bool isLinux,
   required bool isWindows,
 }) => _TunOverrideSpec(
   const PatchOverrideTarget(
@@ -100,12 +95,11 @@ OverrideSpec<TunOverrideKey, ProfileTun> appTunOverrideSpec({
     set: _setPatchTun,
     description: _patchTunDescription,
   ),
-  isLinux: isLinux,
   isWindows: isWindows,
 );
 
 class TunView extends OverrideView<TunOverrideKey, ProfileTun> {
-  TunView(int profileId, {super.key, bool? isLinux, bool? isWindows})
+  TunView(int profileId, {super.key, bool? isWindows})
     : super(
         spec: _TunOverrideSpec(
           ProfileOverrideTarget(
@@ -114,7 +108,6 @@ class TunView extends OverrideView<TunOverrideKey, ProfileTun> {
             set: _setProfileTun,
             description: _profileTunDescription,
           ),
-          isLinux: isLinux ?? system.isLinux,
           isWindows: isWindows ?? system.isWindows,
         ),
       );
@@ -145,24 +138,18 @@ ListOverrideField<ProfileTun> _numbersField(
 }
 
 class _TunOverrideSpec extends OverrideSpec<TunOverrideKey, ProfileTun> {
-  const _TunOverrideSpec(
-    this.target, {
-    required this.isLinux,
-    required this.isWindows,
-  });
+  const _TunOverrideSpec(this.target, {required this.isWindows});
 
   @override
   final OverrideTarget<TunOverrideKey, ProfileTun> target;
 
-  final bool isLinux;
   final bool isWindows;
 
   @override
   String title(AppLocalizations l) => l.tun;
 
   @override
-  List<TunOverrideKey> get values =>
-      _tunOverrideKeys(isLinux: isLinux, isWindows: isWindows);
+  List<TunOverrideKey> get values => _tunOverrideKeys(isWindows: isWindows);
 
   @override
   NullStatusIllustration get illustration => NullStatusIllustration.tun;

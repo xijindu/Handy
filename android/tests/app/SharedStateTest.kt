@@ -1,6 +1,6 @@
-package com.follow.clash.models
+package org.handy.app.models
 
-import com.follow.clash.common.AccessControlMode
+import org.handy.common.AccessControlMode
 import com.google.gson.Gson
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
@@ -93,7 +93,7 @@ class SharedStateTest {
     fun `the constructed default keeps every fallback Flutter relies on`() {
         val defaults = SharedState()
 
-        assertEquals("FlClash", defaults.currentProfileName)
+        assertEquals("Handy", defaults.currentProfileName)
         assertEquals("Stop", defaults.stopText)
         assertEquals(false, defaults.onlyStatisticsProxy)
         assertEquals(true, defaults.showStopAction)
@@ -110,7 +110,7 @@ class SharedStateTest {
 
         assertNotNull(state)
         assertEquals("Starting VPN...", state.startTip)
-        assertEquals("FlClash", state.currentProfileName)
+        assertEquals("Handy", state.currentProfileName)
         assertNull(state.vpnOptions)
         assertNull(state.setupParams)
     }

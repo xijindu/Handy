@@ -40,8 +40,8 @@ typedef LiquidGlassCapture = ({
 });
 
 /// Draws the panes below from one capture of what lies behind them, taken as
-/// the frame is composited, in place of each pane reading the backdrop
-/// (.agents/architecture.md). Only one may enclose a pane.
+/// the frame is composited, in place of each pane reading the backdrop.
+/// Only one may enclose a pane.
 class LiquidGlassHost extends StatelessWidget {
   const LiquidGlassHost({
     super.key,

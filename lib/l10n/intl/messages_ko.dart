@@ -31,7 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m4(detail) => "데이터를 지우지 못했습니다: ${detail}";
 
   static String m5(code) =>
-      "Windows에서 FlClashCore.exe 실행을 거부했습니다(오류 ${code}). Smart App Control이나 AppLocker와 같은 앱 제어 정책이 서명되지 않은 프로그램을 차단합니다. 해당 정책에서 FlClash를 허용하거나 정책을 끈 후 다시 시도하세요.";
+      "Windows에서 HandyCore.exe 실행을 거부했습니다(오류 ${code}). Smart App Control이나 AppLocker와 같은 앱 제어 정책이 서명되지 않은 프로그램을 차단합니다. 해당 정책에서 Handy를 허용하거나 정책을 끈 후 다시 시도하세요.";
 
   static String m6(name) =>
       "앱이 두 번 연속 시작을 완료하지 못했습니다. 반복을 끊기 위해 프로필 ${name}의 선택을 해제하고 자동 설정을 건너뛰었습니다. 언제든지 다시 선택할 수 있습니다.";
@@ -254,8 +254,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "additionalPrefix": MessageLookupByLibrary.simpleMessage("이름 접두사"),
     "additionalSuffix": MessageLookupByLibrary.simpleMessage("이름 접미사"),
     "address": MessageLookupByLibrary.simpleMessage("주소"),
-    "addressHelp": MessageLookupByLibrary.simpleMessage("WebDAV 서버 주소"),
-    "addressTip": MessageLookupByLibrary.simpleMessage("올바른 WebDAV 주소를 입력하세요"),
     "advancedConfig": MessageLookupByLibrary.simpleMessage("고급 구성"),
     "advancedConfigDesc": MessageLookupByLibrary.simpleMessage(
       "고급 구성에는 네트워크, DNS, 추가한 규칙, 스크립트가 포함됩니다.",
@@ -308,12 +306,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "autoUpdateInterval": MessageLookupByLibrary.simpleMessage("자동 업데이트 간격"),
     "back": MessageLookupByLibrary.simpleMessage("뒤로"),
     "backgroundBlur": MessageLookupByLibrary.simpleMessage("배경 흐림"),
-    "backup": MessageLookupByLibrary.simpleMessage("백업"),
-    "backupAndRestore": MessageLookupByLibrary.simpleMessage("백업 및 복원"),
-    "backupFromNewerVersion": MessageLookupByLibrary.simpleMessage(
-      "이 백업은 더 최신 버전의 앱에서 만들어졌습니다. 복원하기 전에 앱을 업데이트하세요",
-    ),
-    "backupSuccess": MessageLookupByLibrary.simpleMessage("백업 완료"),
     "basicInfo": MessageLookupByLibrary.simpleMessage("기본 정보"),
     "basicStrategy": MessageLookupByLibrary.simpleMessage("기본 전략"),
     "batchAdd": MessageLookupByLibrary.simpleMessage("일괄 추가"),
@@ -330,7 +322,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "batteryOptimizationDesc": MessageLookupByLibrary.simpleMessage(
       "배터리 최적화를 무시하면 앱이 백그라운드에서 계속 실행됩니다.",
     ),
-    "bind": MessageLookupByLibrary.simpleMessage("연결"),
     "blacklistMode": MessageLookupByLibrary.simpleMessage("블랙리스트 모드"),
     "blockConnection": MessageLookupByLibrary.simpleMessage("연결 차단"),
     "brightness": MessageLookupByLibrary.simpleMessage("밝기"),
@@ -368,7 +359,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "changelogReverts": MessageLookupByLibrary.simpleMessage("되돌림"),
     "checkCertificate": MessageLookupByLibrary.simpleMessage("TLS 인증서 검증"),
     "checkCertificateDesc": MessageLookupByLibrary.simpleMessage(
-      "TLS 검증을 끄면 구독과 백업이 중간자 공격에 노출됩니다.",
+      "TLS 검증을 끄면 구독과 다운로드가 중간자 공격에 노출됩니다.",
     ),
     "checkUpdate": MessageLookupByLibrary.simpleMessage("업데이트 확인"),
     "checkUpdateError": MessageLookupByLibrary.simpleMessage("이미 최신 버전입니다"),
@@ -420,7 +411,6 @@ class MessageLookup extends MessageLookupByLibrary {
       "실시간 연결, 최근 요청, DNS 쿼리",
     ),
     "connections": MessageLookupByLibrary.simpleMessage("연결"),
-    "connectivity": MessageLookupByLibrary.simpleMessage("연결 상태: "),
     "content": MessageLookupByLibrary.simpleMessage("내용"),
     "contentNotEmpty": MessageLookupByLibrary.simpleMessage("내용을 입력하세요"),
     "controlGlobalAddedRules": MessageLookupByLibrary.simpleMessage(
@@ -433,7 +423,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "core": MessageLookupByLibrary.simpleMessage("코어"),
     "coreBlockedByPolicyTip": m5,
     "coreBlockedBySmartAppControlTip": MessageLookupByLibrary.simpleMessage(
-      "서명되지 않아 Windows Smart App Control이 FlClashCore.exe를 차단했습니다. Windows 보안 → 앱 및 브라우저 컨트롤 → Smart App Control 설정에서 끔을 선택한 후 FlClash를 다시 시작하세요. Smart App Control은 Windows를 다시 설치하지 않으면 다시 켤 수 없습니다.",
+      "서명되지 않아 Windows Smart App Control이 HandyCore.exe를 차단했습니다. Windows 보안 → 앱 및 브라우저 컨트롤 → Smart App Control 설정에서 끔을 선택한 후 Handy를 다시 시작하세요. Smart App Control은 Windows를 다시 설치하지 않으면 다시 켤 수 없습니다.",
     ),
     "coreStatus": MessageLookupByLibrary.simpleMessage("코어 상태"),
     "country": MessageLookupByLibrary.simpleMessage("지역"),
@@ -524,80 +514,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "disableUDP": MessageLookupByLibrary.simpleMessage("UDP 사용 안 함"),
     "disabled": MessageLookupByLibrary.simpleMessage("사용 안 함"),
     "discardChanges": MessageLookupByLibrary.simpleMessage("변경 사항을 취소하시겠습니까?"),
-    "disclaimer": MessageLookupByLibrary.simpleMessage("면책 조항"),
-    "disclaimerAcceptContent": MessageLookupByLibrary.simpleMessage(
-      "본 소프트웨어를 설치, 복사 또는 사용하면 이 문서 전체를 읽고 동의한 것으로 간주합니다. 어느 조항이라도 동의하지 않는 경우 즉시 본 소프트웨어의 사용을 중단하고 삭제하세요.",
-    ),
-    "disclaimerAcceptTitle": MessageLookupByLibrary.simpleMessage("동의"),
-    "disclaimerAcknowledgeLabel": MessageLookupByLibrary.simpleMessage(
-      "이 문구를 읽고 이해했습니다",
-    ),
-    "disclaimerAcknowledgeTip": MessageLookupByLibrary.simpleMessage(
-      "내용을 이해했는지 확인하기 위해 다음 문구를 읽고 아래 항목에 체크하세요.",
-    ),
-    "disclaimerAcknowledgeTitle": MessageLookupByLibrary.simpleMessage("문구 확인"),
-    "disclaimerChangesContent": MessageLookupByLibrary.simpleMessage(
-      "개발자는 릴리스와 함께 본 문서를 개정할 수 있으며, 개정 내용은 해당 릴리스가 공개되는 시점에 효력이 발생합니다. 업데이트 후에도 본 소프트웨어를 계속 사용하면 개정된 문서를 수락한 것으로 간주합니다.",
-    ),
-    "disclaimerChangesTitle": MessageLookupByLibrary.simpleMessage("본 문서의 변경"),
-    "disclaimerDesc": MessageLookupByLibrary.simpleMessage(
-      "FlClash(이하 “본 소프트웨어”)를 사용하기 전에 이 문서를 주의 깊게 읽고 모든 내용을 이해했는지 확인하세요. “동의”를 누르면 아래 모든 조항을 읽고 이해했으며 수락한 것으로 간주합니다. 동의하지 않으면 “종료”를 누르고 본 소프트웨어의 사용을 중단하세요.",
-    ),
-    "disclaimerLiabilityContent": MessageLookupByLibrary.simpleMessage(
-      "관련 법률이 허용하는 최대 범위에서, 개발자와 기여자는 본 소프트웨어의 사용 또는 사용 불능으로 발생하는 직접, 간접, 부수적, 특별, 징벌적 또는 결과적 손해에 대해 책임을 지지 않습니다. 여기에는 데이터 손실, 기기 손상, 네트워크 장애, 사업 중단, 이익 손실 및 그로 인한 법적 분쟁이 포함되며 이에 국한되지 않고, 그러한 손해의 가능성을 사전에 통지받은 경우에도 마찬가지입니다.",
-    ),
-    "disclaimerLiabilityTitle": MessageLookupByLibrary.simpleMessage("책임의 제한"),
-    "disclaimerLicenseContent": MessageLookupByLibrary.simpleMessage(
-      "본 소프트웨어는 GPL-3.0 라이선스로 공개된 오픈 소스입니다. 파생 저작물도 GPL-3.0으로 배포하고 원저작권 고지를 유지해야 하는 라이선스 조건을 준수하는 한 자유롭게 사용, 수정, 배포할 수 있습니다.\n\nClash.Meta 코어를 포함한 본 소프트웨어의 제3자 구성 요소는 각자의 라이선스를 따릅니다. 원저작자는 수정 또는 재배포된 버전에서 발생하는 어떠한 문제에도 책임을 지지 않습니다.",
-    ),
-    "disclaimerLicenseTitle": MessageLookupByLibrary.simpleMessage(
-      "오픈 소스 라이선스",
-    ),
-    "disclaimerNoServiceStatement": MessageLookupByLibrary.simpleMessage(
-      "본 소프트웨어 자체는 프록시 서버, 노드, 구독, 네트워크 접속 서비스를 일절 제공하지 않으며, 이러한 서비스의 어떤 제공자와도 제휴, 대리 또는 보증 관계가 없습니다.",
-    ),
-    "disclaimerPrivacyContent": MessageLookupByLibrary.simpleMessage(
-      "본 소프트웨어는 구독 URL, 노드 정보, 구성 내용, 방문한 웹사이트, 연결 기록, 트래픽 내용, 로그를 수집하거나 업로드하지 않습니다. 이 데이터는 사용자의 기기에만 저장되며 개발자는 접근할 수 없습니다.\n\n본 소프트웨어는 프로필을 업데이트할 때 사용자가 입력한 구독 URL을 가져오거나 업데이트를 확인할 때 GitHub에 접속하는 등 기능이 필요할 때만 네트워크에 접속합니다.\n\n본 소프트웨어에는 어떤 플랫폼에서도 분석 또는 비정상 종료 보고 서비스가 포함되어 있지 않습니다.",
-    ),
-    "disclaimerPrivacyTitle": MessageLookupByLibrary.simpleMessage(
-      "데이터 수집 및 개인정보 보호",
-    ),
-    "disclaimerResponsibilityContent": MessageLookupByLibrary.simpleMessage(
-      "본 소프트웨어의 사용이 거주지에서 적법한지 확인할 책임은 사용자에게 있으며, 본 소프트웨어로 한 모든 행위와 그 결과에 대한 법적 책임은 사용자 본인이 부담합니다.\n\n가져오는 구독, 노드, 구성은 사용자 본인의 선택입니다. 출처의 적법성, 콘텐츠의 안전성, 서비스의 신뢰성은 사용자와 해당 제공자 사이의 문제입니다.",
-    ),
-    "disclaimerResponsibilityTitle": MessageLookupByLibrary.simpleMessage(
-      "사용자의 책임",
-    ),
-    "disclaimerRestateHint": MessageLookupByLibrary.simpleMessage(
-      "위 문구를 입력하세요",
-    ),
-    "disclaimerRestateMismatch": MessageLookupByLibrary.simpleMessage(
-      "문구와 일치하지 않습니다",
-    ),
-    "disclaimerRestateTip": MessageLookupByLibrary.simpleMessage(
-      "내용을 이해했는지 확인하기 위해 아래 입력란에 다음 문구를 그대로 입력하세요.",
-    ),
-    "disclaimerRestateTitle": MessageLookupByLibrary.simpleMessage("문구 다시 입력"),
-    "disclaimerSoftwareContent": MessageLookupByLibrary.simpleMessage(
-      "본 소프트웨어는 Clash.Meta(mihomo) 코어를 기반으로 한 오픈 소스 네트워크 프록시 클라이언트입니다. 구성 관리, 규칙 기반 라우팅, 트래픽 전달과 같은 로컬 도구만 제공합니다.",
-    ),
-    "disclaimerSoftwareTitle": MessageLookupByLibrary.simpleMessage(
-      "소프트웨어의 성격",
-    ),
-    "disclaimerThirdPartyContent": MessageLookupByLibrary.simpleMessage(
-      "구독 링크, 구성 파일, 규칙 세트, 스크립트, 외부 리소스, 외부 링크는 모두 제3자가 제공합니다. 개발자는 이들의 적법성, 정확성, 안전성, 가용성을 심사하거나 보증할 수 없으며 보증하지 않습니다.\n\n제3자 콘텐츠로 인한 데이터 유출, 금전적 손실, 계정 정지 및 기타 손해는 사용자와 해당 제3자 사이에서 해결해야 하며, 개발자는 이에 대해 책임을 지지 않습니다.",
-    ),
-    "disclaimerThirdPartyTitle": MessageLookupByLibrary.simpleMessage(
-      "제3자 콘텐츠",
-    ),
-    "disclaimerUsageContent": MessageLookupByLibrary.simpleMessage(
-      "본 소프트웨어는 학습, 교류, 기술 연구와 같은 비상업적 용도로만 제공됩니다. 유료 배포, 끼워 팔기, 상업 서비스의 일부로 사용, 본 소프트웨어의 이름을 내세운 영업 등 어떠한 상업적 목적의 사용도 엄격히 금지되며, 이에 국한되지 않습니다. 모든 상업 활동은 본 소프트웨어 및 개발자와 무관합니다.\n\n거주 국가 또는 지역의 법령을 위반하는 용도로 본 소프트웨어를 사용하는 것은 엄격히 금지됩니다. 여기에는 합법적으로 부과된 네트워크 접속 제한 우회, 불법 콘텐츠 유포, 네트워크 공격, 타인의 합법적 권리 침해가 포함되며 이에 국한되지 않습니다.",
-    ),
-    "disclaimerUsageTitle": MessageLookupByLibrary.simpleMessage("사용 제한"),
-    "disclaimerWarrantyContent": MessageLookupByLibrary.simpleMessage(
-      "본 소프트웨어는 “있는 그대로”, “이용 가능한 상태로” 제공되며, 상품성, 특정 목적에의 적합성, 비침해성, 중단 없는 이용 가능성, 오류 없음, 보안 취약점 없음에 대한 보증을 포함하되 이에 국한되지 않고 명시적이든 묵시적이든 어떠한 종류의 보증도 하지 않습니다.\n\n개발자는 본 소프트웨어가 사용자의 요구를 충족하거나 중단 및 오류 없이 실행될 것임을 보증하지 않습니다.",
-    ),
-    "disclaimerWarrantyTitle": MessageLookupByLibrary.simpleMessage("보증 부인"),
     "disconnected": MessageLookupByLibrary.simpleMessage("연결 끊김"),
     "discoverNewVersion": MessageLookupByLibrary.simpleMessage("새 버전 발견"),
     "dnsCacheCleared": MessageLookupByLibrary.simpleMessage("DNS 캐시를 지웠습니다"),
@@ -735,7 +651,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "hashByInUser": MessageLookupByLibrary.simpleMessage("인바운드 사용자별 해시"),
     "healthCheck": MessageLookupByLibrary.simpleMessage("상태 확인"),
     "helperCorruptTip": MessageLookupByLibrary.simpleMessage(
-      "헬퍼 서비스를 사용할 수 없어 TUN 모드를 켤 수 없습니다. FlClash를 다시 설치하여 복구하세요.",
+      "헬퍼 서비스를 사용할 수 없어 TUN 모드를 켤 수 없습니다. Handy를 다시 설치하여 복구하세요.",
     ),
     "hex": MessageLookupByLibrary.simpleMessage("16진수"),
     "hideFromList": MessageLookupByLibrary.simpleMessage("목록에서 숨기기"),
@@ -798,7 +714,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "init": MessageLookupByLibrary.simpleMessage("초기화"),
     "initFailed": MessageLookupByLibrary.simpleMessage("시작 실패"),
     "initFailedTip": MessageLookupByLibrary.simpleMessage(
-      "FlClash를 시작하는 중 오류가 발생하여 계속할 수 없습니다. 세부 정보를 복사하여 문제를 보고하세요. 문제가 계속되면 데이터를 지우면 대개 앱이 다시 시작됩니다.",
+      "Handy를 시작하는 중 오류가 발생하여 계속할 수 없습니다. 세부 정보를 복사하여 문제를 보고하세요. 문제가 계속되면 데이터를 지우면 대개 앱이 다시 시작됩니다.",
     ),
     "initiator": MessageLookupByLibrary.simpleMessage("요청자"),
     "initiatorShort": MessageLookupByLibrary.simpleMessage("출처"),
@@ -829,7 +745,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "internet": MessageLookupByLibrary.simpleMessage("인터넷"),
     "interval": MessageLookupByLibrary.simpleMessage("간격"),
     "intranetIP": MessageLookupByLibrary.simpleMessage("내부망 IP"),
-    "invalidBackupFile": MessageLookupByLibrary.simpleMessage("올바르지 않은 백업 파일"),
     "invalidCidrContent": MessageLookupByLibrary.simpleMessage(
       "192.168.0.0/16과 같은 CIDR 형식의 IP 범위를 입력하세요",
     ),
@@ -926,7 +841,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "listen": MessageLookupByLibrary.simpleMessage("수신"),
     "listenRoutingMark": MessageLookupByLibrary.simpleMessage("수신 라우팅 마크"),
     "listenRoutingMarkDesc": MessageLookupByLibrary.simpleMessage(
-      "수신 라우팅 마크는 Linux에서만 작동합니다.",
+      "수신 라우팅 마크는 Android에서만 작동합니다.",
     ),
     "liveConnections": MessageLookupByLibrary.simpleMessage("실시간 연결"),
     "loading": MessageLookupByLibrary.simpleMessage("로드 중…"),
@@ -992,7 +907,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "minutesAgoShort": m49,
     "mixedPort": MessageLookupByLibrary.simpleMessage("혼합 포트"),
     "mode": MessageLookupByLibrary.simpleMessage("모드"),
-    "monochromeIcon": MessageLookupByLibrary.simpleMessage("모노크롬 아이콘"),
     "monochromeScheme": MessageLookupByLibrary.simpleMessage("모노크롬"),
     "monthsAgo": m50,
     "monthsAgoShort": m51,
@@ -1031,7 +945,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "nextMatch": MessageLookupByLibrary.simpleMessage("다음 결과"),
     "no": MessageLookupByLibrary.simpleMessage("아니요"),
     "noData": MessageLookupByLibrary.simpleMessage("데이터 없음"),
-    "noInfo": MessageLookupByLibrary.simpleMessage("정보 없음"),
     "noLongerRemind": MessageLookupByLibrary.simpleMessage("다시 알리지 않음"),
     "noNetwork": MessageLookupByLibrary.simpleMessage("네트워크 없음"),
     "noNetworkApp": MessageLookupByLibrary.simpleMessage("네트워크 미사용 앱"),
@@ -1087,7 +1000,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "peers": MessageLookupByLibrary.simpleMessage("피어"),
     "pickFromAlbum": MessageLookupByLibrary.simpleMessage("앨범에서 선택"),
     "pinWindow": MessageLookupByLibrary.simpleMessage("창 고정"),
-    "pleaseBindWebDAV": MessageLookupByLibrary.simpleMessage("WebDAV를 연결하세요"),
     "pleaseEnterScriptName": MessageLookupByLibrary.simpleMessage(
       "스크립트 이름을 입력하세요",
     ),
@@ -1218,13 +1130,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "responseCode": MessageLookupByLibrary.simpleMessage("응답 코드"),
     "restart": MessageLookupByLibrary.simpleMessage("다시 시작"),
     "restartCoreTip": MessageLookupByLibrary.simpleMessage("코어를 다시 시작하시겠습니까?"),
-    "restore": MessageLookupByLibrary.simpleMessage("복원"),
-    "restoreAllData": MessageLookupByLibrary.simpleMessage("모든 데이터 복원"),
-    "restoreOnlyConfig": MessageLookupByLibrary.simpleMessage("프로필만 복원"),
-    "restoreStrategy": MessageLookupByLibrary.simpleMessage("복원 방식"),
-    "restoreStrategyCompatible": MessageLookupByLibrary.simpleMessage("호환"),
-    "restoreStrategyOverride": MessageLookupByLibrary.simpleMessage("덮어쓰기"),
-    "restoreSuccess": MessageLookupByLibrary.simpleMessage("복원 완료"),
     "result": MessageLookupByLibrary.simpleMessage("결과"),
     "retry": MessageLookupByLibrary.simpleMessage("다시 시도"),
     "routeAddress": MessageLookupByLibrary.simpleMessage("라우팅 주소"),
@@ -1321,7 +1226,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "하위 규칙으로 일치, 괄호에 유의",
     ),
     "ruleActionUidDesc": MessageLookupByLibrary.simpleMessage(
-      "Linux 사용자 ID 일치",
+      "Android 사용자 ID 일치",
     ),
     "ruleEmpty": MessageLookupByLibrary.simpleMessage("규칙이 비어 있습니다"),
     "ruleListInvalid": MessageLookupByLibrary.simpleMessage(
@@ -1396,10 +1301,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "보냈습니다. 다른 기기에서 가져오기를 확인하세요.",
     ),
     "sendFromPhonePageTitle": MessageLookupByLibrary.simpleMessage(
-      "FlClash로 링크 보내기",
+      "Handy로 링크 보내기",
     ),
     "sendFromPhonePermissionDenied": MessageLookupByLibrary.simpleMessage(
-      "휴대폰에서 링크를 받으려면 FlClash가 로컬 네트워크에 접근할 수 있도록 \'근처 기기\' 권한이 필요합니다. 앱 설정에서 켜 주세요.",
+      "휴대폰에서 링크를 받으려면 Handy가 로컬 네트워크에 접근할 수 있도록 \'근처 기기\' 권한이 필요합니다. 앱 설정에서 켜 주세요.",
     ),
     "sendFromPhoneTip": MessageLookupByLibrary.simpleMessage(
       "휴대폰 카메라로 코드를 스캔한 뒤 열린 페이지에 링크를 붙여 넣으세요. 두 기기가 같은 네트워크에 연결되어 있어야 합니다.",
@@ -1433,7 +1338,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "링크에서 읽을 수 있는 프록시가 없습니다",
     ),
     "shareQrcodeTip": MessageLookupByLibrary.simpleMessage(
-      "다른 기기의 FlClash로 스캔하면 이 프로필을 가져올 수 있습니다.",
+      "다른 기기의 Handy로 스캔하면 이 프로필을 가져올 수 있습니다.",
     ),
     "show": MessageLookupByLibrary.simpleMessage("표시"),
     "showLess": MessageLookupByLibrary.simpleMessage("접기"),
@@ -1509,9 +1414,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "style": MessageLookupByLibrary.simpleMessage("스타일"),
     "submit": MessageLookupByLibrary.simpleMessage("제출"),
     "subscriptionInfo": MessageLookupByLibrary.simpleMessage("구독 정보"),
-    "sudoPasswordTitle": MessageLookupByLibrary.simpleMessage(
-      "sudo 비밀번호를 입력하세요",
-    ),
     "suspended": MessageLookupByLibrary.simpleMessage("일시 중지됨…"),
     "switchProfile": MessageLookupByLibrary.simpleMessage("프로필 전환"),
     "sync": MessageLookupByLibrary.simpleMessage("동기화"),
@@ -1600,7 +1502,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "vpnEnableDesc": MessageLookupByLibrary.simpleMessage(
       "VPN은 VpnService를 통해 모든 시스템 트래픽을 자동으로 라우팅합니다.",
     ),
-    "webDAVConfiguration": MessageLookupByLibrary.simpleMessage("WebDAV 구성"),
     "whitelistMode": MessageLookupByLibrary.simpleMessage("화이트리스트 모드"),
     "writeToSystem": MessageLookupByLibrary.simpleMessage("시스템에 기록"),
     "writeToSystemDesc": MessageLookupByLibrary.simpleMessage(

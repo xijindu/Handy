@@ -1,5 +1,5 @@
 name: proxy
-description: FlClash system proxy integration for Windows, macOS, and Linux.
+description: Handy system proxy integration for Windows and macOS.
 version: 0.0.1
 publish_to: none
 

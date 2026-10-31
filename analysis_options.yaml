@@ -11,6 +11,5 @@ analyzer:
     - web/**
     - windows/**
     - macos/**
-    - linux/**
   errors:
     invalid_annotation_target: ignore

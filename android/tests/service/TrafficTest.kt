@@ -1,4 +1,4 @@
-package com.follow.clash.service.models
+package org.handy.service.models
 
 import java.util.Locale
 import org.junit.After

@@ -6,24 +6,24 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
-val localProperties = Properties().apply {
-    val localPropertiesFile = rootProject.file("local.properties")
-    if (localPropertiesFile.exists()) {
-        localPropertiesFile.inputStream().use { load(it) }
+val keyProperties = Properties().apply {
+    val keyPropertiesFile = rootProject.file("key.properties")
+    if (keyPropertiesFile.exists()) {
+        keyPropertiesFile.inputStream().use { load(it) }
     }
 }
 
-val releaseStoreFile = file("keystore.jks")
-val releaseStorePassword = localProperties.getProperty("storePassword")
-val releaseKeyAlias = localProperties.getProperty("keyAlias")
-val releaseKeyPassword = localProperties.getProperty("keyPassword")
+val releaseStoreFile = file(keyProperties.getProperty("storeFile") ?: "keystore.jks")
+val releaseStorePassword = keyProperties.getProperty("storePassword")
+val releaseKeyAlias = keyProperties.getProperty("keyAlias")
+val releaseKeyPassword = keyProperties.getProperty("keyPassword")
 val hasReleaseSigning = releaseStoreFile.exists() &&
     releaseStorePassword != null &&
     releaseKeyAlias != null &&
     releaseKeyPassword != null
 
 android {
-    namespace = "com.follow.clash"
+    namespace = "org.handy.app"
     compileSdk = libs.versions.compileSdk.get().toInt()
     ndkVersion = libs.versions.ndkVersion.get()
 
@@ -33,7 +33,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.follow.clash"
+        applicationId = "org.handy.app"
         minSdk = flutter.minSdkVersion
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = flutter.versionCode

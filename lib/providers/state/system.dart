@@ -57,7 +57,6 @@ TrayState trayState(Ref ref) {
       (state) => (
         autoLaunch: state.autoLaunch,
         showTrayTitle: state.showTrayTitle,
-        monochromeTrayIcon: state.monochromeTrayIcon,
       ),
     ),
   );
@@ -78,7 +77,6 @@ TrayState trayState(Ref ref) {
     groups: groups,
     selectedMap: selectedMap,
     showTrayTitle: appSetting.showTrayTitle,
-    monochromeTrayIcon: appSetting.monochromeTrayIcon,
     safeMode: safeMode,
     hotKeys: hotKeys,
   );

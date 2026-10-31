@@ -6,7 +6,6 @@ import 'package:fl_clash/providers/providers.dart';
 import 'package:fl_clash/ui/icons/icons.dart';
 import 'package:fl_clash/views/about.dart';
 import 'package:fl_clash/views/access.dart';
-import 'package:fl_clash/views/backup_and_restore.dart';
 import 'package:fl_clash/views/config/general.dart';
 import 'package:fl_clash/views/hotkey.dart';
 import 'package:fl_clash/widgets/widgets.dart';
@@ -16,7 +15,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'config/advanced.dart';
 import 'config/custom_resources.dart';
 import 'developer.dart';
-import 'disclaimer.dart';
 import 'theme.dart';
 
 class ToolsView extends ConsumerStatefulWidget {
@@ -40,7 +38,6 @@ class _ToolViewState extends ConsumerState<ToolsView> {
     return generateSection(
       title: context.appLocalizations.other,
       items: [
-        const _DisclaimerItem(),
         if (enableDeveloperMode) const _DeveloperItem(),
         const _InfoItem(),
       ],
@@ -54,7 +51,6 @@ class _ToolViewState extends ConsumerState<ToolsView> {
       items: [
         const _LocaleItem(),
         const _ThemeItem(),
-        const _BackupItem(),
         if (system.isDesktop) const _HotkeyItem(),
         if (system.isAndroid) const _AccessItem(),
         const _AdvancedConfigItem(),
@@ -150,19 +146,6 @@ class _ThemeItem extends StatelessWidget {
   }
 }
 
-class _BackupItem extends StatelessWidget {
-  const _BackupItem();
-
-  @override
-  Widget build(BuildContext context) {
-    return ListItem.open(
-      leading: const GlyphIcon(AppGlyphs.cloudSync),
-      title: Text(context.appLocalizations.backupAndRestore),
-      widget: const BackupAndRestore(),
-    );
-  }
-}
-
 class _HotkeyItem extends StatelessWidget {
   const _HotkeyItem();
 
@@ -224,19 +207,6 @@ class _CustomResourcesItem extends StatelessWidget {
       leading: const GlyphIcon(AppGlyphs.customize),
       title: Text(context.appLocalizations.customProfileResources),
       widget: const CustomResourcesView(),
-    );
-  }
-}
-
-class _DisclaimerItem extends StatelessWidget {
-  const _DisclaimerItem();
-
-  @override
-  Widget build(BuildContext context) {
-    return ListItem.open(
-      leading: const GlyphIcon(AppGlyphs.gavel),
-      title: Text(context.appLocalizations.disclaimer),
-      widget: const DisclaimerView(),
     );
   }
 }

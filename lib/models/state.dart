@@ -57,7 +57,6 @@ abstract class TrayState with _$TrayState {
     required List<Group> groups,
     required Map<String, String> selectedMap,
     required bool showTrayTitle,
-    @Default(true) bool monochromeTrayIcon,
     required bool safeMode,
     @Default({}) Map<HotAction, HotKeyAction> hotKeys,
   }) = _TrayState;
@@ -246,8 +245,6 @@ abstract class MigrationData with _$MigrationData {
     @Default([]) List<DisabledRule> disabledRules,
     @Default([]) List<ProxyGroup> proxyGroups,
     @Default([]) List<ClashProvider> clashProviders,
-    @Default([]) List<CustomProxy> customProxies,
-    @Default([]) List<ProxyDialer> proxyDialers,
   }) = _MigrationData;
 }
 

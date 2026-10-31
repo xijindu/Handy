@@ -19,13 +19,10 @@ void main(List<String> args) {
   runZonedGuarded(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
-      if (Platform.isWindows || Platform.isLinux) {
+      if (Platform.isWindows) {
         SharedPreferencesStorePlatform.instance = AtomicFilePreferencesStore(
           appPath.sharedPreferencesPath,
         );
-      }
-      if (Platform.isLinux) {
-        linkManager.seedInitialLink(args);
       }
       FlutterError.onError = (details) {
         Future.microtask(() {
@@ -39,8 +36,8 @@ void main(List<String> args) {
         await RustLib.init();
         final version = await system.init();
         final container = await bootstrap.init(version);
-        await FlClashHttpOverrides.trustCoreRoots();
-        HttpOverrides.global = FlClashHttpOverrides(container);
+        await HandyHttpOverrides.trustCoreRoots();
+        HttpOverrides.global = HandyHttpOverrides(container);
         request.attach(container.read);
         runApp(
           UncontrolledProviderScope(

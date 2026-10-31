@@ -39,38 +39,14 @@ class AppTray implements TrayPort {
     return AppTray._internal(isMacOS: isMacOS, isWindows: isWindows);
   }
 
-  String get _trayIconSuffix {
-    return isWindows ? 'ico' : 'png';
-  }
-
-  bool _isTemplate(bool monochrome) => isMacOS && monochrome;
-
-  String _trayIconDir(bool monochrome) {
+  /// macOS menu bar icons are template images: the system tints them for the
+  /// light or dark menu bar, so they must ship without colour. Windows gets the
+  /// app icon instead, which it renders as-is.
+  String getTrayIcon({required bool safeMode}) {
     if (isWindows) {
-      return 'assets/images/tray/windows';
+      return 'assets/images/icon.ico';
     }
-    return _isTemplate(monochrome)
-        ? 'assets/images/tray/macos'
-        : 'assets/images/tray/unix';
-  }
-
-  String getTrayIcon({
-    required bool isStart,
-    required bool tunEnable,
-    required bool safeMode,
-    bool monochrome = true,
-  }) {
-    final status = switch ((
-      safeMode,
-      _isTemplate(monochrome) || !isStart,
-      tunEnable,
-    )) {
-      (true, _, _) => 4,
-      (false, true, _) => 1,
-      (false, false, false) => 2,
-      (false, false, true) => 3,
-    };
-    return '${_trayIconDir(monochrome)}/status_$status.$_trayIconSuffix';
+    return 'assets/images/tray/macos/status_${safeMode ? 4 : 1}.png';
   }
 
   @override
@@ -96,13 +72,8 @@ class AppTray implements TrayPort {
     await Tray.instance.show(
       TraySpec(
         icon: TrayIcon.asset(
-          getTrayIcon(
-            isStart: trayState.isStart && !trayState.suspended,
-            tunEnable: trayState.tunEnable,
-            safeMode: trayState.safeMode,
-            monochrome: trayState.monochromeTrayIcon,
-          ),
-          isTemplate: _isTemplate(trayState.monochromeTrayIcon),
+          getTrayIcon(safeMode: trayState.safeMode),
+          isTemplate: isMacOS,
           size: isMacOS ? 18 : 16,
         ),
         toolTip: trayState.safeMode
@@ -163,11 +134,6 @@ class AppTray implements TrayPort {
           label: appLocalizations.speedStatistics,
           checked: trayState.showTrayTitle,
           onSelected: commonAction.updateSpeedStatistics,
-        ),
-        TrayMenuCheckbox(
-          label: appLocalizations.monochromeIcon,
-          checked: trayState.monochromeTrayIcon,
-          onSelected: commonAction.updateMonochromeTrayIcon,
         ),
       ],
       const TrayMenuSeparator(),

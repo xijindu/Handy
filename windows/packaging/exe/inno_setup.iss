@@ -25,7 +25,7 @@ var
   i: Integer;
   ResultCode: Integer;
 begin
-  Processes := ['FlClash.exe', 'FlClashCore.exe', 'FlClashHelperService.exe'];
+  Processes := ['Handy.exe', 'HandyCore.exe', 'HandyHelperService.exe'];
 
   for i := 0 to GetArrayLength(Processes)-1 do
   begin
@@ -38,7 +38,7 @@ var
   HelperPath: String;
   ResultCode: Integer;
 begin
-  HelperPath := ExpandConstant('{app}\\FlClashHelperService.exe');
+  HelperPath := ExpandConstant('{app}\\HandyHelperService.exe');
   if FileExists(HelperPath) then
   begin
     Exec(HelperPath, 'uninstall', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
@@ -76,7 +76,7 @@ begin
     RegDeleteValue(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run', '{{APP_NAME}}');
   end;
 
-  Schemes := ['clash', 'clashmeta', 'flclash'];
+  Schemes := ['clash', 'clashmeta', 'handy'];
   for i := 0 to GetArrayLength(Schemes)-1 do
   begin
     if RegQueryStringValue(HKCU, 'Software\Classes\' + Schemes[i] + '\shell\open\command', '', Value) and PointsIntoApp(Value) then
@@ -113,10 +113,10 @@ end;
 // windows/runner/Runner.rc.
 procedure RemoveUserData;
 begin
-  DelTree(ExpandConstant('{userappdata}\com.follow\clash'), True, True, True);
-  DelTree(ExpandConstant('{localappdata}\com.follow\clash'), True, True, True);
-  RemoveDir(ExpandConstant('{userappdata}\com.follow'));
-  RemoveDir(ExpandConstant('{localappdata}\com.follow'));
+  DelTree(ExpandConstant('{userappdata}\Handy\Handy'), True, True, True);
+  DelTree(ExpandConstant('{localappdata}\Handy\Handy'), True, True, True);
+  RemoveDir(ExpandConstant('{userappdata}\Handy'));
+  RemoveDir(ExpandConstant('{localappdata}\Handy'));
 end;
 
 procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);

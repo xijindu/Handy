@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:fl_clash/common/webdav.dart';
 import 'package:fl_clash/core/method.dart';
 import 'package:fl_clash/l10n/l10n.dart';
 
@@ -39,8 +38,6 @@ String? networkErrorMessage(Object error, AppLocalizations appLocalizations) {
 _Failure? _failureOf(Object error) {
   return switch (error) {
     DioException() => _fromDio(error),
-    DAVException(:final statusCode?) => _Failure.httpStatus(statusCode),
-    DAVException() => const _Failure(_Kind.connection),
     CoreMethodException() => _fromCore(error),
     _ => null,
   };

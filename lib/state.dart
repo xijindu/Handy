@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:fl_clash/providers/app.dart';
 import 'package:fl_clash/providers/config.dart';
 import 'package:fl_clash/ui/ui.dart';
-import 'package:flutter/foundation.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -15,20 +14,10 @@ import 'models/models.dart';
 class GlobalState {
   static GlobalState? _instance;
   GlobalKey<NavigatorState> get navigatorKey => rootNavigatorKey;
-  late String appEnv;
   late PackageInfo packageInfo;
   late Measure measure;
   late ProviderContainer container;
   bool needInitStatus = true;
-
-  bool get isPre => appEnv != 'stable';
-
-  bool get canCrashCore => canCrashCoreFor(isDebug: kDebugMode, appEnv: appEnv);
-
-  @visibleForTesting
-  static bool canCrashCoreFor({required bool isDebug, required String appEnv}) {
-    return isDebug || appEnv == 'dev';
-  }
 
   String? lastConfigMd5;
   ConfigCounts? lastConfigCounts;

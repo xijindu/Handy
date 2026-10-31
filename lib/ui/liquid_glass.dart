@@ -51,7 +51,7 @@ final _noGoo = List<double>.unmodifiable(
   List<double>.filled(10 * _gooPills + 8, 0),
 );
 
-/// How much of iOS's glass the panes draw (.agents/architecture.md).
+/// How much of iOS's glass the panes draw.
 enum LiquidGlassQuality { standard, ultra }
 
 /// Whether the navigation dock and the buttons of a page's bar are glass.
@@ -458,7 +458,7 @@ Color glassFillOf(ColorScheme colorScheme) =>
     (colorScheme.brightness == Brightness.dark ? Colors.white : Colors.black)
         .withValues(alpha: 0.13);
 
-/// iOS 27's rim around a menu's or an alert's glass (.agents/architecture.md).
+/// iOS 27's rim around a menu's or an alert's glass.
 @immutable
 class LiquidGlassRim {
   const LiquidGlassRim({
@@ -1062,7 +1062,7 @@ class LiquidGlassPane {
   Path? _profiled;
   List<double> _profile = _flatProfile;
 
-  /// A pane moving within [hold] keeps one capture (.agents/architecture.md),
+  /// A pane moving within [hold] keeps one capture,
   /// taken at [holdFrost] where the shader frosts past it. A [steadyFrost]
   /// pane frosts by [style]'s blur in the host's dp however it is scaled, so
   /// it keeps that capture as it grows or shrinks.

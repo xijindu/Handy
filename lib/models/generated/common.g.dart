@@ -165,22 +165,6 @@ const _$DnsQueryInitiatorEnumMap = {
   DnsQueryInitiator.other: 'other',
 };
 
-_DAVProps _$DAVPropsFromJson(Map<String, dynamic> json) => _DAVProps(
-  uri: json['uri'] as String,
-  user: json['user'] as String,
-  password: json['password'] == null
-      ? ''
-      : _decodeDavPassword(json['password'] as String?),
-  fileName: json['fileName'] as String? ?? defaultDavFileName,
-);
-
-Map<String, dynamic> _$DAVPropsToJson(_DAVProps instance) => <String, dynamic>{
-  'uri': instance.uri,
-  'user': instance.user,
-  'password': _encodeDavPassword(instance.password),
-  'fileName': instance.fileName,
-};
-
 _Traffic _$TrafficFromJson(Map<String, dynamic> json) =>
     _Traffic(up: json['up'] as num? ?? 0, down: json['down'] as num? ?? 0);
 

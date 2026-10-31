@@ -103,17 +103,6 @@ fn forward_events() {
     }
 }
 
-// The X11 backend spawns its own thread and reports a missing display only
-// there, so a Wayland session without XWayland would otherwise look registered.
-#[cfg(target_os = "linux")]
-fn ensure_display() -> Result<(), String> {
-    match std::env::var_os("DISPLAY") {
-        Some(display) if !display.is_empty() => Ok(()),
-        _ => Err("Global hotkeys need an X11 display; DISPLAY is not set".into()),
-    }
-}
-
-#[cfg(not(target_os = "linux"))]
 fn ensure_display() -> Result<(), String> {
     Ok(())
 }

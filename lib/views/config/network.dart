@@ -385,12 +385,10 @@ class TunSection extends ConsumerWidget {
   const TunSection({
     super.key,
     required this.isDesktop,
-    required this.isLinux,
     required this.isWindows,
   });
 
   final bool isDesktop;
-  final bool isLinux;
   final bool isWindows;
 
   @override
@@ -410,7 +408,7 @@ class TunSection extends ConsumerWidget {
     }
     return OverrideSection(
       title: appLocalizations.tun,
-      spec: appTunOverrideSpec(isLinux: isLinux, isWindows: isWindows),
+      spec: appTunOverrideSpec(isWindows: isWindows),
       items: const [BypassPrivateRouteItem(key: ValueKey(#bypassPrivateRoute))],
       footer: [appLocalizations.bypassPrivateRouteDesc],
     );
@@ -418,8 +416,8 @@ class TunSection extends ConsumerWidget {
 }
 
 // mihomo keeps TCP keep-alive off on Android whatever the config says
-// (component/keepalive), and only Linux honours a routing mark.
-List<Widget> outboundItems({required bool isDesktop, required bool isLinux}) {
+// (component/keepalive).
+List<Widget> outboundItems({required bool isDesktop}) {
   return [
     if (isDesktop) ...[
       ConfigToggleItem(
@@ -444,12 +442,6 @@ List<Widget> outboundItems({required bool isDesktop, required bool isLinux}) {
         update: (state, value) => state.copyWith(keepAliveInterval: value),
       ),
     ],
-    if (isLinux)
-      _NumberItem(
-        title: (l) => l.routingMark,
-        select: (state) => state.routingMark,
-        update: (state, value) => state.copyWith(routingMark: value),
-      ),
   ];
 }
 
@@ -569,17 +561,10 @@ class NetworkListView extends StatelessWidget {
         if (system.isAndroid) const VpnSections(),
         if (system.isDesktop) const SystemProxySection(),
         const NetworkOptionsSection(),
-        TunSection(
-          isDesktop: system.isDesktop,
-          isLinux: system.isLinux,
-          isWindows: system.isWindows,
-        ),
+        TunSection(isDesktop: system.isDesktop, isWindows: system.isWindows),
         generateSection(
           title: context.appLocalizations.outbound,
-          items: outboundItems(
-            isDesktop: system.isDesktop,
-            isLinux: system.isLinux,
-          ),
+          items: outboundItems(isDesktop: system.isDesktop),
         ),
       ],
     );

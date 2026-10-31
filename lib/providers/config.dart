@@ -54,14 +54,6 @@ class CurrentProfileId extends _$CurrentProfileId
 }
 
 @riverpod
-class DavSetting extends _$DavSetting with AutoDisposeNotifierMixin {
-  @override
-  DAVProps? build() {
-    return null;
-  }
-}
-
-@riverpod
 class HotKeyActions extends _$HotKeyActions with AutoDisposeNotifierMixin {
   @override
   List<HotKeyAction> build() {
@@ -103,7 +95,6 @@ Config _config(Ref ref) {
   final networkProps = ref.watch(networkSettingProvider);
   final themeProps = ref.watch(themeSettingProvider);
   final currentProfileId = ref.watch(currentProfileIdProvider);
-  final davProps = ref.watch(davSettingProvider);
   final hotKeyActions = ref.watch(hotKeyActionsProvider);
   final proxiesStyleProps = ref.watch(proxiesStyleSettingProvider);
   final patchClashConfig = ref.watch(patchClashConfigProvider);
@@ -115,7 +106,6 @@ Config _config(Ref ref) {
     networkProps: networkProps,
     themeProps: themeProps,
     currentProfileId: currentProfileId,
-    davProps: davProps,
     hotKeyActions: hotKeyActions,
     proxiesStyleProps: proxiesStyleProps,
     patchClashConfig: patchClashConfig,
@@ -130,7 +120,6 @@ void writeConfig(Ref ref, Config config) {
   ref.read(networkSettingProvider.notifier).value = config.networkProps;
   ref.read(themeSettingProvider.notifier).value = config.themeProps;
   ref.read(currentProfileIdProvider.notifier).value = config.currentProfileId;
-  ref.read(davSettingProvider.notifier).value = config.davProps;
   ref.read(hotKeyActionsProvider.notifier).value = config.hotKeyActions;
   ref.read(proxiesStyleSettingProvider.notifier).value =
       config.proxiesStyleProps;
@@ -149,7 +138,6 @@ List<Override> buildConfigOverrides(Config config) {
     currentProfileIdProvider.overrideWithBuild(
       (_, _) => config.currentProfileId,
     ),
-    davSettingProvider.overrideWithBuild((_, _) => config.davProps),
     hotKeyActionsProvider.overrideWithBuild((_, _) => config.hotKeyActions),
     proxiesStyleSettingProvider.overrideWithBuild(
       (_, _) => config.proxiesStyleProps,

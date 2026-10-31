@@ -86,16 +86,6 @@ extension HotActionL10n on HotAction {
   }
 }
 
-extension RestoreStrategyL10n on RestoreStrategy {
-  String get label {
-    final appLocalizations = currentAppLocalizations;
-    return switch (this) {
-      RestoreStrategy.compatible => appLocalizations.restoreStrategyCompatible,
-      RestoreStrategy.override => appLocalizations.restoreStrategyOverride,
-    };
-  }
-}
-
 extension ColorStyleL10n on ColorStyle {
   String get label {
     final appLocalizations = currentAppLocalizations;

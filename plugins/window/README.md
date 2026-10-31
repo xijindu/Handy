@@ -1,7 +1,7 @@
 # window
 
-Desktop window control for FlClash on Linux, macOS and Windows. Written for
-FlClash; it replaced the `window_manager` fork, and its platform code derives
+Desktop window control for Handy on macOS and Windows. Written for
+Handy; it replaced the `window_manager` fork, and its platform code derives
 from that plugin (see `LICENSE`).
 
 ## Dart API
@@ -42,7 +42,7 @@ return `null`.
 | `setFullScreen` | `value: bool` | null | |
 | `getBounds` | - | `{x, y, width, height}` doubles | Logical pixels, top-left origin on every platform. |
 | `setBounds` | `x?, y?, width?, height?: double` | null | Absent `x`/`y` keeps the position, absent size keeps the size. Never changes z-order or focus. |
-| `isPositionSupported` | - | bool | false on Wayland, where the compositor owns placement. |
+| `isPositionSupported` | - | bool | Whether the platform lets the application place the window. |
 | `setMinimumSize` | `width, height: double` | null | |
 | `isAlwaysOnTop` / `setAlwaysOnTop` | `value: bool` | bool / null | |
 | `setTitleBarStyle` | `style: "normal" \| "hidden", windowButtonVisibility: bool` | null | Hidden keeps the system frame, border and resize edges; only the caption goes. |
@@ -63,11 +63,10 @@ return `null`.
 - `geometry-changed` fires once the window's position or size has settled,
   whether the user or `setBounds` changed it. Each platform coalesces the raw
   notifications for 150 ms (Windows `WM_WINDOWPOSCHANGED`, macOS did-move and
-  did-resize, Linux configure-event) and reports the final geometry. It is
+  did-resize) and reports the final geometry. It is
   not suppressed while maximized or full screen; Dart decides what to keep.
 - `show` and `hide` follow the window's visibility changes: Windows reports
-  `WM_SHOWWINDOW`, Linux the GTK `show`/`hide` signals, and macOS a `show` or
-  `hide` call that changed `isVisible`.
+  `WM_SHOWWINDOW`, and macOS a `show` or `hide` call that changed `isVisible`.
 - `close` fires when the user or `close` asks to close; with `preventClose`
   the window stays open and Dart decides.
 - `enter-full-screen` and `leave-full-screen` are raised by the platform's
@@ -91,14 +90,11 @@ On Windows that record owns `DwmExtendFrameIntoClientArea`, the DWM window
 attributes (including immersive dark mode, which the system backdrops and the
 frame border follow) and `SetWindowCompositionAttribute`; on macOS it owns
 `isOpaque`, `backgroundColor`, `titlebarAppearsTransparent` and the effect
-view, whose `appearance` is the requested brightness; on Linux the header bar
-and decoration state.
+view, whose `appearance` is the requested brightness.
 
 ### Effects
 
-`effect` is one of `none`, `transparent`, `blur`, `acrylic`, `mica`, `glass`. Linux
-supports only `none`: no desktop-neutral blur protocol exists for GTK 3, and a
-transparent window without blur is not a useful effect.
+`effect` is one of `none`, `transparent`, `blur`, `acrylic`, `mica`, `glass`.
 
 | Effect | Windows | macOS |
 | --- | --- | --- |
@@ -163,14 +159,6 @@ The engine reports `AppLifecycleState` from its own view of the window. Where
 that view keeps an unseen window rendering, the plugin sends `hidden` on
 `flutter/lifecycle` itself:
 
-- Linux: Wayland has no minimized state, so GTK never sets `ICONIFIED` after
-  `minimize` and the engine reports only the focus loss, as `inactive`. When
-  the window loses focus within 500 ms of `minimize`, the plugin sends
-  `hidden` from a `window-state-event` handler connected after the engine's.
-  A compositor that ignores the request, such as sway, leaves the focus where
-  it is, and a restore from the compositor focuses the window, which the
-  engine reports as `resumed`. A minimize the compositor starts itself, such
-  as Super+H, still reads as `inactive`.
 - macOS: on activation the engine resumes if any window in `NSApp.windows` is
   visible, and the status item's window always is. After every activation
   change the plugin sends `hidden` while its own window is not visible. A
@@ -203,7 +191,6 @@ the same table; they have no application caller today.
   before `HandleTopLevelWindowProc`. That header is inline because it calls
   `flutter::FlutterEngine`, which only the app's C++ wrapper implements; the
   plugin DLL cannot use it.
-- Linux: `window_plugin_activate()` from `window/window_plugin.h`.
 - macOS: `WindowPlugin.instance?.handleShouldTerminate()`,
   `WindowPlugin.instance?.handleReopen()`, and `NSWindow.hiddenWindowAtLaunch()`
   for `MainFlutterWindow.order(_:relativeTo:)`.

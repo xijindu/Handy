@@ -23,7 +23,7 @@ use windows_service::{
     service_manager::{ServiceManager, ServiceManagerAccess},
 };
 
-const SERVICE_NAME: &str = "FlClashHelperService";
+const SERVICE_NAME: &str = "HandyHelperService";
 const SERVICE_TYPE: ServiceType = ServiceType::OWN_PROCESS;
 const SERVICE_OPERATION_TIMEOUT: Duration = Duration::from_secs(10);
 const SERVICE_POLL_INTERVAL: Duration = Duration::from_millis(100);
@@ -184,7 +184,8 @@ fn install_service(owner_pid: u32) -> Result<()> {
     wait_for_running(&service)
 }
 
-/// The SCM side of the Linux unit's `Restart=on-failure`; a clean stop stays stopped.
+/// The SCM counterpart of the old systemd unit's `Restart=on-failure`; a clean
+/// stop stays stopped.
 fn crash_recovery() -> ServiceFailureActions {
     let restart = ServiceAction {
         action_type: ServiceActionType::Restart,

@@ -1,6 +1,6 @@
-package com.follow.clash.service.models
+package org.handy.service.models
 
-import com.follow.clash.common.AccessControlMode
+import org.handy.common.AccessControlMode
 import com.google.gson.JsonParser
 import java.net.Inet4Address
 import java.net.Inet6Address

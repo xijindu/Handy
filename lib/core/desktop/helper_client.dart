@@ -88,25 +88,13 @@ final class HelperClient {
   }
 
   // The Helper protocol never leaves the machine; never route it through a
-  // proxy. Linux carries it over a Unix socket the systemd unit owns, so the
-  // authority in the URL is a placeholder the connection factory ignores.
+  // proxy.
   static Dio _createDio() {
     return Dio()
       ..httpClientAdapter = IOHttpClientAdapter(
         createHttpClient: () {
           final client = HttpClient();
           client.findProxy = (uri) => 'DIRECT';
-          if (Platform.isLinux) {
-            client.connectionFactory = (uri, proxyHost, proxyPort) {
-              return Socket.startConnect(
-                InternetAddress(
-                  helperSocketPath,
-                  type: InternetAddressType.unix,
-                ),
-                0,
-              );
-            };
-          }
           return client;
         },
       );
@@ -115,9 +103,7 @@ final class HelperClient {
   String get baseUrl => _baseUrl();
 
   static String _defaultBaseUrl() {
-    return Platform.isLinux
-        ? 'http://$appHelperService'
-        : 'http://$localhost:${_readHelperPort()}';
+    return 'http://$localhost:${_readHelperPort()}';
   }
 
   /// Helpers installed before the port was published listen on [helperPort].

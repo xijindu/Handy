@@ -27,8 +27,7 @@ enum ColorStyle {
   };
 }
 
-/// `.agents/surfaces.md` explains why each role this replaces leaves
-/// Material's value.
+/// Each role this replaces leaves Material's value.
 ColorScheme seededColorScheme({
   required Color seedColor,
   required Brightness brightness,

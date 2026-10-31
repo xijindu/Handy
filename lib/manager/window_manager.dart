@@ -301,8 +301,8 @@ class WindowCaptionState {
 }
 
 /// Maximize and fullscreen are written only from window events: the window
-/// manager can change both on its own, and on Linux a maximize request is
-/// applied later, so reading the state back right after the call is stale.
+/// manager can change both on its own, so reading the state back right after
+/// the call is stale.
 class WindowCaptionController extends ValueNotifier<WindowCaptionState>
     with WindowListener {
   WindowCaptionController() : super(const WindowCaptionState()) {

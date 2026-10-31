@@ -1,10 +1,10 @@
 # code_forge
 
-The code editor behind FlClash's profile, script and config editors
+The code editor behind Handy's profile, script and config editors
 (`lib/pages/editor.dart`). It is derived from
 [code_forge](https://github.com/heckmon/code_forge) 10.14.0 by Athul A S, through
 the `chen08209/code_forge` fork, and keeps upstream's MIT license (see `LICENSE`).
-FlClash is its only user, so it is trimmed to what FlClash uses rather than kept
+Handy is its only user, so it is trimmed to what Handy uses rather than kept
 in step with upstream.
 
 ## What changed from upstream
@@ -21,7 +21,7 @@ in step with upstream.
   occurrence highlights, right-to-left layout, multiple cursors, folding and
   indent guides for XML tags, and the built-in context menu, suggestion popup
   and scrollbar with the options that styled them.
-- Added for FlClash: `suggestionPopupBuilder`, `onContextMenu` and
+- Added for Handy: `suggestionPopupBuilder`, `onContextMenu` and
   `scrollbarBuilder` hooks, a `completionSource` the app fills the popup from,
   with Tab-stop snippets as what a suggestion inserts, platform keyboard shortcuts
   (`CodeForgeKeyboardShortcuts.forPlatform`), whole-line copy and cut with no

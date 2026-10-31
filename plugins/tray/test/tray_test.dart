@@ -90,7 +90,7 @@ void main() {
   );
 
   test('titles queued behind a stalled call collapse to the newest', () async {
-    debugDefaultTargetPlatformOverride = TargetPlatform.linux;
+    debugDefaultTargetPlatformOverride = TargetPlatform.macOS;
     await Tray.instance.show(_spec());
 
     final gate = Completer<void>();

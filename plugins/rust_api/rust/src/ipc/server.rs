@@ -281,18 +281,6 @@ mod tests {
         server.close();
     }
 
-    #[cfg(target_os = "linux")]
-    #[test]
-    fn a_connection_reports_the_peer_process() {
-        let path = socket_path();
-        let (server, events) = serve(&path);
-        let _peer = connect(&path);
-
-        let pid = Some(std::process::id());
-        assert_eq!(next(&events), Event::Connected { pid });
-        server.close();
-    }
-
     #[test]
     fn frames_sent_in_a_burst_arrive_in_order() {
         let path = socket_path();

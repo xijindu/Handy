@@ -289,7 +289,7 @@ as String,
 /// @nodoc
 mixin _$AppSettingProps {
 
- String? get locale;@JsonKey(fromJson: dashboardWidgetsFromJson) List<DashboardWidget> get dashboardWidgets; bool get onlyStatisticsProxy; bool get showNotificationStopAction; bool get autoLaunch; bool get silentLaunch; bool get autoRun; bool get openLogs; bool get closeConnections; int get delayTestTimeout;@JsonKey(readValue: _readTabAnimation) TabAnimation get tabAnimation; bool get floatingNavigationBar; bool get autoCheckUpdate;@JsonKey(readValue: _readSidebarExpanded) bool get sidebarExpanded; int get acceptedDisclaimerVersion; bool get minimizeOnExit; bool get hidden; bool get developerMode; RestoreStrategy get restoreStrategy; bool get showTrayTitle; bool get monochromeTrayIcon; bool get checkCertificate;@JsonKey(readValue: _readUserAgents) List<String> get userAgents; List<Filter> get filters; bool get hideIp; bool get editorLineWrap; EditorFontSize get editorFontSize; List<String> get serviceOrder; List<String> get disabledServices; Map<String, Map<String, double>> get tableColumnWidths;
+ String? get locale;@JsonKey(fromJson: dashboardWidgetsFromJson) List<DashboardWidget> get dashboardWidgets; bool get onlyStatisticsProxy; bool get showNotificationStopAction; bool get autoLaunch; bool get silentLaunch; bool get autoRun; bool get openLogs; bool get closeConnections; int get delayTestTimeout;@JsonKey(readValue: _readTabAnimation) TabAnimation get tabAnimation; bool get floatingNavigationBar; bool get autoCheckUpdate;@JsonKey(readValue: _readSidebarExpanded) bool get sidebarExpanded; bool get minimizeOnExit; bool get hidden; bool get developerMode; bool get showTrayTitle; bool get checkCertificate;@JsonKey(readValue: _readUserAgents) List<String> get userAgents; List<Filter> get filters; bool get hideIp; bool get editorLineWrap; EditorFontSize get editorFontSize; List<String> get serviceOrder; List<String> get disabledServices; Map<String, Map<String, double>> get tableColumnWidths;
 /// Create a copy of AppSettingProps
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -303,20 +303,20 @@ $AppSettingPropsCopyWith<AppSettingProps> get copyWith => _$AppSettingPropsCopyW
 @override
 bool operator ==(Object other) {
   final _this = this as AppSettingProps;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppSettingProps&&(identical(other.locale, _this.locale) || other.locale == _this.locale)&&const DeepCollectionEquality().equals(other.dashboardWidgets, _this.dashboardWidgets)&&(identical(other.onlyStatisticsProxy, _this.onlyStatisticsProxy) || other.onlyStatisticsProxy == _this.onlyStatisticsProxy)&&(identical(other.showNotificationStopAction, _this.showNotificationStopAction) || other.showNotificationStopAction == _this.showNotificationStopAction)&&(identical(other.autoLaunch, _this.autoLaunch) || other.autoLaunch == _this.autoLaunch)&&(identical(other.silentLaunch, _this.silentLaunch) || other.silentLaunch == _this.silentLaunch)&&(identical(other.autoRun, _this.autoRun) || other.autoRun == _this.autoRun)&&(identical(other.openLogs, _this.openLogs) || other.openLogs == _this.openLogs)&&(identical(other.closeConnections, _this.closeConnections) || other.closeConnections == _this.closeConnections)&&(identical(other.delayTestTimeout, _this.delayTestTimeout) || other.delayTestTimeout == _this.delayTestTimeout)&&(identical(other.tabAnimation, _this.tabAnimation) || other.tabAnimation == _this.tabAnimation)&&(identical(other.floatingNavigationBar, _this.floatingNavigationBar) || other.floatingNavigationBar == _this.floatingNavigationBar)&&(identical(other.autoCheckUpdate, _this.autoCheckUpdate) || other.autoCheckUpdate == _this.autoCheckUpdate)&&(identical(other.sidebarExpanded, _this.sidebarExpanded) || other.sidebarExpanded == _this.sidebarExpanded)&&(identical(other.acceptedDisclaimerVersion, _this.acceptedDisclaimerVersion) || other.acceptedDisclaimerVersion == _this.acceptedDisclaimerVersion)&&(identical(other.minimizeOnExit, _this.minimizeOnExit) || other.minimizeOnExit == _this.minimizeOnExit)&&(identical(other.hidden, _this.hidden) || other.hidden == _this.hidden)&&(identical(other.developerMode, _this.developerMode) || other.developerMode == _this.developerMode)&&(identical(other.restoreStrategy, _this.restoreStrategy) || other.restoreStrategy == _this.restoreStrategy)&&(identical(other.showTrayTitle, _this.showTrayTitle) || other.showTrayTitle == _this.showTrayTitle)&&(identical(other.monochromeTrayIcon, _this.monochromeTrayIcon) || other.monochromeTrayIcon == _this.monochromeTrayIcon)&&(identical(other.checkCertificate, _this.checkCertificate) || other.checkCertificate == _this.checkCertificate)&&const DeepCollectionEquality().equals(other.userAgents, _this.userAgents)&&const DeepCollectionEquality().equals(other.filters, _this.filters)&&(identical(other.hideIp, _this.hideIp) || other.hideIp == _this.hideIp)&&(identical(other.editorLineWrap, _this.editorLineWrap) || other.editorLineWrap == _this.editorLineWrap)&&(identical(other.editorFontSize, _this.editorFontSize) || other.editorFontSize == _this.editorFontSize)&&const DeepCollectionEquality().equals(other.serviceOrder, _this.serviceOrder)&&const DeepCollectionEquality().equals(other.disabledServices, _this.disabledServices)&&const DeepCollectionEquality().equals(other.tableColumnWidths, _this.tableColumnWidths));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppSettingProps&&(identical(other.locale, _this.locale) || other.locale == _this.locale)&&const DeepCollectionEquality().equals(other.dashboardWidgets, _this.dashboardWidgets)&&(identical(other.onlyStatisticsProxy, _this.onlyStatisticsProxy) || other.onlyStatisticsProxy == _this.onlyStatisticsProxy)&&(identical(other.showNotificationStopAction, _this.showNotificationStopAction) || other.showNotificationStopAction == _this.showNotificationStopAction)&&(identical(other.autoLaunch, _this.autoLaunch) || other.autoLaunch == _this.autoLaunch)&&(identical(other.silentLaunch, _this.silentLaunch) || other.silentLaunch == _this.silentLaunch)&&(identical(other.autoRun, _this.autoRun) || other.autoRun == _this.autoRun)&&(identical(other.openLogs, _this.openLogs) || other.openLogs == _this.openLogs)&&(identical(other.closeConnections, _this.closeConnections) || other.closeConnections == _this.closeConnections)&&(identical(other.delayTestTimeout, _this.delayTestTimeout) || other.delayTestTimeout == _this.delayTestTimeout)&&(identical(other.tabAnimation, _this.tabAnimation) || other.tabAnimation == _this.tabAnimation)&&(identical(other.floatingNavigationBar, _this.floatingNavigationBar) || other.floatingNavigationBar == _this.floatingNavigationBar)&&(identical(other.autoCheckUpdate, _this.autoCheckUpdate) || other.autoCheckUpdate == _this.autoCheckUpdate)&&(identical(other.sidebarExpanded, _this.sidebarExpanded) || other.sidebarExpanded == _this.sidebarExpanded)&&(identical(other.minimizeOnExit, _this.minimizeOnExit) || other.minimizeOnExit == _this.minimizeOnExit)&&(identical(other.hidden, _this.hidden) || other.hidden == _this.hidden)&&(identical(other.developerMode, _this.developerMode) || other.developerMode == _this.developerMode)&&(identical(other.showTrayTitle, _this.showTrayTitle) || other.showTrayTitle == _this.showTrayTitle)&&(identical(other.checkCertificate, _this.checkCertificate) || other.checkCertificate == _this.checkCertificate)&&const DeepCollectionEquality().equals(other.userAgents, _this.userAgents)&&const DeepCollectionEquality().equals(other.filters, _this.filters)&&(identical(other.hideIp, _this.hideIp) || other.hideIp == _this.hideIp)&&(identical(other.editorLineWrap, _this.editorLineWrap) || other.editorLineWrap == _this.editorLineWrap)&&(identical(other.editorFontSize, _this.editorFontSize) || other.editorFontSize == _this.editorFontSize)&&const DeepCollectionEquality().equals(other.serviceOrder, _this.serviceOrder)&&const DeepCollectionEquality().equals(other.disabledServices, _this.disabledServices)&&const DeepCollectionEquality().equals(other.tableColumnWidths, _this.tableColumnWidths));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as AppSettingProps;
-  return Object.hashAll([runtimeType,_this.locale,const DeepCollectionEquality().hash(_this.dashboardWidgets),_this.onlyStatisticsProxy,_this.showNotificationStopAction,_this.autoLaunch,_this.silentLaunch,_this.autoRun,_this.openLogs,_this.closeConnections,_this.delayTestTimeout,_this.tabAnimation,_this.floatingNavigationBar,_this.autoCheckUpdate,_this.sidebarExpanded,_this.acceptedDisclaimerVersion,_this.minimizeOnExit,_this.hidden,_this.developerMode,_this.restoreStrategy,_this.showTrayTitle,_this.monochromeTrayIcon,_this.checkCertificate,const DeepCollectionEquality().hash(_this.userAgents),const DeepCollectionEquality().hash(_this.filters),_this.hideIp,_this.editorLineWrap,_this.editorFontSize,const DeepCollectionEquality().hash(_this.serviceOrder),const DeepCollectionEquality().hash(_this.disabledServices),const DeepCollectionEquality().hash(_this.tableColumnWidths)]);
+  return Object.hashAll([runtimeType,_this.locale,const DeepCollectionEquality().hash(_this.dashboardWidgets),_this.onlyStatisticsProxy,_this.showNotificationStopAction,_this.autoLaunch,_this.silentLaunch,_this.autoRun,_this.openLogs,_this.closeConnections,_this.delayTestTimeout,_this.tabAnimation,_this.floatingNavigationBar,_this.autoCheckUpdate,_this.sidebarExpanded,_this.minimizeOnExit,_this.hidden,_this.developerMode,_this.showTrayTitle,_this.checkCertificate,const DeepCollectionEquality().hash(_this.userAgents),const DeepCollectionEquality().hash(_this.filters),_this.hideIp,_this.editorLineWrap,_this.editorFontSize,const DeepCollectionEquality().hash(_this.serviceOrder),const DeepCollectionEquality().hash(_this.disabledServices),const DeepCollectionEquality().hash(_this.tableColumnWidths)]);
 }
 
 @override
 String toString() {
   final _this = this as AppSettingProps;
-  return 'AppSettingProps(locale: ${_this.locale}, dashboardWidgets: ${_this.dashboardWidgets}, onlyStatisticsProxy: ${_this.onlyStatisticsProxy}, showNotificationStopAction: ${_this.showNotificationStopAction}, autoLaunch: ${_this.autoLaunch}, silentLaunch: ${_this.silentLaunch}, autoRun: ${_this.autoRun}, openLogs: ${_this.openLogs}, closeConnections: ${_this.closeConnections}, delayTestTimeout: ${_this.delayTestTimeout}, tabAnimation: ${_this.tabAnimation}, floatingNavigationBar: ${_this.floatingNavigationBar}, autoCheckUpdate: ${_this.autoCheckUpdate}, sidebarExpanded: ${_this.sidebarExpanded}, acceptedDisclaimerVersion: ${_this.acceptedDisclaimerVersion}, minimizeOnExit: ${_this.minimizeOnExit}, hidden: ${_this.hidden}, developerMode: ${_this.developerMode}, restoreStrategy: ${_this.restoreStrategy}, showTrayTitle: ${_this.showTrayTitle}, monochromeTrayIcon: ${_this.monochromeTrayIcon}, checkCertificate: ${_this.checkCertificate}, userAgents: ${_this.userAgents}, filters: ${_this.filters}, hideIp: ${_this.hideIp}, editorLineWrap: ${_this.editorLineWrap}, editorFontSize: ${_this.editorFontSize}, serviceOrder: ${_this.serviceOrder}, disabledServices: ${_this.disabledServices}, tableColumnWidths: ${_this.tableColumnWidths})';
+  return 'AppSettingProps(locale: ${_this.locale}, dashboardWidgets: ${_this.dashboardWidgets}, onlyStatisticsProxy: ${_this.onlyStatisticsProxy}, showNotificationStopAction: ${_this.showNotificationStopAction}, autoLaunch: ${_this.autoLaunch}, silentLaunch: ${_this.silentLaunch}, autoRun: ${_this.autoRun}, openLogs: ${_this.openLogs}, closeConnections: ${_this.closeConnections}, delayTestTimeout: ${_this.delayTestTimeout}, tabAnimation: ${_this.tabAnimation}, floatingNavigationBar: ${_this.floatingNavigationBar}, autoCheckUpdate: ${_this.autoCheckUpdate}, sidebarExpanded: ${_this.sidebarExpanded}, minimizeOnExit: ${_this.minimizeOnExit}, hidden: ${_this.hidden}, developerMode: ${_this.developerMode}, showTrayTitle: ${_this.showTrayTitle}, checkCertificate: ${_this.checkCertificate}, userAgents: ${_this.userAgents}, filters: ${_this.filters}, hideIp: ${_this.hideIp}, editorLineWrap: ${_this.editorLineWrap}, editorFontSize: ${_this.editorFontSize}, serviceOrder: ${_this.serviceOrder}, disabledServices: ${_this.disabledServices}, tableColumnWidths: ${_this.tableColumnWidths})';
 }
 
 
@@ -327,7 +327,7 @@ abstract mixin class $AppSettingPropsCopyWith<$Res>  {
   factory $AppSettingPropsCopyWith(AppSettingProps value, $Res Function(AppSettingProps) _then) = _$AppSettingPropsCopyWithImpl;
 @useResult
 $Res call({
- String? locale,@JsonKey(fromJson: dashboardWidgetsFromJson) List<DashboardWidget> dashboardWidgets, bool onlyStatisticsProxy, bool showNotificationStopAction, bool autoLaunch, bool silentLaunch, bool autoRun, bool openLogs, bool closeConnections, int delayTestTimeout,@JsonKey(readValue: _readTabAnimation) TabAnimation tabAnimation, bool floatingNavigationBar, bool autoCheckUpdate,@JsonKey(readValue: _readSidebarExpanded) bool sidebarExpanded, int acceptedDisclaimerVersion, bool minimizeOnExit, bool hidden, bool developerMode, RestoreStrategy restoreStrategy, bool showTrayTitle, bool monochromeTrayIcon, bool checkCertificate,@JsonKey(readValue: _readUserAgents) List<String> userAgents, List<Filter> filters, bool hideIp, bool editorLineWrap, EditorFontSize editorFontSize, List<String> serviceOrder, List<String> disabledServices, Map<String, Map<String, double>> tableColumnWidths
+ String? locale,@JsonKey(fromJson: dashboardWidgetsFromJson) List<DashboardWidget> dashboardWidgets, bool onlyStatisticsProxy, bool showNotificationStopAction, bool autoLaunch, bool silentLaunch, bool autoRun, bool openLogs, bool closeConnections, int delayTestTimeout,@JsonKey(readValue: _readTabAnimation) TabAnimation tabAnimation, bool floatingNavigationBar, bool autoCheckUpdate,@JsonKey(readValue: _readSidebarExpanded) bool sidebarExpanded, bool minimizeOnExit, bool hidden, bool developerMode, bool showTrayTitle, bool checkCertificate,@JsonKey(readValue: _readUserAgents) List<String> userAgents, List<Filter> filters, bool hideIp, bool editorLineWrap, EditorFontSize editorFontSize, List<String> serviceOrder, List<String> disabledServices, Map<String, Map<String, double>> tableColumnWidths
 });
 
 
@@ -344,7 +344,7 @@ class _$AppSettingPropsCopyWithImpl<$Res>
 
 /// Create a copy of AppSettingProps
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? locale = freezed,Object? dashboardWidgets = null,Object? onlyStatisticsProxy = null,Object? showNotificationStopAction = null,Object? autoLaunch = null,Object? silentLaunch = null,Object? autoRun = null,Object? openLogs = null,Object? closeConnections = null,Object? delayTestTimeout = null,Object? tabAnimation = null,Object? floatingNavigationBar = null,Object? autoCheckUpdate = null,Object? sidebarExpanded = null,Object? acceptedDisclaimerVersion = null,Object? minimizeOnExit = null,Object? hidden = null,Object? developerMode = null,Object? restoreStrategy = null,Object? showTrayTitle = null,Object? monochromeTrayIcon = null,Object? checkCertificate = null,Object? userAgents = null,Object? filters = null,Object? hideIp = null,Object? editorLineWrap = null,Object? editorFontSize = null,Object? serviceOrder = null,Object? disabledServices = null,Object? tableColumnWidths = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? locale = freezed,Object? dashboardWidgets = null,Object? onlyStatisticsProxy = null,Object? showNotificationStopAction = null,Object? autoLaunch = null,Object? silentLaunch = null,Object? autoRun = null,Object? openLogs = null,Object? closeConnections = null,Object? delayTestTimeout = null,Object? tabAnimation = null,Object? floatingNavigationBar = null,Object? autoCheckUpdate = null,Object? sidebarExpanded = null,Object? minimizeOnExit = null,Object? hidden = null,Object? developerMode = null,Object? showTrayTitle = null,Object? checkCertificate = null,Object? userAgents = null,Object? filters = null,Object? hideIp = null,Object? editorLineWrap = null,Object? editorFontSize = null,Object? serviceOrder = null,Object? disabledServices = null,Object? tableColumnWidths = null,}) {
   return _then(AppSettingProps(
 locale: freezed == locale ? _self.locale : locale // ignore: cast_nullable_to_non_nullable
 as String?,dashboardWidgets: null == dashboardWidgets ? _self.dashboardWidgets : dashboardWidgets // ignore: cast_nullable_to_non_nullable
@@ -360,13 +360,10 @@ as int,tabAnimation: null == tabAnimation ? _self.tabAnimation : tabAnimation //
 as TabAnimation,floatingNavigationBar: null == floatingNavigationBar ? _self.floatingNavigationBar : floatingNavigationBar // ignore: cast_nullable_to_non_nullable
 as bool,autoCheckUpdate: null == autoCheckUpdate ? _self.autoCheckUpdate : autoCheckUpdate // ignore: cast_nullable_to_non_nullable
 as bool,sidebarExpanded: null == sidebarExpanded ? _self.sidebarExpanded : sidebarExpanded // ignore: cast_nullable_to_non_nullable
-as bool,acceptedDisclaimerVersion: null == acceptedDisclaimerVersion ? _self.acceptedDisclaimerVersion : acceptedDisclaimerVersion // ignore: cast_nullable_to_non_nullable
-as int,minimizeOnExit: null == minimizeOnExit ? _self.minimizeOnExit : minimizeOnExit // ignore: cast_nullable_to_non_nullable
+as bool,minimizeOnExit: null == minimizeOnExit ? _self.minimizeOnExit : minimizeOnExit // ignore: cast_nullable_to_non_nullable
 as bool,hidden: null == hidden ? _self.hidden : hidden // ignore: cast_nullable_to_non_nullable
 as bool,developerMode: null == developerMode ? _self.developerMode : developerMode // ignore: cast_nullable_to_non_nullable
-as bool,restoreStrategy: null == restoreStrategy ? _self.restoreStrategy : restoreStrategy // ignore: cast_nullable_to_non_nullable
-as RestoreStrategy,showTrayTitle: null == showTrayTitle ? _self.showTrayTitle : showTrayTitle // ignore: cast_nullable_to_non_nullable
-as bool,monochromeTrayIcon: null == monochromeTrayIcon ? _self.monochromeTrayIcon : monochromeTrayIcon // ignore: cast_nullable_to_non_nullable
+as bool,showTrayTitle: null == showTrayTitle ? _self.showTrayTitle : showTrayTitle // ignore: cast_nullable_to_non_nullable
 as bool,checkCertificate: null == checkCertificate ? _self.checkCertificate : checkCertificate // ignore: cast_nullable_to_non_nullable
 as bool,userAgents: null == userAgents ? _self.userAgents : userAgents // ignore: cast_nullable_to_non_nullable
 as List<String>,filters: null == filters ? _self.filters : filters // ignore: cast_nullable_to_non_nullable
@@ -461,10 +458,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? locale, @JsonKey(fromJson: dashboardWidgetsFromJson)  List<DashboardWidget> dashboardWidgets,  bool onlyStatisticsProxy,  bool showNotificationStopAction,  bool autoLaunch,  bool silentLaunch,  bool autoRun,  bool openLogs,  bool closeConnections,  int delayTestTimeout, @JsonKey(readValue: _readTabAnimation)  TabAnimation tabAnimation,  bool floatingNavigationBar,  bool autoCheckUpdate, @JsonKey(readValue: _readSidebarExpanded)  bool sidebarExpanded,  int acceptedDisclaimerVersion,  bool minimizeOnExit,  bool hidden,  bool developerMode,  RestoreStrategy restoreStrategy,  bool showTrayTitle,  bool monochromeTrayIcon,  bool checkCertificate, @JsonKey(readValue: _readUserAgents)  List<String> userAgents,  List<Filter> filters,  bool hideIp,  bool editorLineWrap,  EditorFontSize editorFontSize,  List<String> serviceOrder,  List<String> disabledServices,  Map<String, Map<String, double>> tableColumnWidths)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? locale, @JsonKey(fromJson: dashboardWidgetsFromJson)  List<DashboardWidget> dashboardWidgets,  bool onlyStatisticsProxy,  bool showNotificationStopAction,  bool autoLaunch,  bool silentLaunch,  bool autoRun,  bool openLogs,  bool closeConnections,  int delayTestTimeout, @JsonKey(readValue: _readTabAnimation)  TabAnimation tabAnimation,  bool floatingNavigationBar,  bool autoCheckUpdate, @JsonKey(readValue: _readSidebarExpanded)  bool sidebarExpanded,  bool minimizeOnExit,  bool hidden,  bool developerMode,  bool showTrayTitle,  bool checkCertificate, @JsonKey(readValue: _readUserAgents)  List<String> userAgents,  List<Filter> filters,  bool hideIp,  bool editorLineWrap,  EditorFontSize editorFontSize,  List<String> serviceOrder,  List<String> disabledServices,  Map<String, Map<String, double>> tableColumnWidths)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AppSettingProps() when $default != null:
-return $default(_that.locale,_that.dashboardWidgets,_that.onlyStatisticsProxy,_that.showNotificationStopAction,_that.autoLaunch,_that.silentLaunch,_that.autoRun,_that.openLogs,_that.closeConnections,_that.delayTestTimeout,_that.tabAnimation,_that.floatingNavigationBar,_that.autoCheckUpdate,_that.sidebarExpanded,_that.acceptedDisclaimerVersion,_that.minimizeOnExit,_that.hidden,_that.developerMode,_that.restoreStrategy,_that.showTrayTitle,_that.monochromeTrayIcon,_that.checkCertificate,_that.userAgents,_that.filters,_that.hideIp,_that.editorLineWrap,_that.editorFontSize,_that.serviceOrder,_that.disabledServices,_that.tableColumnWidths);case _:
+return $default(_that.locale,_that.dashboardWidgets,_that.onlyStatisticsProxy,_that.showNotificationStopAction,_that.autoLaunch,_that.silentLaunch,_that.autoRun,_that.openLogs,_that.closeConnections,_that.delayTestTimeout,_that.tabAnimation,_that.floatingNavigationBar,_that.autoCheckUpdate,_that.sidebarExpanded,_that.minimizeOnExit,_that.hidden,_that.developerMode,_that.showTrayTitle,_that.checkCertificate,_that.userAgents,_that.filters,_that.hideIp,_that.editorLineWrap,_that.editorFontSize,_that.serviceOrder,_that.disabledServices,_that.tableColumnWidths);case _:
   return orElse();
 
 }
@@ -482,10 +479,10 @@ return $default(_that.locale,_that.dashboardWidgets,_that.onlyStatisticsProxy,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? locale, @JsonKey(fromJson: dashboardWidgetsFromJson)  List<DashboardWidget> dashboardWidgets,  bool onlyStatisticsProxy,  bool showNotificationStopAction,  bool autoLaunch,  bool silentLaunch,  bool autoRun,  bool openLogs,  bool closeConnections,  int delayTestTimeout, @JsonKey(readValue: _readTabAnimation)  TabAnimation tabAnimation,  bool floatingNavigationBar,  bool autoCheckUpdate, @JsonKey(readValue: _readSidebarExpanded)  bool sidebarExpanded,  int acceptedDisclaimerVersion,  bool minimizeOnExit,  bool hidden,  bool developerMode,  RestoreStrategy restoreStrategy,  bool showTrayTitle,  bool monochromeTrayIcon,  bool checkCertificate, @JsonKey(readValue: _readUserAgents)  List<String> userAgents,  List<Filter> filters,  bool hideIp,  bool editorLineWrap,  EditorFontSize editorFontSize,  List<String> serviceOrder,  List<String> disabledServices,  Map<String, Map<String, double>> tableColumnWidths)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? locale, @JsonKey(fromJson: dashboardWidgetsFromJson)  List<DashboardWidget> dashboardWidgets,  bool onlyStatisticsProxy,  bool showNotificationStopAction,  bool autoLaunch,  bool silentLaunch,  bool autoRun,  bool openLogs,  bool closeConnections,  int delayTestTimeout, @JsonKey(readValue: _readTabAnimation)  TabAnimation tabAnimation,  bool floatingNavigationBar,  bool autoCheckUpdate, @JsonKey(readValue: _readSidebarExpanded)  bool sidebarExpanded,  bool minimizeOnExit,  bool hidden,  bool developerMode,  bool showTrayTitle,  bool checkCertificate, @JsonKey(readValue: _readUserAgents)  List<String> userAgents,  List<Filter> filters,  bool hideIp,  bool editorLineWrap,  EditorFontSize editorFontSize,  List<String> serviceOrder,  List<String> disabledServices,  Map<String, Map<String, double>> tableColumnWidths)  $default,) {final _that = this;
 switch (_that) {
 case _AppSettingProps():
-return $default(_that.locale,_that.dashboardWidgets,_that.onlyStatisticsProxy,_that.showNotificationStopAction,_that.autoLaunch,_that.silentLaunch,_that.autoRun,_that.openLogs,_that.closeConnections,_that.delayTestTimeout,_that.tabAnimation,_that.floatingNavigationBar,_that.autoCheckUpdate,_that.sidebarExpanded,_that.acceptedDisclaimerVersion,_that.minimizeOnExit,_that.hidden,_that.developerMode,_that.restoreStrategy,_that.showTrayTitle,_that.monochromeTrayIcon,_that.checkCertificate,_that.userAgents,_that.filters,_that.hideIp,_that.editorLineWrap,_that.editorFontSize,_that.serviceOrder,_that.disabledServices,_that.tableColumnWidths);case _:
+return $default(_that.locale,_that.dashboardWidgets,_that.onlyStatisticsProxy,_that.showNotificationStopAction,_that.autoLaunch,_that.silentLaunch,_that.autoRun,_that.openLogs,_that.closeConnections,_that.delayTestTimeout,_that.tabAnimation,_that.floatingNavigationBar,_that.autoCheckUpdate,_that.sidebarExpanded,_that.minimizeOnExit,_that.hidden,_that.developerMode,_that.showTrayTitle,_that.checkCertificate,_that.userAgents,_that.filters,_that.hideIp,_that.editorLineWrap,_that.editorFontSize,_that.serviceOrder,_that.disabledServices,_that.tableColumnWidths);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -502,10 +499,10 @@ return $default(_that.locale,_that.dashboardWidgets,_that.onlyStatisticsProxy,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? locale, @JsonKey(fromJson: dashboardWidgetsFromJson)  List<DashboardWidget> dashboardWidgets,  bool onlyStatisticsProxy,  bool showNotificationStopAction,  bool autoLaunch,  bool silentLaunch,  bool autoRun,  bool openLogs,  bool closeConnections,  int delayTestTimeout, @JsonKey(readValue: _readTabAnimation)  TabAnimation tabAnimation,  bool floatingNavigationBar,  bool autoCheckUpdate, @JsonKey(readValue: _readSidebarExpanded)  bool sidebarExpanded,  int acceptedDisclaimerVersion,  bool minimizeOnExit,  bool hidden,  bool developerMode,  RestoreStrategy restoreStrategy,  bool showTrayTitle,  bool monochromeTrayIcon,  bool checkCertificate, @JsonKey(readValue: _readUserAgents)  List<String> userAgents,  List<Filter> filters,  bool hideIp,  bool editorLineWrap,  EditorFontSize editorFontSize,  List<String> serviceOrder,  List<String> disabledServices,  Map<String, Map<String, double>> tableColumnWidths)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? locale, @JsonKey(fromJson: dashboardWidgetsFromJson)  List<DashboardWidget> dashboardWidgets,  bool onlyStatisticsProxy,  bool showNotificationStopAction,  bool autoLaunch,  bool silentLaunch,  bool autoRun,  bool openLogs,  bool closeConnections,  int delayTestTimeout, @JsonKey(readValue: _readTabAnimation)  TabAnimation tabAnimation,  bool floatingNavigationBar,  bool autoCheckUpdate, @JsonKey(readValue: _readSidebarExpanded)  bool sidebarExpanded,  bool minimizeOnExit,  bool hidden,  bool developerMode,  bool showTrayTitle,  bool checkCertificate, @JsonKey(readValue: _readUserAgents)  List<String> userAgents,  List<Filter> filters,  bool hideIp,  bool editorLineWrap,  EditorFontSize editorFontSize,  List<String> serviceOrder,  List<String> disabledServices,  Map<String, Map<String, double>> tableColumnWidths)?  $default,) {final _that = this;
 switch (_that) {
 case _AppSettingProps() when $default != null:
-return $default(_that.locale,_that.dashboardWidgets,_that.onlyStatisticsProxy,_that.showNotificationStopAction,_that.autoLaunch,_that.silentLaunch,_that.autoRun,_that.openLogs,_that.closeConnections,_that.delayTestTimeout,_that.tabAnimation,_that.floatingNavigationBar,_that.autoCheckUpdate,_that.sidebarExpanded,_that.acceptedDisclaimerVersion,_that.minimizeOnExit,_that.hidden,_that.developerMode,_that.restoreStrategy,_that.showTrayTitle,_that.monochromeTrayIcon,_that.checkCertificate,_that.userAgents,_that.filters,_that.hideIp,_that.editorLineWrap,_that.editorFontSize,_that.serviceOrder,_that.disabledServices,_that.tableColumnWidths);case _:
+return $default(_that.locale,_that.dashboardWidgets,_that.onlyStatisticsProxy,_that.showNotificationStopAction,_that.autoLaunch,_that.silentLaunch,_that.autoRun,_that.openLogs,_that.closeConnections,_that.delayTestTimeout,_that.tabAnimation,_that.floatingNavigationBar,_that.autoCheckUpdate,_that.sidebarExpanded,_that.minimizeOnExit,_that.hidden,_that.developerMode,_that.showTrayTitle,_that.checkCertificate,_that.userAgents,_that.filters,_that.hideIp,_that.editorLineWrap,_that.editorFontSize,_that.serviceOrder,_that.disabledServices,_that.tableColumnWidths);case _:
   return null;
 
 }
@@ -517,7 +514,7 @@ return $default(_that.locale,_that.dashboardWidgets,_that.onlyStatisticsProxy,_t
 @JsonSerializable()
 
 class _AppSettingProps implements AppSettingProps {
-  const _AppSettingProps({this.locale, @JsonKey(fromJson: dashboardWidgetsFromJson)  List<DashboardWidget> dashboardWidgets = defaultDashboardWidgets, this.onlyStatisticsProxy = false, this.showNotificationStopAction = true, this.autoLaunch = false, this.silentLaunch = false, this.autoRun = false, this.openLogs = false, this.closeConnections = true, this.delayTestTimeout = defaultDelayTestTimeout, @JsonKey(readValue: _readTabAnimation) this.tabAnimation = TabAnimation.fade, this.floatingNavigationBar = true, this.autoCheckUpdate = true, @JsonKey(readValue: _readSidebarExpanded) this.sidebarExpanded = true, this.acceptedDisclaimerVersion = 0, this.minimizeOnExit = true, this.hidden = false, this.developerMode = false, this.restoreStrategy = RestoreStrategy.compatible, this.showTrayTitle = true, this.monochromeTrayIcon = true, this.checkCertificate = true, @JsonKey(readValue: _readUserAgents)  List<String> userAgents = defaultUserAgents,  List<Filter> filters = defaultFilters, this.hideIp = false, this.editorLineWrap = false, this.editorFontSize = EditorFontSize.standard,  List<String> serviceOrder = const [],  List<String> disabledServices = const [],  Map<String, Map<String, double>> tableColumnWidths = const {}}): _dashboardWidgets = dashboardWidgets,_userAgents = userAgents,_filters = filters,_serviceOrder = serviceOrder,_disabledServices = disabledServices,_tableColumnWidths = tableColumnWidths;
+  const _AppSettingProps({this.locale, @JsonKey(fromJson: dashboardWidgetsFromJson)  List<DashboardWidget> dashboardWidgets = defaultDashboardWidgets, this.onlyStatisticsProxy = false, this.showNotificationStopAction = true, this.autoLaunch = false, this.silentLaunch = false, this.autoRun = false, this.openLogs = false, this.closeConnections = true, this.delayTestTimeout = defaultDelayTestTimeout, @JsonKey(readValue: _readTabAnimation) this.tabAnimation = TabAnimation.fade, this.floatingNavigationBar = true, this.autoCheckUpdate = true, @JsonKey(readValue: _readSidebarExpanded) this.sidebarExpanded = true, this.minimizeOnExit = true, this.hidden = false, this.developerMode = false, this.showTrayTitle = true, this.checkCertificate = true, @JsonKey(readValue: _readUserAgents)  List<String> userAgents = defaultUserAgents,  List<Filter> filters = defaultFilters, this.hideIp = false, this.editorLineWrap = false, this.editorFontSize = EditorFontSize.standard,  List<String> serviceOrder = const [],  List<String> disabledServices = const [],  Map<String, Map<String, double>> tableColumnWidths = const {}}): _dashboardWidgets = dashboardWidgets,_userAgents = userAgents,_filters = filters,_serviceOrder = serviceOrder,_disabledServices = disabledServices,_tableColumnWidths = tableColumnWidths;
   factory _AppSettingProps.fromJson(Map<String, dynamic> json) => _$AppSettingPropsFromJson(json);
 
 @override final  String? locale;
@@ -540,13 +537,10 @@ class _AppSettingProps implements AppSettingProps {
 @override@JsonKey() final  bool floatingNavigationBar;
 @override@JsonKey() final  bool autoCheckUpdate;
 @override@JsonKey(readValue: _readSidebarExpanded) final  bool sidebarExpanded;
-@override@JsonKey() final  int acceptedDisclaimerVersion;
 @override@JsonKey() final  bool minimizeOnExit;
 @override@JsonKey() final  bool hidden;
 @override@JsonKey() final  bool developerMode;
-@override@JsonKey() final  RestoreStrategy restoreStrategy;
 @override@JsonKey() final  bool showTrayTitle;
-@override@JsonKey() final  bool monochromeTrayIcon;
 @override@JsonKey() final  bool checkCertificate;
  final  List<String> _userAgents;
 @override@JsonKey(readValue: _readUserAgents) List<String> get userAgents {
@@ -600,18 +594,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppSettingProps&&(identical(other.locale, locale) || other.locale == locale)&&const DeepCollectionEquality().equals(other.dashboardWidgets, _dashboardWidgets)&&(identical(other.onlyStatisticsProxy, onlyStatisticsProxy) || other.onlyStatisticsProxy == onlyStatisticsProxy)&&(identical(other.showNotificationStopAction, showNotificationStopAction) || other.showNotificationStopAction == showNotificationStopAction)&&(identical(other.autoLaunch, autoLaunch) || other.autoLaunch == autoLaunch)&&(identical(other.silentLaunch, silentLaunch) || other.silentLaunch == silentLaunch)&&(identical(other.autoRun, autoRun) || other.autoRun == autoRun)&&(identical(other.openLogs, openLogs) || other.openLogs == openLogs)&&(identical(other.closeConnections, closeConnections) || other.closeConnections == closeConnections)&&(identical(other.delayTestTimeout, delayTestTimeout) || other.delayTestTimeout == delayTestTimeout)&&(identical(other.tabAnimation, tabAnimation) || other.tabAnimation == tabAnimation)&&(identical(other.floatingNavigationBar, floatingNavigationBar) || other.floatingNavigationBar == floatingNavigationBar)&&(identical(other.autoCheckUpdate, autoCheckUpdate) || other.autoCheckUpdate == autoCheckUpdate)&&(identical(other.sidebarExpanded, sidebarExpanded) || other.sidebarExpanded == sidebarExpanded)&&(identical(other.acceptedDisclaimerVersion, acceptedDisclaimerVersion) || other.acceptedDisclaimerVersion == acceptedDisclaimerVersion)&&(identical(other.minimizeOnExit, minimizeOnExit) || other.minimizeOnExit == minimizeOnExit)&&(identical(other.hidden, hidden) || other.hidden == hidden)&&(identical(other.developerMode, developerMode) || other.developerMode == developerMode)&&(identical(other.restoreStrategy, restoreStrategy) || other.restoreStrategy == restoreStrategy)&&(identical(other.showTrayTitle, showTrayTitle) || other.showTrayTitle == showTrayTitle)&&(identical(other.monochromeTrayIcon, monochromeTrayIcon) || other.monochromeTrayIcon == monochromeTrayIcon)&&(identical(other.checkCertificate, checkCertificate) || other.checkCertificate == checkCertificate)&&const DeepCollectionEquality().equals(other.userAgents, _userAgents)&&const DeepCollectionEquality().equals(other.filters, _filters)&&(identical(other.hideIp, hideIp) || other.hideIp == hideIp)&&(identical(other.editorLineWrap, editorLineWrap) || other.editorLineWrap == editorLineWrap)&&(identical(other.editorFontSize, editorFontSize) || other.editorFontSize == editorFontSize)&&const DeepCollectionEquality().equals(other.serviceOrder, _serviceOrder)&&const DeepCollectionEquality().equals(other.disabledServices, _disabledServices)&&const DeepCollectionEquality().equals(other.tableColumnWidths, _tableColumnWidths));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppSettingProps&&(identical(other.locale, locale) || other.locale == locale)&&const DeepCollectionEquality().equals(other.dashboardWidgets, _dashboardWidgets)&&(identical(other.onlyStatisticsProxy, onlyStatisticsProxy) || other.onlyStatisticsProxy == onlyStatisticsProxy)&&(identical(other.showNotificationStopAction, showNotificationStopAction) || other.showNotificationStopAction == showNotificationStopAction)&&(identical(other.autoLaunch, autoLaunch) || other.autoLaunch == autoLaunch)&&(identical(other.silentLaunch, silentLaunch) || other.silentLaunch == silentLaunch)&&(identical(other.autoRun, autoRun) || other.autoRun == autoRun)&&(identical(other.openLogs, openLogs) || other.openLogs == openLogs)&&(identical(other.closeConnections, closeConnections) || other.closeConnections == closeConnections)&&(identical(other.delayTestTimeout, delayTestTimeout) || other.delayTestTimeout == delayTestTimeout)&&(identical(other.tabAnimation, tabAnimation) || other.tabAnimation == tabAnimation)&&(identical(other.floatingNavigationBar, floatingNavigationBar) || other.floatingNavigationBar == floatingNavigationBar)&&(identical(other.autoCheckUpdate, autoCheckUpdate) || other.autoCheckUpdate == autoCheckUpdate)&&(identical(other.sidebarExpanded, sidebarExpanded) || other.sidebarExpanded == sidebarExpanded)&&(identical(other.minimizeOnExit, minimizeOnExit) || other.minimizeOnExit == minimizeOnExit)&&(identical(other.hidden, hidden) || other.hidden == hidden)&&(identical(other.developerMode, developerMode) || other.developerMode == developerMode)&&(identical(other.showTrayTitle, showTrayTitle) || other.showTrayTitle == showTrayTitle)&&(identical(other.checkCertificate, checkCertificate) || other.checkCertificate == checkCertificate)&&const DeepCollectionEquality().equals(other.userAgents, _userAgents)&&const DeepCollectionEquality().equals(other.filters, _filters)&&(identical(other.hideIp, hideIp) || other.hideIp == hideIp)&&(identical(other.editorLineWrap, editorLineWrap) || other.editorLineWrap == editorLineWrap)&&(identical(other.editorFontSize, editorFontSize) || other.editorFontSize == editorFontSize)&&const DeepCollectionEquality().equals(other.serviceOrder, _serviceOrder)&&const DeepCollectionEquality().equals(other.disabledServices, _disabledServices)&&const DeepCollectionEquality().equals(other.tableColumnWidths, _tableColumnWidths));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hashAll([runtimeType,locale,const DeepCollectionEquality().hash(_dashboardWidgets),onlyStatisticsProxy,showNotificationStopAction,autoLaunch,silentLaunch,autoRun,openLogs,closeConnections,delayTestTimeout,tabAnimation,floatingNavigationBar,autoCheckUpdate,sidebarExpanded,acceptedDisclaimerVersion,minimizeOnExit,hidden,developerMode,restoreStrategy,showTrayTitle,monochromeTrayIcon,checkCertificate,const DeepCollectionEquality().hash(_userAgents),const DeepCollectionEquality().hash(_filters),hideIp,editorLineWrap,editorFontSize,const DeepCollectionEquality().hash(_serviceOrder),const DeepCollectionEquality().hash(_disabledServices),const DeepCollectionEquality().hash(_tableColumnWidths)]);
+    return Object.hashAll([runtimeType,locale,const DeepCollectionEquality().hash(_dashboardWidgets),onlyStatisticsProxy,showNotificationStopAction,autoLaunch,silentLaunch,autoRun,openLogs,closeConnections,delayTestTimeout,tabAnimation,floatingNavigationBar,autoCheckUpdate,sidebarExpanded,minimizeOnExit,hidden,developerMode,showTrayTitle,checkCertificate,const DeepCollectionEquality().hash(_userAgents),const DeepCollectionEquality().hash(_filters),hideIp,editorLineWrap,editorFontSize,const DeepCollectionEquality().hash(_serviceOrder),const DeepCollectionEquality().hash(_disabledServices),const DeepCollectionEquality().hash(_tableColumnWidths)]);
 }
 
 @override
 String toString() {
-    return 'AppSettingProps(locale: $locale, dashboardWidgets: $dashboardWidgets, onlyStatisticsProxy: $onlyStatisticsProxy, showNotificationStopAction: $showNotificationStopAction, autoLaunch: $autoLaunch, silentLaunch: $silentLaunch, autoRun: $autoRun, openLogs: $openLogs, closeConnections: $closeConnections, delayTestTimeout: $delayTestTimeout, tabAnimation: $tabAnimation, floatingNavigationBar: $floatingNavigationBar, autoCheckUpdate: $autoCheckUpdate, sidebarExpanded: $sidebarExpanded, acceptedDisclaimerVersion: $acceptedDisclaimerVersion, minimizeOnExit: $minimizeOnExit, hidden: $hidden, developerMode: $developerMode, restoreStrategy: $restoreStrategy, showTrayTitle: $showTrayTitle, monochromeTrayIcon: $monochromeTrayIcon, checkCertificate: $checkCertificate, userAgents: $userAgents, filters: $filters, hideIp: $hideIp, editorLineWrap: $editorLineWrap, editorFontSize: $editorFontSize, serviceOrder: $serviceOrder, disabledServices: $disabledServices, tableColumnWidths: $tableColumnWidths)';
+    return 'AppSettingProps(locale: $locale, dashboardWidgets: $dashboardWidgets, onlyStatisticsProxy: $onlyStatisticsProxy, showNotificationStopAction: $showNotificationStopAction, autoLaunch: $autoLaunch, silentLaunch: $silentLaunch, autoRun: $autoRun, openLogs: $openLogs, closeConnections: $closeConnections, delayTestTimeout: $delayTestTimeout, tabAnimation: $tabAnimation, floatingNavigationBar: $floatingNavigationBar, autoCheckUpdate: $autoCheckUpdate, sidebarExpanded: $sidebarExpanded, minimizeOnExit: $minimizeOnExit, hidden: $hidden, developerMode: $developerMode, showTrayTitle: $showTrayTitle, checkCertificate: $checkCertificate, userAgents: $userAgents, filters: $filters, hideIp: $hideIp, editorLineWrap: $editorLineWrap, editorFontSize: $editorFontSize, serviceOrder: $serviceOrder, disabledServices: $disabledServices, tableColumnWidths: $tableColumnWidths)';
 }
 
 
@@ -622,7 +616,7 @@ abstract mixin class _$AppSettingPropsCopyWith<$Res> implements $AppSettingProps
   factory _$AppSettingPropsCopyWith(_AppSettingProps value, $Res Function(_AppSettingProps) _then) = __$AppSettingPropsCopyWithImpl;
 @override @useResult
 $Res call({
- String? locale,@JsonKey(fromJson: dashboardWidgetsFromJson) List<DashboardWidget> dashboardWidgets, bool onlyStatisticsProxy, bool showNotificationStopAction, bool autoLaunch, bool silentLaunch, bool autoRun, bool openLogs, bool closeConnections, int delayTestTimeout,@JsonKey(readValue: _readTabAnimation) TabAnimation tabAnimation, bool floatingNavigationBar, bool autoCheckUpdate,@JsonKey(readValue: _readSidebarExpanded) bool sidebarExpanded, int acceptedDisclaimerVersion, bool minimizeOnExit, bool hidden, bool developerMode, RestoreStrategy restoreStrategy, bool showTrayTitle, bool monochromeTrayIcon, bool checkCertificate,@JsonKey(readValue: _readUserAgents) List<String> userAgents, List<Filter> filters, bool hideIp, bool editorLineWrap, EditorFontSize editorFontSize, List<String> serviceOrder, List<String> disabledServices, Map<String, Map<String, double>> tableColumnWidths
+ String? locale,@JsonKey(fromJson: dashboardWidgetsFromJson) List<DashboardWidget> dashboardWidgets, bool onlyStatisticsProxy, bool showNotificationStopAction, bool autoLaunch, bool silentLaunch, bool autoRun, bool openLogs, bool closeConnections, int delayTestTimeout,@JsonKey(readValue: _readTabAnimation) TabAnimation tabAnimation, bool floatingNavigationBar, bool autoCheckUpdate,@JsonKey(readValue: _readSidebarExpanded) bool sidebarExpanded, bool minimizeOnExit, bool hidden, bool developerMode, bool showTrayTitle, bool checkCertificate,@JsonKey(readValue: _readUserAgents) List<String> userAgents, List<Filter> filters, bool hideIp, bool editorLineWrap, EditorFontSize editorFontSize, List<String> serviceOrder, List<String> disabledServices, Map<String, Map<String, double>> tableColumnWidths
 });
 
 
@@ -639,7 +633,7 @@ class __$AppSettingPropsCopyWithImpl<$Res>
 
 /// Create a copy of AppSettingProps
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? locale = freezed,Object? dashboardWidgets = null,Object? onlyStatisticsProxy = null,Object? showNotificationStopAction = null,Object? autoLaunch = null,Object? silentLaunch = null,Object? autoRun = null,Object? openLogs = null,Object? closeConnections = null,Object? delayTestTimeout = null,Object? tabAnimation = null,Object? floatingNavigationBar = null,Object? autoCheckUpdate = null,Object? sidebarExpanded = null,Object? acceptedDisclaimerVersion = null,Object? minimizeOnExit = null,Object? hidden = null,Object? developerMode = null,Object? restoreStrategy = null,Object? showTrayTitle = null,Object? monochromeTrayIcon = null,Object? checkCertificate = null,Object? userAgents = null,Object? filters = null,Object? hideIp = null,Object? editorLineWrap = null,Object? editorFontSize = null,Object? serviceOrder = null,Object? disabledServices = null,Object? tableColumnWidths = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? locale = freezed,Object? dashboardWidgets = null,Object? onlyStatisticsProxy = null,Object? showNotificationStopAction = null,Object? autoLaunch = null,Object? silentLaunch = null,Object? autoRun = null,Object? openLogs = null,Object? closeConnections = null,Object? delayTestTimeout = null,Object? tabAnimation = null,Object? floatingNavigationBar = null,Object? autoCheckUpdate = null,Object? sidebarExpanded = null,Object? minimizeOnExit = null,Object? hidden = null,Object? developerMode = null,Object? showTrayTitle = null,Object? checkCertificate = null,Object? userAgents = null,Object? filters = null,Object? hideIp = null,Object? editorLineWrap = null,Object? editorFontSize = null,Object? serviceOrder = null,Object? disabledServices = null,Object? tableColumnWidths = null,}) {
   return _then(_AppSettingProps(
 locale: freezed == locale ? _self.locale : locale // ignore: cast_nullable_to_non_nullable
 as String?,dashboardWidgets: null == dashboardWidgets ? _self._dashboardWidgets : dashboardWidgets // ignore: cast_nullable_to_non_nullable
@@ -655,13 +649,10 @@ as int,tabAnimation: null == tabAnimation ? _self.tabAnimation : tabAnimation //
 as TabAnimation,floatingNavigationBar: null == floatingNavigationBar ? _self.floatingNavigationBar : floatingNavigationBar // ignore: cast_nullable_to_non_nullable
 as bool,autoCheckUpdate: null == autoCheckUpdate ? _self.autoCheckUpdate : autoCheckUpdate // ignore: cast_nullable_to_non_nullable
 as bool,sidebarExpanded: null == sidebarExpanded ? _self.sidebarExpanded : sidebarExpanded // ignore: cast_nullable_to_non_nullable
-as bool,acceptedDisclaimerVersion: null == acceptedDisclaimerVersion ? _self.acceptedDisclaimerVersion : acceptedDisclaimerVersion // ignore: cast_nullable_to_non_nullable
-as int,minimizeOnExit: null == minimizeOnExit ? _self.minimizeOnExit : minimizeOnExit // ignore: cast_nullable_to_non_nullable
+as bool,minimizeOnExit: null == minimizeOnExit ? _self.minimizeOnExit : minimizeOnExit // ignore: cast_nullable_to_non_nullable
 as bool,hidden: null == hidden ? _self.hidden : hidden // ignore: cast_nullable_to_non_nullable
 as bool,developerMode: null == developerMode ? _self.developerMode : developerMode // ignore: cast_nullable_to_non_nullable
-as bool,restoreStrategy: null == restoreStrategy ? _self.restoreStrategy : restoreStrategy // ignore: cast_nullable_to_non_nullable
-as RestoreStrategy,showTrayTitle: null == showTrayTitle ? _self.showTrayTitle : showTrayTitle // ignore: cast_nullable_to_non_nullable
-as bool,monochromeTrayIcon: null == monochromeTrayIcon ? _self.monochromeTrayIcon : monochromeTrayIcon // ignore: cast_nullable_to_non_nullable
+as bool,showTrayTitle: null == showTrayTitle ? _self.showTrayTitle : showTrayTitle // ignore: cast_nullable_to_non_nullable
 as bool,checkCertificate: null == checkCertificate ? _self.checkCertificate : checkCertificate // ignore: cast_nullable_to_non_nullable
 as bool,userAgents: null == userAgents ? _self._userAgents : userAgents // ignore: cast_nullable_to_non_nullable
 as List<String>,filters: null == filters ? _self._filters : filters // ignore: cast_nullable_to_non_nullable
@@ -3028,7 +3019,7 @@ $TextScaleCopyWith<$Res> get textScale {
 /// @nodoc
 mixin _$Config {
 
- int? get currentProfileId; List<HotKeyAction> get hotKeyActions;@JsonKey(fromJson: AppSettingProps.safeFromJson) AppSettingProps get appSettingProps; DAVProps? get davProps; NetworkProps get networkProps; VpnProps get vpnProps;@JsonKey(fromJson: ThemeProps.safeFromJson) ThemeProps get themeProps; ProxiesStyleProps get proxiesStyleProps;@JsonKey(name: 'windowGeometry') WindowProps get windowProps; PatchClashConfig get patchClashConfig; List<String> get excludeSSIDs;
+ int? get currentProfileId; List<HotKeyAction> get hotKeyActions;@JsonKey(fromJson: AppSettingProps.safeFromJson) AppSettingProps get appSettingProps; NetworkProps get networkProps; VpnProps get vpnProps;@JsonKey(fromJson: ThemeProps.safeFromJson) ThemeProps get themeProps; ProxiesStyleProps get proxiesStyleProps;@JsonKey(name: 'windowGeometry') WindowProps get windowProps; PatchClashConfig get patchClashConfig; List<String> get excludeSSIDs;
 /// Create a copy of Config
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -3042,20 +3033,20 @@ $ConfigCopyWith<Config> get copyWith => _$ConfigCopyWithImpl<Config>(this as Con
 @override
 bool operator ==(Object other) {
   final _this = this as Config;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Config&&(identical(other.currentProfileId, _this.currentProfileId) || other.currentProfileId == _this.currentProfileId)&&const DeepCollectionEquality().equals(other.hotKeyActions, _this.hotKeyActions)&&(identical(other.appSettingProps, _this.appSettingProps) || other.appSettingProps == _this.appSettingProps)&&(identical(other.davProps, _this.davProps) || other.davProps == _this.davProps)&&(identical(other.networkProps, _this.networkProps) || other.networkProps == _this.networkProps)&&(identical(other.vpnProps, _this.vpnProps) || other.vpnProps == _this.vpnProps)&&(identical(other.themeProps, _this.themeProps) || other.themeProps == _this.themeProps)&&(identical(other.proxiesStyleProps, _this.proxiesStyleProps) || other.proxiesStyleProps == _this.proxiesStyleProps)&&(identical(other.windowProps, _this.windowProps) || other.windowProps == _this.windowProps)&&(identical(other.patchClashConfig, _this.patchClashConfig) || other.patchClashConfig == _this.patchClashConfig)&&const DeepCollectionEquality().equals(other.excludeSSIDs, _this.excludeSSIDs));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Config&&(identical(other.currentProfileId, _this.currentProfileId) || other.currentProfileId == _this.currentProfileId)&&const DeepCollectionEquality().equals(other.hotKeyActions, _this.hotKeyActions)&&(identical(other.appSettingProps, _this.appSettingProps) || other.appSettingProps == _this.appSettingProps)&&(identical(other.networkProps, _this.networkProps) || other.networkProps == _this.networkProps)&&(identical(other.vpnProps, _this.vpnProps) || other.vpnProps == _this.vpnProps)&&(identical(other.themeProps, _this.themeProps) || other.themeProps == _this.themeProps)&&(identical(other.proxiesStyleProps, _this.proxiesStyleProps) || other.proxiesStyleProps == _this.proxiesStyleProps)&&(identical(other.windowProps, _this.windowProps) || other.windowProps == _this.windowProps)&&(identical(other.patchClashConfig, _this.patchClashConfig) || other.patchClashConfig == _this.patchClashConfig)&&const DeepCollectionEquality().equals(other.excludeSSIDs, _this.excludeSSIDs));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as Config;
-  return Object.hash(runtimeType,_this.currentProfileId,const DeepCollectionEquality().hash(_this.hotKeyActions),_this.appSettingProps,_this.davProps,_this.networkProps,_this.vpnProps,_this.themeProps,_this.proxiesStyleProps,_this.windowProps,_this.patchClashConfig,const DeepCollectionEquality().hash(_this.excludeSSIDs));
+  return Object.hash(runtimeType,_this.currentProfileId,const DeepCollectionEquality().hash(_this.hotKeyActions),_this.appSettingProps,_this.networkProps,_this.vpnProps,_this.themeProps,_this.proxiesStyleProps,_this.windowProps,_this.patchClashConfig,const DeepCollectionEquality().hash(_this.excludeSSIDs));
 }
 
 @override
 String toString() {
   final _this = this as Config;
-  return 'Config(currentProfileId: ${_this.currentProfileId}, hotKeyActions: ${_this.hotKeyActions}, appSettingProps: ${_this.appSettingProps}, davProps: ${_this.davProps}, networkProps: ${_this.networkProps}, vpnProps: ${_this.vpnProps}, themeProps: ${_this.themeProps}, proxiesStyleProps: ${_this.proxiesStyleProps}, windowProps: ${_this.windowProps}, patchClashConfig: ${_this.patchClashConfig}, excludeSSIDs: ${_this.excludeSSIDs})';
+  return 'Config(currentProfileId: ${_this.currentProfileId}, hotKeyActions: ${_this.hotKeyActions}, appSettingProps: ${_this.appSettingProps}, networkProps: ${_this.networkProps}, vpnProps: ${_this.vpnProps}, themeProps: ${_this.themeProps}, proxiesStyleProps: ${_this.proxiesStyleProps}, windowProps: ${_this.windowProps}, patchClashConfig: ${_this.patchClashConfig}, excludeSSIDs: ${_this.excludeSSIDs})';
 }
 
 
@@ -3066,11 +3057,11 @@ abstract mixin class $ConfigCopyWith<$Res>  {
   factory $ConfigCopyWith(Config value, $Res Function(Config) _then) = _$ConfigCopyWithImpl;
 @useResult
 $Res call({
- int? currentProfileId, List<HotKeyAction> hotKeyActions,@JsonKey(fromJson: AppSettingProps.safeFromJson) AppSettingProps appSettingProps, DAVProps? davProps, NetworkProps networkProps, VpnProps vpnProps,@JsonKey(fromJson: ThemeProps.safeFromJson) ThemeProps themeProps, ProxiesStyleProps proxiesStyleProps,@JsonKey(name: 'windowGeometry') WindowProps windowProps, PatchClashConfig patchClashConfig, List<String> excludeSSIDs
+ int? currentProfileId, List<HotKeyAction> hotKeyActions,@JsonKey(fromJson: AppSettingProps.safeFromJson) AppSettingProps appSettingProps, NetworkProps networkProps, VpnProps vpnProps,@JsonKey(fromJson: ThemeProps.safeFromJson) ThemeProps themeProps, ProxiesStyleProps proxiesStyleProps,@JsonKey(name: 'windowGeometry') WindowProps windowProps, PatchClashConfig patchClashConfig, List<String> excludeSSIDs
 });
 
 
-$AppSettingPropsCopyWith<$Res> get appSettingProps;$DAVPropsCopyWith<$Res>? get davProps;$NetworkPropsCopyWith<$Res> get networkProps;$VpnPropsCopyWith<$Res> get vpnProps;$ThemePropsCopyWith<$Res> get themeProps;$ProxiesStylePropsCopyWith<$Res> get proxiesStyleProps;$WindowPropsCopyWith<$Res> get windowProps;$PatchClashConfigCopyWith<$Res> get patchClashConfig;
+$AppSettingPropsCopyWith<$Res> get appSettingProps;$NetworkPropsCopyWith<$Res> get networkProps;$VpnPropsCopyWith<$Res> get vpnProps;$ThemePropsCopyWith<$Res> get themeProps;$ProxiesStylePropsCopyWith<$Res> get proxiesStyleProps;$WindowPropsCopyWith<$Res> get windowProps;$PatchClashConfigCopyWith<$Res> get patchClashConfig;
 
 }
 /// @nodoc
@@ -3083,13 +3074,12 @@ class _$ConfigCopyWithImpl<$Res>
 
 /// Create a copy of Config
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? currentProfileId = freezed,Object? hotKeyActions = null,Object? appSettingProps = null,Object? davProps = freezed,Object? networkProps = null,Object? vpnProps = null,Object? themeProps = null,Object? proxiesStyleProps = null,Object? windowProps = null,Object? patchClashConfig = null,Object? excludeSSIDs = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? currentProfileId = freezed,Object? hotKeyActions = null,Object? appSettingProps = null,Object? networkProps = null,Object? vpnProps = null,Object? themeProps = null,Object? proxiesStyleProps = null,Object? windowProps = null,Object? patchClashConfig = null,Object? excludeSSIDs = null,}) {
   return _then(Config(
 currentProfileId: freezed == currentProfileId ? _self.currentProfileId : currentProfileId // ignore: cast_nullable_to_non_nullable
 as int?,hotKeyActions: null == hotKeyActions ? _self.hotKeyActions : hotKeyActions // ignore: cast_nullable_to_non_nullable
 as List<HotKeyAction>,appSettingProps: null == appSettingProps ? _self.appSettingProps : appSettingProps // ignore: cast_nullable_to_non_nullable
-as AppSettingProps,davProps: freezed == davProps ? _self.davProps : davProps // ignore: cast_nullable_to_non_nullable
-as DAVProps?,networkProps: null == networkProps ? _self.networkProps : networkProps // ignore: cast_nullable_to_non_nullable
+as AppSettingProps,networkProps: null == networkProps ? _self.networkProps : networkProps // ignore: cast_nullable_to_non_nullable
 as NetworkProps,vpnProps: null == vpnProps ? _self.vpnProps : vpnProps // ignore: cast_nullable_to_non_nullable
 as VpnProps,themeProps: null == themeProps ? _self.themeProps : themeProps // ignore: cast_nullable_to_non_nullable
 as ThemeProps,proxiesStyleProps: null == proxiesStyleProps ? _self.proxiesStyleProps : proxiesStyleProps // ignore: cast_nullable_to_non_nullable
@@ -3107,18 +3097,6 @@ $AppSettingPropsCopyWith<$Res> get appSettingProps {
   
   return $AppSettingPropsCopyWith<$Res>(_self.appSettingProps, (value) {
     return _then(_self.copyWith(appSettingProps: value));
-  });
-}/// Create a copy of Config
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$DAVPropsCopyWith<$Res>? get davProps {
-    if (_self.davProps == null) {
-    return null;
-  }
-
-  return $DAVPropsCopyWith<$Res>(_self.davProps!, (value) {
-    return _then(_self.copyWith(davProps: value));
   });
 }/// Create a copy of Config
 /// with the given fields replaced by the non-null parameter values.
@@ -3256,10 +3234,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? currentProfileId,  List<HotKeyAction> hotKeyActions, @JsonKey(fromJson: AppSettingProps.safeFromJson)  AppSettingProps appSettingProps,  DAVProps? davProps,  NetworkProps networkProps,  VpnProps vpnProps, @JsonKey(fromJson: ThemeProps.safeFromJson)  ThemeProps themeProps,  ProxiesStyleProps proxiesStyleProps, @JsonKey(name: 'windowGeometry')  WindowProps windowProps,  PatchClashConfig patchClashConfig,  List<String> excludeSSIDs)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? currentProfileId,  List<HotKeyAction> hotKeyActions, @JsonKey(fromJson: AppSettingProps.safeFromJson)  AppSettingProps appSettingProps,  NetworkProps networkProps,  VpnProps vpnProps, @JsonKey(fromJson: ThemeProps.safeFromJson)  ThemeProps themeProps,  ProxiesStyleProps proxiesStyleProps, @JsonKey(name: 'windowGeometry')  WindowProps windowProps,  PatchClashConfig patchClashConfig,  List<String> excludeSSIDs)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Config() when $default != null:
-return $default(_that.currentProfileId,_that.hotKeyActions,_that.appSettingProps,_that.davProps,_that.networkProps,_that.vpnProps,_that.themeProps,_that.proxiesStyleProps,_that.windowProps,_that.patchClashConfig,_that.excludeSSIDs);case _:
+return $default(_that.currentProfileId,_that.hotKeyActions,_that.appSettingProps,_that.networkProps,_that.vpnProps,_that.themeProps,_that.proxiesStyleProps,_that.windowProps,_that.patchClashConfig,_that.excludeSSIDs);case _:
   return orElse();
 
 }
@@ -3277,10 +3255,10 @@ return $default(_that.currentProfileId,_that.hotKeyActions,_that.appSettingProps
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? currentProfileId,  List<HotKeyAction> hotKeyActions, @JsonKey(fromJson: AppSettingProps.safeFromJson)  AppSettingProps appSettingProps,  DAVProps? davProps,  NetworkProps networkProps,  VpnProps vpnProps, @JsonKey(fromJson: ThemeProps.safeFromJson)  ThemeProps themeProps,  ProxiesStyleProps proxiesStyleProps, @JsonKey(name: 'windowGeometry')  WindowProps windowProps,  PatchClashConfig patchClashConfig,  List<String> excludeSSIDs)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? currentProfileId,  List<HotKeyAction> hotKeyActions, @JsonKey(fromJson: AppSettingProps.safeFromJson)  AppSettingProps appSettingProps,  NetworkProps networkProps,  VpnProps vpnProps, @JsonKey(fromJson: ThemeProps.safeFromJson)  ThemeProps themeProps,  ProxiesStyleProps proxiesStyleProps, @JsonKey(name: 'windowGeometry')  WindowProps windowProps,  PatchClashConfig patchClashConfig,  List<String> excludeSSIDs)  $default,) {final _that = this;
 switch (_that) {
 case _Config():
-return $default(_that.currentProfileId,_that.hotKeyActions,_that.appSettingProps,_that.davProps,_that.networkProps,_that.vpnProps,_that.themeProps,_that.proxiesStyleProps,_that.windowProps,_that.patchClashConfig,_that.excludeSSIDs);case _:
+return $default(_that.currentProfileId,_that.hotKeyActions,_that.appSettingProps,_that.networkProps,_that.vpnProps,_that.themeProps,_that.proxiesStyleProps,_that.windowProps,_that.patchClashConfig,_that.excludeSSIDs);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -3297,10 +3275,10 @@ return $default(_that.currentProfileId,_that.hotKeyActions,_that.appSettingProps
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? currentProfileId,  List<HotKeyAction> hotKeyActions, @JsonKey(fromJson: AppSettingProps.safeFromJson)  AppSettingProps appSettingProps,  DAVProps? davProps,  NetworkProps networkProps,  VpnProps vpnProps, @JsonKey(fromJson: ThemeProps.safeFromJson)  ThemeProps themeProps,  ProxiesStyleProps proxiesStyleProps, @JsonKey(name: 'windowGeometry')  WindowProps windowProps,  PatchClashConfig patchClashConfig,  List<String> excludeSSIDs)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? currentProfileId,  List<HotKeyAction> hotKeyActions, @JsonKey(fromJson: AppSettingProps.safeFromJson)  AppSettingProps appSettingProps,  NetworkProps networkProps,  VpnProps vpnProps, @JsonKey(fromJson: ThemeProps.safeFromJson)  ThemeProps themeProps,  ProxiesStyleProps proxiesStyleProps, @JsonKey(name: 'windowGeometry')  WindowProps windowProps,  PatchClashConfig patchClashConfig,  List<String> excludeSSIDs)?  $default,) {final _that = this;
 switch (_that) {
 case _Config() when $default != null:
-return $default(_that.currentProfileId,_that.hotKeyActions,_that.appSettingProps,_that.davProps,_that.networkProps,_that.vpnProps,_that.themeProps,_that.proxiesStyleProps,_that.windowProps,_that.patchClashConfig,_that.excludeSSIDs);case _:
+return $default(_that.currentProfileId,_that.hotKeyActions,_that.appSettingProps,_that.networkProps,_that.vpnProps,_that.themeProps,_that.proxiesStyleProps,_that.windowProps,_that.patchClashConfig,_that.excludeSSIDs);case _:
   return null;
 
 }
@@ -3312,7 +3290,7 @@ return $default(_that.currentProfileId,_that.hotKeyActions,_that.appSettingProps
 @JsonSerializable()
 
 class _Config implements Config {
-  const _Config({this.currentProfileId,  List<HotKeyAction> hotKeyActions = const [], @JsonKey(fromJson: AppSettingProps.safeFromJson) this.appSettingProps = defaultAppSettingProps, this.davProps, this.networkProps = defaultNetworkProps, this.vpnProps = defaultVpnProps, @JsonKey(fromJson: ThemeProps.safeFromJson) required this.themeProps, this.proxiesStyleProps = defaultProxiesStyleProps, @JsonKey(name: 'windowGeometry') this.windowProps = defaultWindowProps, this.patchClashConfig = defaultClashConfig,  List<String> excludeSSIDs = const []}): _hotKeyActions = hotKeyActions,_excludeSSIDs = excludeSSIDs;
+  const _Config({this.currentProfileId,  List<HotKeyAction> hotKeyActions = const [], @JsonKey(fromJson: AppSettingProps.safeFromJson) this.appSettingProps = defaultAppSettingProps, this.networkProps = defaultNetworkProps, this.vpnProps = defaultVpnProps, @JsonKey(fromJson: ThemeProps.safeFromJson) required this.themeProps, this.proxiesStyleProps = defaultProxiesStyleProps, @JsonKey(name: 'windowGeometry') this.windowProps = defaultWindowProps, this.patchClashConfig = defaultClashConfig,  List<String> excludeSSIDs = const []}): _hotKeyActions = hotKeyActions,_excludeSSIDs = excludeSSIDs;
   factory _Config.fromJson(Map<String, dynamic> json) => _$ConfigFromJson(json);
 
 @override final  int? currentProfileId;
@@ -3324,7 +3302,6 @@ class _Config implements Config {
 }
 
 @override@JsonKey(fromJson: AppSettingProps.safeFromJson) final  AppSettingProps appSettingProps;
-@override final  DAVProps? davProps;
 @override@JsonKey() final  NetworkProps networkProps;
 @override@JsonKey() final  VpnProps vpnProps;
 @override@JsonKey(fromJson: ThemeProps.safeFromJson) final  ThemeProps themeProps;
@@ -3352,18 +3329,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Config&&(identical(other.currentProfileId, currentProfileId) || other.currentProfileId == currentProfileId)&&const DeepCollectionEquality().equals(other.hotKeyActions, _hotKeyActions)&&(identical(other.appSettingProps, appSettingProps) || other.appSettingProps == appSettingProps)&&(identical(other.davProps, davProps) || other.davProps == davProps)&&(identical(other.networkProps, networkProps) || other.networkProps == networkProps)&&(identical(other.vpnProps, vpnProps) || other.vpnProps == vpnProps)&&(identical(other.themeProps, themeProps) || other.themeProps == themeProps)&&(identical(other.proxiesStyleProps, proxiesStyleProps) || other.proxiesStyleProps == proxiesStyleProps)&&(identical(other.windowProps, windowProps) || other.windowProps == windowProps)&&(identical(other.patchClashConfig, patchClashConfig) || other.patchClashConfig == patchClashConfig)&&const DeepCollectionEquality().equals(other.excludeSSIDs, _excludeSSIDs));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Config&&(identical(other.currentProfileId, currentProfileId) || other.currentProfileId == currentProfileId)&&const DeepCollectionEquality().equals(other.hotKeyActions, _hotKeyActions)&&(identical(other.appSettingProps, appSettingProps) || other.appSettingProps == appSettingProps)&&(identical(other.networkProps, networkProps) || other.networkProps == networkProps)&&(identical(other.vpnProps, vpnProps) || other.vpnProps == vpnProps)&&(identical(other.themeProps, themeProps) || other.themeProps == themeProps)&&(identical(other.proxiesStyleProps, proxiesStyleProps) || other.proxiesStyleProps == proxiesStyleProps)&&(identical(other.windowProps, windowProps) || other.windowProps == windowProps)&&(identical(other.patchClashConfig, patchClashConfig) || other.patchClashConfig == patchClashConfig)&&const DeepCollectionEquality().equals(other.excludeSSIDs, _excludeSSIDs));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,currentProfileId,const DeepCollectionEquality().hash(_hotKeyActions),appSettingProps,davProps,networkProps,vpnProps,themeProps,proxiesStyleProps,windowProps,patchClashConfig,const DeepCollectionEquality().hash(_excludeSSIDs));
+    return Object.hash(runtimeType,currentProfileId,const DeepCollectionEquality().hash(_hotKeyActions),appSettingProps,networkProps,vpnProps,themeProps,proxiesStyleProps,windowProps,patchClashConfig,const DeepCollectionEquality().hash(_excludeSSIDs));
 }
 
 @override
 String toString() {
-    return 'Config(currentProfileId: $currentProfileId, hotKeyActions: $hotKeyActions, appSettingProps: $appSettingProps, davProps: $davProps, networkProps: $networkProps, vpnProps: $vpnProps, themeProps: $themeProps, proxiesStyleProps: $proxiesStyleProps, windowProps: $windowProps, patchClashConfig: $patchClashConfig, excludeSSIDs: $excludeSSIDs)';
+    return 'Config(currentProfileId: $currentProfileId, hotKeyActions: $hotKeyActions, appSettingProps: $appSettingProps, networkProps: $networkProps, vpnProps: $vpnProps, themeProps: $themeProps, proxiesStyleProps: $proxiesStyleProps, windowProps: $windowProps, patchClashConfig: $patchClashConfig, excludeSSIDs: $excludeSSIDs)';
 }
 
 
@@ -3374,11 +3351,11 @@ abstract mixin class _$ConfigCopyWith<$Res> implements $ConfigCopyWith<$Res> {
   factory _$ConfigCopyWith(_Config value, $Res Function(_Config) _then) = __$ConfigCopyWithImpl;
 @override @useResult
 $Res call({
- int? currentProfileId, List<HotKeyAction> hotKeyActions,@JsonKey(fromJson: AppSettingProps.safeFromJson) AppSettingProps appSettingProps, DAVProps? davProps, NetworkProps networkProps, VpnProps vpnProps,@JsonKey(fromJson: ThemeProps.safeFromJson) ThemeProps themeProps, ProxiesStyleProps proxiesStyleProps,@JsonKey(name: 'windowGeometry') WindowProps windowProps, PatchClashConfig patchClashConfig, List<String> excludeSSIDs
+ int? currentProfileId, List<HotKeyAction> hotKeyActions,@JsonKey(fromJson: AppSettingProps.safeFromJson) AppSettingProps appSettingProps, NetworkProps networkProps, VpnProps vpnProps,@JsonKey(fromJson: ThemeProps.safeFromJson) ThemeProps themeProps, ProxiesStyleProps proxiesStyleProps,@JsonKey(name: 'windowGeometry') WindowProps windowProps, PatchClashConfig patchClashConfig, List<String> excludeSSIDs
 });
 
 
-@override $AppSettingPropsCopyWith<$Res> get appSettingProps;@override $DAVPropsCopyWith<$Res>? get davProps;@override $NetworkPropsCopyWith<$Res> get networkProps;@override $VpnPropsCopyWith<$Res> get vpnProps;@override $ThemePropsCopyWith<$Res> get themeProps;@override $ProxiesStylePropsCopyWith<$Res> get proxiesStyleProps;@override $WindowPropsCopyWith<$Res> get windowProps;@override $PatchClashConfigCopyWith<$Res> get patchClashConfig;
+@override $AppSettingPropsCopyWith<$Res> get appSettingProps;@override $NetworkPropsCopyWith<$Res> get networkProps;@override $VpnPropsCopyWith<$Res> get vpnProps;@override $ThemePropsCopyWith<$Res> get themeProps;@override $ProxiesStylePropsCopyWith<$Res> get proxiesStyleProps;@override $WindowPropsCopyWith<$Res> get windowProps;@override $PatchClashConfigCopyWith<$Res> get patchClashConfig;
 
 }
 /// @nodoc
@@ -3391,13 +3368,12 @@ class __$ConfigCopyWithImpl<$Res>
 
 /// Create a copy of Config
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? currentProfileId = freezed,Object? hotKeyActions = null,Object? appSettingProps = null,Object? davProps = freezed,Object? networkProps = null,Object? vpnProps = null,Object? themeProps = null,Object? proxiesStyleProps = null,Object? windowProps = null,Object? patchClashConfig = null,Object? excludeSSIDs = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? currentProfileId = freezed,Object? hotKeyActions = null,Object? appSettingProps = null,Object? networkProps = null,Object? vpnProps = null,Object? themeProps = null,Object? proxiesStyleProps = null,Object? windowProps = null,Object? patchClashConfig = null,Object? excludeSSIDs = null,}) {
   return _then(_Config(
 currentProfileId: freezed == currentProfileId ? _self.currentProfileId : currentProfileId // ignore: cast_nullable_to_non_nullable
 as int?,hotKeyActions: null == hotKeyActions ? _self._hotKeyActions : hotKeyActions // ignore: cast_nullable_to_non_nullable
 as List<HotKeyAction>,appSettingProps: null == appSettingProps ? _self.appSettingProps : appSettingProps // ignore: cast_nullable_to_non_nullable
-as AppSettingProps,davProps: freezed == davProps ? _self.davProps : davProps // ignore: cast_nullable_to_non_nullable
-as DAVProps?,networkProps: null == networkProps ? _self.networkProps : networkProps // ignore: cast_nullable_to_non_nullable
+as AppSettingProps,networkProps: null == networkProps ? _self.networkProps : networkProps // ignore: cast_nullable_to_non_nullable
 as NetworkProps,vpnProps: null == vpnProps ? _self.vpnProps : vpnProps // ignore: cast_nullable_to_non_nullable
 as VpnProps,themeProps: null == themeProps ? _self.themeProps : themeProps // ignore: cast_nullable_to_non_nullable
 as ThemeProps,proxiesStyleProps: null == proxiesStyleProps ? _self.proxiesStyleProps : proxiesStyleProps // ignore: cast_nullable_to_non_nullable
@@ -3416,18 +3392,6 @@ $AppSettingPropsCopyWith<$Res> get appSettingProps {
   
   return $AppSettingPropsCopyWith<$Res>(_self.appSettingProps, (value) {
     return _then(_self.copyWith(appSettingProps: value));
-  });
-}/// Create a copy of Config
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$DAVPropsCopyWith<$Res>? get davProps {
-    if (_self.davProps == null) {
-    return null;
-  }
-
-  return $DAVPropsCopyWith<$Res>(_self.davProps!, (value) {
-    return _then(_self.copyWith(davProps: value));
   });
 }/// Create a copy of Config
 /// with the given fields replaced by the non-null parameter values.

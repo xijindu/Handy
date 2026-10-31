@@ -9,9 +9,7 @@ bool isTouchPlatform(TargetPlatform platform) => switch (platform) {
   TargetPlatform.android ||
   TargetPlatform.iOS ||
   TargetPlatform.fuchsia => true,
-  TargetPlatform.linux ||
-  TargetPlatform.macOS ||
-  TargetPlatform.windows => false,
+  _ => false,
 };
 
 class BaseScrollBehavior extends MaterialScrollBehavior {

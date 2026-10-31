@@ -907,29 +907,6 @@ abstract final class AppGlyphs {
     ], role: GlyphRole.detail),
   ]);
 
-  static const cloudSync = Glyph([
-    GlyphPath(
-      'M7 19.4A4.2 4.2 0 0 1 5.06 11.47A6 6 0 1 1 16.95 9.83A4.8 4.8 0 0 1 16.4 19.4Z',
-    ),
-    GlyphArc(
-      11,
-      13.2,
-      3,
-      math.pi * 0.1944,
-      math.pi * 1.5,
-      role: GlyphRole.detail,
-    ),
-    GlyphPolyline([
-      GlyphVertex(12.72, 10.74),
-      GlyphVertex(13.46, 11.26),
-    ], role: GlyphRole.detail),
-    GlyphPolyline([
-      GlyphVertex(13.01, 8.7),
-      GlyphVertex(13.46, 11.26, 0.4),
-      GlyphVertex(10.9, 11.71),
-    ], role: GlyphRole.detail),
-  ]);
-
   static const link = Glyph([
     GlyphPath(
       'M11.01 8.46L14.55 4.93A3.2 3.2 0 0 1 19.07 9.45L15.54 12.99',
@@ -1906,23 +1883,6 @@ abstract final class AppGlyphs {
     GlyphPolyline([
       GlyphVertex(4.5, 3),
       GlyphVertex(20.5, 19),
-    ], role: GlyphRole.line),
-  ]);
-
-  static const gavel = Glyph([
-    GlyphPolyline([
-      GlyphVertex(14.93, 7.15, 1.5),
-      GlyphVertex(11.25, 3.47, 1.5),
-      GlyphVertex(3.47, 11.25, 1.5),
-      GlyphVertex(7.15, 14.93, 1.5),
-    ], closed: true),
-    GlyphPolyline([
-      GlyphVertex(11.04, 11.04),
-      GlyphVertex(19.8, 19.8),
-    ], role: GlyphRole.line),
-    GlyphPolyline([
-      GlyphVertex(3.2, 20.5),
-      GlyphVertex(11.5, 20.5),
     ], role: GlyphRole.line),
   ]);
 

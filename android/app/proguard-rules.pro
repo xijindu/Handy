@@ -1,4 +1,4 @@
 
--keep class com.follow.clash.models.** { *; }
+-keep class org.handy.app.models.** { *; }
 
--keep class com.follow.clash.service.models.** { *; }
+-keep class org.handy.service.models.** { *; }

@@ -78,7 +78,7 @@ void main() {
       expect(
         builder.requestFor(
           buildInput(
-            os: OS.linux,
+            os: OS.windows,
             architecture: Architecture.x64,
             codeAssets: false,
           ),
@@ -95,12 +95,12 @@ void main() {
 
     test('resolves the repository and target from the hook input', () {
       final request = const CoreBuilder().requestFor(
-        buildInput(os: OS.linux, architecture: Architecture.x64),
+        buildInput(os: OS.windows, architecture: Architecture.x64),
       )!;
 
       expect(request.rootDir, repository.path);
       expect(request.harnessDir, p.join(packageRoot.path, 'setup_hooks'));
-      expect(request.target, Target.linuxAmd64);
+      expect(request.target, Target.windowsAmd64);
     });
 
     test('skips the macOS slice the host does not run', () {
@@ -154,7 +154,7 @@ void main() {
       expect(
         () => const CoreBuilder().requestFor(
           buildInput(
-            os: OS.linux,
+            os: OS.windows,
             architecture: Architecture.x64,
             package: elsewhere,
           ),
@@ -169,7 +169,7 @@ void main() {
       'reports read files and written directories as dependencies',
       () async {
         final goFile = p.join(repository.path, 'core', 'lib.go');
-        final coreDir = p.join(repository.path, 'libclash', 'linux');
+        final coreDir = p.join(repository.path, 'libclash', 'windows');
         BuildRequest? seen;
         final builder = CoreBuilder(
           build: (request) async {
@@ -177,7 +177,7 @@ void main() {
             return BuildReport(
               inputs: [goFile],
               outputs: [
-                p.join(coreDir, 'FlClashCore'),
+                p.join(coreDir, 'HandyCore'),
                 p.join(coreDir, 'manifest.json'),
               ],
               rebuilt: true,
@@ -187,11 +187,11 @@ void main() {
         final output = BuildOutputBuilder();
 
         await builder.run(
-          input: buildInput(os: OS.linux, architecture: Architecture.x64),
+          input: buildInput(os: OS.windows, architecture: Architecture.x64),
           output: output,
         );
 
-        expect(seen?.target, Target.linuxAmd64);
+        expect(seen?.target, Target.windowsAmd64);
         expect(BuildOutput(output.json).dependencies, [
           Uri.file(goFile),
           Uri.directory(coreDir),
@@ -230,7 +230,7 @@ void main() {
 
       await builder.run(
         input: buildInput(
-          os: OS.linux,
+          os: OS.windows,
           architecture: Architecture.x64,
           userDefines: {'build_assets': false},
         ),
@@ -251,7 +251,7 @@ void main() {
       expect(
         builder.requestFor(
           buildInput(
-            os: OS.linux,
+            os: OS.windows,
             architecture: Architecture.x64,
             userDefines: {'build_assets': true},
           ),
@@ -273,7 +273,7 @@ void main() {
 
       expect(
         builder.run(
-          input: buildInput(os: OS.linux, architecture: Architecture.x64),
+          input: buildInput(os: OS.windows, architecture: Architecture.x64),
           output: BuildOutputBuilder(),
         ),
         throwsA(
@@ -294,7 +294,7 @@ void main() {
 
       expect(
         builder.run(
-          input: buildInput(os: OS.linux, architecture: Architecture.x64),
+          input: buildInput(os: OS.windows, architecture: Architecture.x64),
           output: BuildOutputBuilder(),
         ),
         throwsA(
@@ -315,7 +315,7 @@ void main() {
 
       expect(
         builder.run(
-          input: buildInput(os: OS.linux, architecture: Architecture.x64),
+          input: buildInput(os: OS.windows, architecture: Architecture.x64),
           output: BuildOutputBuilder(),
         ),
         throwsA(

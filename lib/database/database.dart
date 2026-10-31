@@ -413,7 +413,6 @@ class Database extends _$Database {
     List<ClashProvider> clashProviders = const [],
     List<CustomProxy> customProxies = const [],
     List<ProxyDialer> proxyDialers = const [],
-    bool isOverride = false,
   }) async {
     if (profiles.isEmpty &&
         scripts.isEmpty &&
@@ -426,20 +425,9 @@ class Database extends _$Database {
       return;
     }
     await transaction(() async {
-      // Backups taken while foreign keys were off may carry orphaned rows.
+      // Rows restored from another database may carry orphaned references.
       await customStatement('PRAGMA defer_foreign_keys = ON');
       await batch((b) {
-        if (isOverride) {
-          profilesDao.setAllWithBatch(b, profiles);
-          scriptsDao.setAllWithBatch(b, scripts);
-          rulesDao.setAllWithBatch(b, rules, disabledRules);
-          proxyGroupsDao.setAllWithBatch(b, proxyGroups);
-          customProxiesDao.setAllWithBatch(b, customProxies);
-          clashProvidersDao.setAllWithBatch(b, clashProviders);
-          // Rewriting profiles or custom proxies cascades into these.
-          proxyDialersDao.setAllWithBatch(b, proxyDialers);
-          return;
-        }
         profilesDao.putAllWithBatch(
           b,
           profiles.map((item) => item.toCompanion()),

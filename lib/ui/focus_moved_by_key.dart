@@ -1,6 +1,6 @@
 part of 'focus.dart';
 
-/// Whether focus last moved by key, the focus `.agents/surfaces.md` rings.
+/// Whether focus last moved by key, so a focus ring shows only for keyboard use.
 class FocusMovedByKey extends ChangeNotifier implements ValueListenable<bool> {
   FocusMovedByKey._();
 

@@ -1,10 +1,10 @@
 # Project-level configuration.
 cmake_minimum_required(VERSION 3.14)
-project(FlClash LANGUAGES CXX)
+project(Handy LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "FlClash")
+set(BINARY_NAME "Handy")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.
@@ -59,8 +59,8 @@ include(flutter/generated_plugins.cmake)
 
 # === Installation ===
 # Support files are copied into place next to the executable, so that it can
-# run in place. This is done instead of making a separate bundle (as on Linux)
-# so that building and running from within Visual Studio will work.
+# run in place. This is done instead of making a separate bundle on Unix so
+# that building and running from within Visual Studio will work.
 set(BUILD_BUNDLE_DIR "$<TARGET_FILE_DIR:${BINARY_NAME}>")
 # Make the "install" step default, as it's required to run.
 set(CMAKE_VS_INCLUDE_INSTALL_TO_DEFAULT_BUILD 1)
@@ -106,8 +106,8 @@ set(CORE_ARTIFACTS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../libclash/windows")
 # opaque MSB3073; only a Debug install with a changed Helper stops it, matched
 # by path so a Helper registered from an installed release is left alone.
 install(CODE "
-  set(helper_src \"${CORE_ARTIFACTS_DIR}/FlClashHelperService.exe\")
-  set(helper_dst \"${INSTALL_BUNDLE_LIB_DIR}/FlClashHelperService.exe\")
+  set(helper_src \"${CORE_ARTIFACTS_DIR}/HandyHelperService.exe\")
+  set(helper_dst \"${INSTALL_BUNDLE_LIB_DIR}/HandyHelperService.exe\")
   if(\"\${CMAKE_INSTALL_CONFIG_NAME}\" STREQUAL \"Debug\" AND EXISTS \"\${helper_dst}\")
     file(SHA256 \"\${helper_src}\" helper_src_hash)
     file(SHA256 \"\${helper_dst}\" helper_dst_hash)
@@ -115,14 +115,14 @@ install(CODE "
       message(STATUS \"Stopping the Helper running from \${helper_dst} before installing the Debug build\")
       file(TO_NATIVE_PATH \"\${helper_dst}\" helper_dst_native)
       execute_process(COMMAND powershell -NoProfile -NonInteractive -Command
-        \"Get-Process -Name FlClashHelperService -ErrorAction SilentlyContinue | Where-Object { $_.Path -eq '\${helper_dst_native}' } | Stop-Process -Force\"
+        \"Get-Process -Name HandyHelperService -ErrorAction SilentlyContinue | Where-Object { $_.Path -eq '\${helper_dst_native}' } | Stop-Process -Force\"
         OUTPUT_QUIET ERROR_QUIET)
     endif()
   endif()
 " COMPONENT Runtime)
 install(FILES
-  "${CORE_ARTIFACTS_DIR}/FlClashCore.exe"
-  "${CORE_ARTIFACTS_DIR}/FlClashHelperService.exe"
+  "${CORE_ARTIFACTS_DIR}/HandyCore.exe"
+  "${CORE_ARTIFACTS_DIR}/HandyHelperService.exe"
   "${CORE_ARTIFACTS_DIR}/manifest.json"
   DESTINATION "${INSTALL_BUNDLE_LIB_DIR}"
   COMPONENT Runtime)

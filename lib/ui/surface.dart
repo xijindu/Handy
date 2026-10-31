@@ -1,8 +1,7 @@
 import 'package:fl_clash/ui/color.dart';
 import 'package:material_ui/material_ui.dart';
 
-/// `.agents/surfaces.md` explains the levels and why dark mode never steps
-/// back down.
+/// The levels of a surface, and why dark mode never steps back down.
 enum SurfaceLevel {
   page,
   card,
@@ -90,7 +89,7 @@ extension ElevatedSurfaceExt on ColorScheme {
   }
 }
 
-/// The scheme sheets present with; `.agents/surfaces.md` has the reason.
+/// The scheme sheets present with.
 class ElevatedColorScheme extends ThemeExtension<ElevatedColorScheme> {
   const ElevatedColorScheme(this.colorScheme);
 
@@ -199,8 +198,8 @@ extension AppSurfaceThemeExt on ThemeData {
 const _focusRingWidth = 2.0;
 const _focusRingGap = 1.0;
 
-/// The focus ring of `.agents/surfaces.md`; one that [standsOff] clears the
-/// edge, which a primary fill or a button's own glass would hide it on.
+/// The app's focus ring; one that [standsOff] clears the edge, which a
+/// primary fill or a button's own glass would hide it on.
 BorderSide focusRingSide(ColorScheme colorScheme, {bool standsOff = false}) =>
     BorderSide(
       color: colorScheme.primary,

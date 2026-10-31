@@ -90,7 +90,7 @@ const _dropletGlyphCurve = Cubic(0.25, 0.1, 0.25, 1);
 // back to the button's, so the last frame is the button itself.
 const _dropletAbsorbed = Interval(0.6, 0.9, curve: Curves.easeInOut);
 
-// As measured on iOS 27 (.agents/architecture.md, Popup Motion): one spring
+// As measured on iOS 27: one spring
 // opens the menu, a later one squares off its capsule corners.
 final _open = SpringSimulation(
   SpringDescription.withDampingRatio(mass: 1, stiffness: 400, ratio: 0.754),

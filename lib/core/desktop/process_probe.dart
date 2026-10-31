@@ -13,23 +13,9 @@ Future<bool> isProcessAlive(int pid) async {
   if (Platform.isWindows) {
     return _isWindowsProcessAlive(pid);
   }
-  if (Platform.isLinux) {
-    return _isLinuxProcessAlive(pid);
-  }
   final result = await Process.run('ps', ['-o', 'stat=', '-p', '$pid']);
   final state = (result.stdout as String).trim();
   return result.exitCode == 0 && state.isNotEmpty && !state.startsWith('Z');
-}
-
-Future<bool> _isLinuxProcessAlive(int pid) async {
-  final String stat;
-  try {
-    stat = await File('/proc/$pid/stat').readAsString();
-  } on FileSystemException {
-    return false;
-  }
-  final state = stat.substring(stat.lastIndexOf(')') + 1).trim();
-  return state.isNotEmpty && state[0] != 'Z' && state[0] != 'X';
 }
 
 const _processQueryLimitedInformation = 0x1000;

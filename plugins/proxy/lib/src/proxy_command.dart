@@ -11,8 +11,6 @@ typedef ProxyProcessRunner =
       bool runInShell,
     });
 
-typedef ProxyExecutableChecker = Future<bool> Function(String executable);
-
 @immutable
 class ProxyCommand {
   final String executable;

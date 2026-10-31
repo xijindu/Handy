@@ -98,7 +98,6 @@ final class CoreBuilder implements Builder {
     final code = input.config.code;
     // Android's Core is the gomobile AAR the :core Gradle module builds.
     final platform = switch (code.targetOS) {
-      OS.linux => 'linux',
       OS.macOS => 'macos',
       OS.windows => 'windows',
       _ => null,
@@ -133,7 +132,7 @@ final class CoreBuilder implements Builder {
         !File(p.join(rootDir, 'pubspec.yaml')).existsSync()) {
       throw InfraError(
         message:
-            'The setup package must live at plugins/setup of the FlClash '
+            'The setup package must live at plugins/setup of the Handy '
             'repository; $rootDir has no core/ and pubspec.yaml',
       );
     }

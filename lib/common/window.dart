@@ -40,15 +40,9 @@ class Window implements WindowPort {
           protocol.register(scheme);
         }
       }
-      if (system.isLinux) {
-        unawaited(protocol.registerLinux(protocolSchemes));
-      }
     }
     await desktopWindow.ensureInitialized();
     _supportsPosition = !system.isMacOS;
-    if (system.isLinux) {
-      _supportsPosition = await desktopWindow.isPositionSupported();
-    }
     if (!system.isMacOS || version > 10) {
       await desktopWindow.setTitleBarStyle(TitleBarStyle.hidden);
     }
@@ -147,9 +141,6 @@ class Window implements WindowPort {
     required Brightness brightness,
     required Color tint,
   }) async {
-    if (system.isLinux) {
-      return null;
-    }
     final effect = enabled ? await _resolveBlurEffect() : WindowEffect.none;
     await desktopWindow.setEffect(
       effect,

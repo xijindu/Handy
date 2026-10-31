@@ -28,7 +28,6 @@ List<String> _readSystemFontFamilies() {
   return sortFontFamilies(switch (Platform.operatingSystem) {
     'macos' => _coreTextFamilies(),
     'windows' => _directWriteFamilies(),
-    'linux' => _fontconfigFamilies(),
     'android' => androidFontFamilies(
       File('/system/etc/fonts.xml').readAsStringSync(),
     ),
@@ -265,99 +264,3 @@ String? _directWriteFamilyName(_ComObject family, Arena arena) {
     family.release();
   }
 }
-
-final class _FcFontSet extends Struct {
-  @Int32()
-  external int nfont;
-
-  @Int32()
-  external int sfont;
-
-  external Pointer<Pointer<Void>> fonts;
-}
-
-List<String> _fontconfigFamilies() => using((arena) {
-  final fontconfig = DynamicLibrary.open('libfontconfig.so.1');
-  final createPattern = fontconfig
-      .lookupFunction<Pointer<Void> Function(), Pointer<Void> Function()>(
-        'FcPatternCreate',
-      );
-  final addBool = fontconfig
-      .lookupFunction<
-        Int32 Function(Pointer<Void>, Pointer<Utf8>, Int32),
-        int Function(Pointer<Void>, Pointer<Utf8>, int)
-      >('FcPatternAddBool');
-  final createObjectSet = fontconfig
-      .lookupFunction<Pointer<Void> Function(), Pointer<Void> Function()>(
-        'FcObjectSetCreate',
-      );
-  final addObject = fontconfig
-      .lookupFunction<
-        Int32 Function(Pointer<Void>, Pointer<Utf8>),
-        int Function(Pointer<Void>, Pointer<Utf8>)
-      >('FcObjectSetAdd');
-  final listFonts = fontconfig
-      .lookupFunction<
-        Pointer<_FcFontSet> Function(
-          Pointer<Void>,
-          Pointer<Void>,
-          Pointer<Void>,
-        ),
-        Pointer<_FcFontSet> Function(
-          Pointer<Void>,
-          Pointer<Void>,
-          Pointer<Void>,
-        )
-      >('FcFontList');
-  final getString = fontconfig
-      .lookupFunction<
-        Int32 Function(
-          Pointer<Void>,
-          Pointer<Utf8>,
-          Int32,
-          Pointer<Pointer<Utf8>>,
-        ),
-        int Function(Pointer<Void>, Pointer<Utf8>, int, Pointer<Pointer<Utf8>>)
-      >('FcPatternGetString');
-  final destroyFontSet = fontconfig
-      .lookupFunction<
-        Void Function(Pointer<_FcFontSet>),
-        void Function(Pointer<_FcFontSet>)
-      >('FcFontSetDestroy');
-  final destroyObjectSet = fontconfig
-      .lookupFunction<
-        Void Function(Pointer<Void>),
-        void Function(Pointer<Void>)
-      >('FcObjectSetDestroy');
-  final destroyPattern = fontconfig
-      .lookupFunction<
-        Void Function(Pointer<Void>),
-        void Function(Pointer<Void>)
-      >('FcPatternDestroy');
-
-  final family = 'family'.toNativeUtf8(allocator: arena);
-  final pattern = createPattern();
-  final objectSet = createObjectSet();
-  try {
-    addBool(pattern, 'scalable'.toNativeUtf8(allocator: arena), 1);
-    addObject(objectSet, family);
-    final fontSet = listFonts(nullptr, pattern, objectSet);
-    if (fontSet == nullptr) {
-      return const <String>[];
-    }
-    try {
-      final value = arena<Pointer<Utf8>>();
-      final fonts = fontSet.ref.fonts;
-      return [
-        for (var i = 0; i < fontSet.ref.nfont; i++)
-          if (getString(fonts[i], family, 0, value) == 0)
-            value.value.toDartString(),
-      ];
-    } finally {
-      destroyFontSet(fontSet);
-    }
-  } finally {
-    destroyObjectSet(objectSet);
-    destroyPattern(pattern);
-  }
-});

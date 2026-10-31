@@ -9,6 +9,18 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:path/path.dart';
 
+/// Data files live under the home directory, so an entry name doubles as the
+/// file's path relative to that directory.
+abstract final class DataEntries {
+  static String profile(Object id) => '$profilesDirectoryName/$id.yaml';
+
+  static String script(Object id) => 'scripts/$id.js';
+
+  static String resolve(String root, String entry) {
+    return joinAll([root, ...posix.split(entry)]);
+  }
+}
+
 Future<T> decodeJSONTask<T>(String data) async {
   return compute<String, T>(_decodeJSON, data);
 }
@@ -514,10 +526,8 @@ Future<MigrationData> migrateLegacyConfig({
     final vpnPropsRaw = configMap['vpnProps'] as Map;
     vpnPropsRaw['accessControlProps'] = vpnPropsRaw['accessControl'];
   }
-  configMap['davProps'] = configMap['dav'];
   final appSettingProps =
       configMap['appSetting'] as Map<String, dynamic>? ?? {};
-  appSettingProps['restoreStrategy'] = appSettingProps['recoveryStrategy'];
   configMap['appSettingProps'] = appSettingProps;
   configMap['proxiesStyleProps'] = configMap['proxiesStyle'];
   List rawScripts = configMap['scripts'] as List<dynamic>? ?? [];
@@ -537,7 +547,7 @@ Future<MigrationData> migrateLegacyConfig({
       continue;
     }
     final newId = idMap.updateCacheValue(rawScript['id'], () => snowflake.id);
-    final path = BackupEntries.resolve(targetPath, BackupEntries.script(newId));
+    final path = DataEntries.resolve(targetPath, DataEntries.script(newId));
     final file = File(path);
     await file.safeWriteAsString(content);
     scripts.add(
@@ -597,11 +607,11 @@ Future<MigrationData> migrateLegacyConfig({
     rawProfile['type'] = rawUrl is String && rawUrl.isNotEmpty ? 'url' : 'file';
 
     final sourceFile = File(
-      BackupEntries.resolve(sourcePath, BackupEntries.profile(rawId)),
+      DataEntries.resolve(sourcePath, DataEntries.profile(rawId)),
     );
-    final targetFilePath = BackupEntries.resolve(
+    final targetFilePath = DataEntries.resolve(
       targetPath,
-      BackupEntries.profile(profileId),
+      DataEntries.profile(profileId),
     );
     await sourceFile.safeCopy(targetFilePath);
     profiles.add(Profile.fromJson(rawProfile));

@@ -138,7 +138,7 @@ final class SetupPatchProvider
   }
 }
 
-String _$setupPatchHash() => r'283e94846903bafab1c22985b6f90d4c0e2a4697';
+String _$setupPatchHash() => r'd09fb41d40ced4cd47c9131fe55e983e35128724';
 
 @ProviderFor(trayState)
 final trayStateProvider = TrayStateProvider._();
@@ -179,7 +179,7 @@ final class TrayStateProvider
   }
 }
 
-String _$trayStateHash() => r'd4fe17e62e479ff316ab5deb11475b4ea533d0bb';
+String _$trayStateHash() => r'b7da57e41143cd8c284260d33b368b1be044bd01';
 
 /// Measured delays of the proxies the tray lists, by group and then proxy
 /// name. Resolved like a proxy card, so a nested group shows its selection.

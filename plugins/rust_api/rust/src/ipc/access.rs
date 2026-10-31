@@ -2,19 +2,10 @@ use interprocess::local_socket::tokio::{prelude::*, Stream};
 use interprocess::local_socket::ListenerOptions;
 use std::io;
 
-/// Linux carries an `fchmod` on the unbound socket over to the file `bind`
-/// creates; other Unixes reject it and get `restrict_socket` after `bind`.
+/// Other Unixes reject the socket mode before `bind` and get
+/// `restrict_socket` after it instead.
 pub fn owner_only(options: ListenerOptions<'_>) -> ListenerOptions<'_> {
-    #[cfg(target_os = "linux")]
-    {
-        use interprocess::os::unix::local_socket::ListenerOptionsExt as _;
-
-        options.mode(0o600)
-    }
-    #[cfg(not(target_os = "linux"))]
-    {
-        options
-    }
+    options
 }
 
 pub fn restrict_socket(path: &str) -> io::Result<()> {

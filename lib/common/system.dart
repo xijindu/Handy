@@ -29,15 +29,13 @@ class System {
     return _instance!;
   }
 
-  bool get isDesktop => isWindows || isMacOS || isLinux;
+  bool get isDesktop => isWindows || isMacOS;
 
   bool get isWindows => Platform.isWindows;
 
   bool get isMacOS => Platform.isMacOS;
 
   bool get isAndroid => Platform.isAndroid;
-
-  bool get isLinux => Platform.isLinux;
 
   bool get isTV => _isTV;
 
@@ -69,10 +67,8 @@ class System {
   /// verbatim. Shell-quoting or escaping it here reaches `stat` as part of the
   /// file name and turns every path containing a space into a miss.
   @visibleForTesting
-  static List<String> statArguments(String corePath, {required bool isMacOS}) {
-    return isMacOS
-        ? ['-f', '%Su:%Sg %Sp', corePath]
-        : ['-c', '%U:%G %A', corePath];
+  static List<String> statArguments(String corePath) {
+    return ['-f', '%Su:%Sg %Sp', corePath];
   }
 
   /// Execute for others fails it, so an older `+sx` Core is re-authorized.
@@ -98,14 +94,6 @@ class System {
     return 'chown root:admin $path && chmod 4750 $path';
   }
 
-  @visibleForTesting
-  static String linuxElevationShell(String corePath) {
-    final path = _shellEscape(corePath);
-    return 'group=\$(id -g "\${PKEXEC_UID:-\$SUDO_UID}") && '
-        'chown "root:\$group" $path && '
-        'chmod 4750 $path';
-  }
-
   Future<bool> _isInAdminGroup() async {
     try {
       final result = await runProcess('id', ['-Gn']);
@@ -120,37 +108,18 @@ class System {
     }
   }
 
-  /// A read-only nosuid mount at a path that changes every run: no elevation sticks.
-  bool get isAppImage =>
-      isLinux && Platform.environment.containsKey('APPIMAGE');
-
-  late final bool _hasSystemd = Directory('/run/systemd/system').existsSync();
-
-  bool get hasHelperService =>
-      isWindows || (isLinux && !isAppImage && _hasSystemd);
+  /// Only Windows ships the Helper service.
+  bool get hasHelperService => isWindows;
 
   Future<bool> checkIsAdmin() async {
     if (hasHelperService) {
       return await helperClient.readiness() == HelperReadiness.ready;
     }
     if (system.isMacOS) {
-      final result = await runProcess(
-        'stat',
-        statArguments(appPath.corePath, isMacOS: true),
-      );
+      final result = await runProcess('stat', statArguments(appPath.corePath));
       return isPrivilegedStatOutput(
         result.stdout.toString(),
         ownerPrefix: 'root:admin',
-      );
-    }
-    if (system.isLinux) {
-      final result = await runProcess(
-        'stat',
-        statArguments(appPath.corePath, isMacOS: false),
-      );
-      return isPrivilegedStatOutput(
-        result.stdout.toString(),
-        ownerPrefix: 'root:',
       );
     }
     return true;
@@ -208,17 +177,6 @@ class System {
     if (system.isWindows) {
       return await windows?.registerService() ?? AuthorizeCode.error;
     }
-    if (hasHelperService) {
-      return await linux?.registerService() ?? AuthorizeCode.error;
-    }
-    if (isAppImage) {
-      commonPrint.log(
-        'TUN cannot be authorized inside an AppImage: '
-        'the bundled Core is on a read-only nosuid mount',
-        logLevel: LogLevel.error,
-      );
-      return AuthorizeCode.error;
-    }
     final isAdmin = await checkIsAdmin();
     if (isAdmin) {
       return AuthorizeCode.none;
@@ -243,13 +201,6 @@ class System {
         return AuthorizeCode.error;
       }
       return AuthorizeCode.success;
-    } else if (system.isLinux) {
-      final elevated = await linuxElevation.elevate([
-        '/bin/sh',
-        '-c',
-        linuxElevationShell(appPath.corePath),
-      ]);
-      return elevated ? AuthorizeCode.success : AuthorizeCode.error;
     }
     return AuthorizeCode.error;
   }
@@ -412,30 +363,6 @@ Future<bool> _waitForHelperService() async {
 }
 
 final windows = system.isWindows ? Windows() : null;
-
-class Linux {
-  static Linux? _instance;
-
-  Linux._internal();
-
-  factory Linux() {
-    _instance ??= Linux._internal();
-    return _instance!;
-  }
-
-  Future<AuthorizeCode> registerService() {
-    return registerHelperService(installService);
-  }
-
-  /// pkexec and sudo both name the requesting user to the installer, which is
-  /// where the unit takes the account it grants the Helper socket to.
-  @visibleForTesting
-  Future<bool> installService() {
-    return linuxElevation.elevate([appPath.helperPath, 'install']);
-  }
-}
-
-final linux = system.isLinux && system.hasHelperService ? Linux() : null;
 
 class MacOS implements SystemDnsPort {
   static MacOS? _instance;

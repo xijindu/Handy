@@ -33,7 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m4(detail) => "Couldn\'t clear the data: ${detail}";
 
   static String m5(code) =>
-      "Windows refused to run FlClashCore.exe (error ${code}). An app control policy such as Smart App Control or AppLocker blocks unsigned programs; allow FlClash in that policy or turn it off, then try again.";
+      "Windows refused to run HandyCore.exe (error ${code}). An app control policy such as Smart App Control or AppLocker blocks unsigned programs; allow Handy in that policy or turn it off, then try again.";
 
   static String m6(name) =>
       "The app failed to finish launching twice in a row. To break the loop, the profile ${name} has been deselected and automatic setup was skipped. You can select it again at any time.";
@@ -287,12 +287,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "additionalPrefix": MessageLookupByLibrary.simpleMessage("Name prefix"),
     "additionalSuffix": MessageLookupByLibrary.simpleMessage("Name suffix"),
     "address": MessageLookupByLibrary.simpleMessage("Address"),
-    "addressHelp": MessageLookupByLibrary.simpleMessage(
-      "WebDAV server address",
-    ),
-    "addressTip": MessageLookupByLibrary.simpleMessage(
-      "Please enter a valid WebDAV address",
-    ),
     "advancedConfig": MessageLookupByLibrary.simpleMessage(
       "Advanced configuration",
     ),
@@ -365,14 +359,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
     "backgroundBlur": MessageLookupByLibrary.simpleMessage("Background blur"),
-    "backup": MessageLookupByLibrary.simpleMessage("Backup"),
-    "backupAndRestore": MessageLookupByLibrary.simpleMessage(
-      "Backup and restore",
-    ),
-    "backupFromNewerVersion": MessageLookupByLibrary.simpleMessage(
-      "This backup comes from a newer version of the app. Update the app before restoring it",
-    ),
-    "backupSuccess": MessageLookupByLibrary.simpleMessage("Backup successful"),
     "basicInfo": MessageLookupByLibrary.simpleMessage("Basic info"),
     "basicStrategy": MessageLookupByLibrary.simpleMessage("Basic strategies"),
     "batchAdd": MessageLookupByLibrary.simpleMessage("Batch add"),
@@ -393,7 +379,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "batteryOptimizationDesc": MessageLookupByLibrary.simpleMessage(
       "Ignore battery optimization keeps the app running in the background.",
     ),
-    "bind": MessageLookupByLibrary.simpleMessage("Bind"),
     "blacklistMode": MessageLookupByLibrary.simpleMessage("Blacklist mode"),
     "blockConnection": MessageLookupByLibrary.simpleMessage("Block connection"),
     "brightness": MessageLookupByLibrary.simpleMessage("Brightness"),
@@ -439,7 +424,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Verify TLS certificates",
     ),
     "checkCertificateDesc": MessageLookupByLibrary.simpleMessage(
-      "With TLS verification off, subscriptions and backups are open to man-in-the-middle attacks.",
+      "With TLS verification off, subscriptions and downloads are open to man-in-the-middle attacks.",
     ),
     "checkUpdate": MessageLookupByLibrary.simpleMessage("Check for updates"),
     "checkUpdateError": MessageLookupByLibrary.simpleMessage(
@@ -507,7 +492,6 @@ class MessageLookup extends MessageLookupByLibrary {
       "Live connections, recent requests and DNS queries",
     ),
     "connections": MessageLookupByLibrary.simpleMessage("Connections"),
-    "connectivity": MessageLookupByLibrary.simpleMessage("Connectivity: "),
     "content": MessageLookupByLibrary.simpleMessage("Content"),
     "contentNotEmpty": MessageLookupByLibrary.simpleMessage(
       "Content cannot be empty",
@@ -524,7 +508,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "core": MessageLookupByLibrary.simpleMessage("Core"),
     "coreBlockedByPolicyTip": m5,
     "coreBlockedBySmartAppControlTip": MessageLookupByLibrary.simpleMessage(
-      "Windows Smart App Control blocked FlClashCore.exe because it is not signed. Open Windows Security → App & browser control → Smart App Control settings, choose Off, then start FlClash again. Smart App Control cannot be turned back on without reinstalling Windows.",
+      "Windows Smart App Control blocked HandyCore.exe because it is not signed. Open Windows Security → App & browser control → Smart App Control settings, choose Off, then start Handy again. Smart App Control cannot be turned back on without reinstalling Windows.",
     ),
     "coreStatus": MessageLookupByLibrary.simpleMessage("Core status"),
     "country": MessageLookupByLibrary.simpleMessage("Region"),
@@ -628,92 +612,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "disabled": MessageLookupByLibrary.simpleMessage("Disabled"),
     "discardChanges": MessageLookupByLibrary.simpleMessage(
       "Discard the changes?",
-    ),
-    "disclaimer": MessageLookupByLibrary.simpleMessage("Disclaimer"),
-    "disclaimerAcceptContent": MessageLookupByLibrary.simpleMessage(
-      "By installing, copying, or using the Software, you are deemed to have read and agreed to this entire statement. If you disagree with any of its terms, stop using and uninstall the Software immediately.",
-    ),
-    "disclaimerAcceptTitle": MessageLookupByLibrary.simpleMessage("Acceptance"),
-    "disclaimerAcknowledgeLabel": MessageLookupByLibrary.simpleMessage(
-      "I have read and understand this statement",
-    ),
-    "disclaimerAcknowledgeTip": MessageLookupByLibrary.simpleMessage(
-      "To confirm you understand, read the following statement and check the box below:",
-    ),
-    "disclaimerAcknowledgeTitle": MessageLookupByLibrary.simpleMessage(
-      "Confirm the statement",
-    ),
-    "disclaimerChangesContent": MessageLookupByLibrary.simpleMessage(
-      "The developers may revise this statement with any release, and the revision takes effect when that release is published. Continuing to use the Software after updating means you accept the revised statement.",
-    ),
-    "disclaimerChangesTitle": MessageLookupByLibrary.simpleMessage(
-      "Changes to this statement",
-    ),
-    "disclaimerDesc": MessageLookupByLibrary.simpleMessage(
-      "Before using FlClash (\"the Software\"), please read this statement carefully and make sure you understand all of it. Tapping \"Agree\" means you have read, understood, and accept every term below. If you do not agree, tap \"Exit\" and stop using the Software.",
-    ),
-    "disclaimerLiabilityContent": MessageLookupByLibrary.simpleMessage(
-      "To the maximum extent permitted by applicable law, neither the developers nor any contributor shall be liable for any direct, indirect, incidental, special, punitive, or consequential damages arising from the use of or inability to use the Software, including but not limited to data loss, device damage, network failures, business interruption, lost profits, or any resulting legal dispute, even if advised of the possibility of such damages.",
-    ),
-    "disclaimerLiabilityTitle": MessageLookupByLibrary.simpleMessage(
-      "Limitation of liability",
-    ),
-    "disclaimerLicenseContent": MessageLookupByLibrary.simpleMessage(
-      "The Software is open source under the GPL-3.0 license. You may use, modify, and distribute it freely as long as you comply with that license, which requires derivative works to be released under GPL-3.0 as well and the original copyright notices to be kept.\n\nThird-party components in the Software, including the Clash.Meta core, follow their own licenses. The original authors are not responsible for any issue arising from modified or redistributed versions.",
-    ),
-    "disclaimerLicenseTitle": MessageLookupByLibrary.simpleMessage(
-      "Open-source license",
-    ),
-    "disclaimerNoServiceStatement": MessageLookupByLibrary.simpleMessage(
-      "The Software itself does not provide any proxy server, node, subscription, or network access service, and has no partnership, agency, or guarantee relationship with any provider of such services.",
-    ),
-    "disclaimerPrivacyContent": MessageLookupByLibrary.simpleMessage(
-      "The Software does not collect or upload your subscription URLs, node details, configuration content, visited websites, connection records, traffic content, or logs. This data stays on your device and the developers have no access to it.\n\nThe Software only reaches the network when you use a feature that needs it, such as fetching the subscription URL you provided when updating a profile, or contacting GitHub when checking for updates.\n\nThe Software includes no analytics or crash reporting service on any platform.",
-    ),
-    "disclaimerPrivacyTitle": MessageLookupByLibrary.simpleMessage(
-      "Data collection and privacy",
-    ),
-    "disclaimerResponsibilityContent": MessageLookupByLibrary.simpleMessage(
-      "You are responsible for making sure that using the Software is lawful where you live, and you alone bear the legal responsibility for everything you do with it and its consequences.\n\nThe subscriptions, nodes, and configurations you import are your own choice. Whether their source is lawful, their content is safe, and their service is reliable is a matter between you and their providers.",
-    ),
-    "disclaimerResponsibilityTitle": MessageLookupByLibrary.simpleMessage(
-      "Your responsibility",
-    ),
-    "disclaimerRestateHint": MessageLookupByLibrary.simpleMessage(
-      "Enter the statement above",
-    ),
-    "disclaimerRestateMismatch": MessageLookupByLibrary.simpleMessage(
-      "Does not match the statement",
-    ),
-    "disclaimerRestateTip": MessageLookupByLibrary.simpleMessage(
-      "To confirm you understand, enter the following statement in full in the field below:",
-    ),
-    "disclaimerRestateTitle": MessageLookupByLibrary.simpleMessage(
-      "Restate the statement",
-    ),
-    "disclaimerSoftwareContent": MessageLookupByLibrary.simpleMessage(
-      "The Software is an open-source network proxy client built on the Clash.Meta (mihomo) core. It only provides local tooling such as configuration management, rule-based routing, and traffic forwarding.",
-    ),
-    "disclaimerSoftwareTitle": MessageLookupByLibrary.simpleMessage(
-      "Nature of the software",
-    ),
-    "disclaimerThirdPartyContent": MessageLookupByLibrary.simpleMessage(
-      "Subscription links, configuration files, rule sets, scripts, external resources, and external links are all provided by third parties. The developers cannot and do not review or guarantee their legality, accuracy, security, or availability.\n\nAny data leak, financial loss, account ban, or other loss caused by third-party content is to be settled between you and the third party; the developers bear no responsibility for it.",
-    ),
-    "disclaimerThirdPartyTitle": MessageLookupByLibrary.simpleMessage(
-      "Third-party content",
-    ),
-    "disclaimerUsageContent": MessageLookupByLibrary.simpleMessage(
-      "The Software is intended only for non-commercial uses such as learning, exchange, and technical research. Using it for any commercial purpose is strictly prohibited, including but not limited to paid distribution, bundled sales, use as part of a commercial service, or doing business in the name of the Software. Any commercial activity is unrelated to the Software and its developers.\n\nUsing the Software for anything that violates the laws and regulations of your country or region is strictly prohibited, including but not limited to bypassing lawfully imposed network access restrictions, spreading illegal content, launching network attacks, or infringing the lawful rights of others.",
-    ),
-    "disclaimerUsageTitle": MessageLookupByLibrary.simpleMessage(
-      "Restrictions on use",
-    ),
-    "disclaimerWarrantyContent": MessageLookupByLibrary.simpleMessage(
-      "The Software is provided \"as is\" and \"as available\", without warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, non-infringement, uninterrupted availability, freedom from errors, or freedom from security vulnerabilities.\n\nThe developers do not guarantee that the Software will meet your needs or that it will run without interruption or error.",
-    ),
-    "disclaimerWarrantyTitle": MessageLookupByLibrary.simpleMessage(
-      "No warranty",
     ),
     "disconnected": MessageLookupByLibrary.simpleMessage("Disconnected"),
     "discoverNewVersion": MessageLookupByLibrary.simpleMessage(
@@ -884,7 +782,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "healthCheck": MessageLookupByLibrary.simpleMessage("Health check"),
     "helperCorruptTip": MessageLookupByLibrary.simpleMessage(
-      "Helper service unavailable; TUN mode cannot be enabled. Reinstall FlClash to restore it.",
+      "Helper service unavailable; TUN mode cannot be enabled. Reinstall Handy to restore it.",
     ),
     "hex": MessageLookupByLibrary.simpleMessage("Hex"),
     "hideFromList": MessageLookupByLibrary.simpleMessage("Hide from list"),
@@ -951,7 +849,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "init": MessageLookupByLibrary.simpleMessage("Init"),
     "initFailed": MessageLookupByLibrary.simpleMessage("Startup failed"),
     "initFailedTip": MessageLookupByLibrary.simpleMessage(
-      "FlClash ran into an error while starting and can\'t continue. Copy the details to report the problem. If it keeps happening, clearing the data usually lets the app start again.",
+      "Handy ran into an error while starting and can\'t continue. Copy the details to report the problem. If it keeps happening, clearing the data usually lets the app start again.",
     ),
     "initiator": MessageLookupByLibrary.simpleMessage("Initiator"),
     "initiatorShort": MessageLookupByLibrary.simpleMessage("From"),
@@ -961,9 +859,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "inputRuleContent": MessageLookupByLibrary.simpleMessage(
       "Enter the rule content",
     ),
-    "installedAppsPermissionDeniedMessage": MessageLookupByLibrary.simpleMessage(
-      "The app list permission was denied, so installed apps cannot be listed. Please grant it manually in system settings.",
-    ),
+    "installedAppsPermissionDeniedMessage":
+        MessageLookupByLibrary.simpleMessage(
+          "The app list permission was denied, so installed apps cannot be listed. Please grant it manually in system settings.",
+        ),
     "installedAppsPermissionDesc": MessageLookupByLibrary.simpleMessage(
       "This system hides the installed app list until the permission is granted. Authorize it to configure the per-app proxy.",
     ),
@@ -989,9 +888,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "internet": MessageLookupByLibrary.simpleMessage("Internet"),
     "interval": MessageLookupByLibrary.simpleMessage("Interval"),
     "intranetIP": MessageLookupByLibrary.simpleMessage("Intranet IP"),
-    "invalidBackupFile": MessageLookupByLibrary.simpleMessage(
-      "Invalid backup file",
-    ),
     "invalidCidrContent": MessageLookupByLibrary.simpleMessage(
       "Enter an IP range in CIDR form such as 192.168.0.0/16",
     ),
@@ -1098,7 +994,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Listen routing mark",
     ),
     "listenRoutingMarkDesc": MessageLookupByLibrary.simpleMessage(
-      "Listen routing mark works only on Linux.",
+      "Listen routing mark works only on Android.",
     ),
     "liveConnections": MessageLookupByLibrary.simpleMessage("Live connections"),
     "loading": MessageLookupByLibrary.simpleMessage("Loading…"),
@@ -1176,7 +1072,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "minutesAgoShort": m49,
     "mixedPort": MessageLookupByLibrary.simpleMessage("Mixed port"),
     "mode": MessageLookupByLibrary.simpleMessage("Mode"),
-    "monochromeIcon": MessageLookupByLibrary.simpleMessage("Monochrome icon"),
     "monochromeScheme": MessageLookupByLibrary.simpleMessage("Monochrome"),
     "monthsAgo": m50,
     "monthsAgoShort": m51,
@@ -1215,7 +1110,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "nextMatch": MessageLookupByLibrary.simpleMessage("Next match"),
     "no": MessageLookupByLibrary.simpleMessage("No"),
     "noData": MessageLookupByLibrary.simpleMessage("No data"),
-    "noInfo": MessageLookupByLibrary.simpleMessage("No info"),
     "noLongerRemind": MessageLookupByLibrary.simpleMessage(
       "Don\'t remind me again",
     ),
@@ -1289,9 +1183,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "peers": MessageLookupByLibrary.simpleMessage("Peers"),
     "pickFromAlbum": MessageLookupByLibrary.simpleMessage("Choose from album"),
     "pinWindow": MessageLookupByLibrary.simpleMessage("Pin window"),
-    "pleaseBindWebDAV": MessageLookupByLibrary.simpleMessage(
-      "Please bind WebDAV",
-    ),
     "pleaseEnterScriptName": MessageLookupByLibrary.simpleMessage(
       "Please enter a script name",
     ),
@@ -1446,19 +1337,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "restartCoreTip": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to restart the core?",
     ),
-    "restore": MessageLookupByLibrary.simpleMessage("Restore"),
-    "restoreAllData": MessageLookupByLibrary.simpleMessage("Restore all data"),
-    "restoreOnlyConfig": MessageLookupByLibrary.simpleMessage(
-      "Restore profiles only",
-    ),
-    "restoreStrategy": MessageLookupByLibrary.simpleMessage("Restore strategy"),
-    "restoreStrategyCompatible": MessageLookupByLibrary.simpleMessage(
-      "Compatible",
-    ),
-    "restoreStrategyOverride": MessageLookupByLibrary.simpleMessage("Override"),
-    "restoreSuccess": MessageLookupByLibrary.simpleMessage(
-      "Restore successful",
-    ),
     "result": MessageLookupByLibrary.simpleMessage("Result"),
     "retry": MessageLookupByLibrary.simpleMessage("Retry"),
     "routeAddress": MessageLookupByLibrary.simpleMessage("Route addresses"),
@@ -1575,7 +1453,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Match into a sub-rule; mind the parentheses",
     ),
     "ruleActionUidDesc": MessageLookupByLibrary.simpleMessage(
-      "Match the Linux user ID",
+      "Match the Android user ID",
     ),
     "ruleEmpty": MessageLookupByLibrary.simpleMessage("Rule is empty"),
     "ruleListInvalid": MessageLookupByLibrary.simpleMessage(
@@ -1656,10 +1534,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Sent. Confirm the import on the other device.",
     ),
     "sendFromPhonePageTitle": MessageLookupByLibrary.simpleMessage(
-      "Send a link to FlClash",
+      "Send a link to Handy",
     ),
     "sendFromPhonePermissionDenied": MessageLookupByLibrary.simpleMessage(
-      "Receiving a link from your phone needs the Nearby devices permission, which lets FlClash reach the local network. Turn it on in the app\'s settings.",
+      "Receiving a link from your phone needs the Nearby devices permission, which lets Handy reach the local network. Turn it on in the app\'s settings.",
     ),
     "sendFromPhoneTip": MessageLookupByLibrary.simpleMessage(
       "Scan the code with your phone\'s camera and paste the link on the page that opens. Both devices need to be on the same network.",
@@ -1701,7 +1579,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "No proxy could be read from the links",
     ),
     "shareQrcodeTip": MessageLookupByLibrary.simpleMessage(
-      "Scan with FlClash on another device to import this profile.",
+      "Scan with Handy on another device to import this profile.",
     ),
     "show": MessageLookupByLibrary.simpleMessage("Show"),
     "showLess": MessageLookupByLibrary.simpleMessage("Collapse"),
@@ -1788,9 +1666,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "submit": MessageLookupByLibrary.simpleMessage("Submit"),
     "subscriptionInfo": MessageLookupByLibrary.simpleMessage(
       "Subscription info",
-    ),
-    "sudoPasswordTitle": MessageLookupByLibrary.simpleMessage(
-      "Enter your password for sudo",
     ),
     "suspended": MessageLookupByLibrary.simpleMessage("Suspended…"),
     "switchProfile": MessageLookupByLibrary.simpleMessage("Switch profile"),
@@ -1883,9 +1758,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "vpnEnableDesc": MessageLookupByLibrary.simpleMessage(
       "VPN routes all system traffic through VpnService automatically.",
-    ),
-    "webDAVConfiguration": MessageLookupByLibrary.simpleMessage(
-      "WebDAV configuration",
     ),
     "whitelistMode": MessageLookupByLibrary.simpleMessage("Whitelist mode"),
     "writeToSystem": MessageLookupByLibrary.simpleMessage("Write to system"),

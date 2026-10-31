@@ -308,7 +308,7 @@ class NoInputBorder extends InputBorder {
   }) {}
 }
 
-/// For a field with no grouped row to sit in; `.agents/surfaces.md` has why.
+/// For a field with no grouped row to sit in.
 class FilledInputTheme extends StatelessWidget {
   const FilledInputTheme({
     super.key,

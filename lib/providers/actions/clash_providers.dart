@@ -131,7 +131,7 @@ class ClashProvidersAction extends _$ClashProvidersAction {
     return false;
   }
 
-  /// Backups leave remote sets out and older sets have no mrs yet.
+  /// Remote sets stay out of the local cache and older sets have no mrs yet.
   Future<ClashProvider> prepare(ClashProvider provider) async {
     if (await File(await provider.corePath).exists()) {
       return provider;

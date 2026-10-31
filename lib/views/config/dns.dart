@@ -159,8 +159,13 @@ class _DnsOverrideSpec extends OverrideSpec<DnsOverrideKey, Dns> {
   String title(AppLocalizations l) => 'DNS';
 
   @override
-  List<DnsOverrideKey> get values =>
-      keys == null ? DnsOverrideKey.values : [...?keys];
+  List<DnsOverrideKey> get values => keys == null
+      ? [
+          for (final key in DnsOverrideKey.values)
+            if (key != DnsOverrideKey.listenRoutingMark || system.isAndroid)
+              key,
+        ]
+      : [...?keys];
 
   @override
   NullStatusIllustration get illustration => NullStatusIllustration.dns;

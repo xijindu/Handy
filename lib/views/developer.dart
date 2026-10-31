@@ -6,8 +6,8 @@ import 'package:fl_clash/models/common.dart';
 import 'package:fl_clash/providers/action.dart';
 import 'package:fl_clash/providers/app.dart';
 import 'package:fl_clash/providers/config.dart';
-import 'package:fl_clash/state.dart';
 import 'package:fl_clash/widgets/widgets.dart';
+import 'package:flutter/foundation.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -44,7 +44,7 @@ class DeveloperView extends ConsumerWidget {
             }
           },
         ),
-        if (globalState.canCrashCore)
+        if (kDebugMode)
           ListItem(
             title: Text(appLocalizations.crashTest),
             onTap: () async {

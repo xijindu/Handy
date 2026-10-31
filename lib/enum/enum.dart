@@ -14,7 +14,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 enum SupportPlatform {
   Windows,
   MacOS,
-  Linux,
   Android;
 
   static SupportPlatform get currentPlatform {
@@ -22,8 +21,6 @@ enum SupportPlatform {
       return SupportPlatform.Windows;
     } else if (system.isMacOS) {
       return SupportPlatform.MacOS;
-    } else if (Platform.isLinux) {
-      return SupportPlatform.Linux;
     } else if (system.isAndroid) {
       return SupportPlatform.Android;
     }
@@ -31,11 +28,7 @@ enum SupportPlatform {
   }
 }
 
-const desktopPlatforms = [
-  SupportPlatform.Linux,
-  SupportPlatform.MacOS,
-  SupportPlatform.Windows,
-];
+const desktopPlatforms = [SupportPlatform.MacOS, SupportPlatform.Windows];
 
 enum GroupName { GLOBAL }
 
@@ -236,8 +229,6 @@ enum CoreEventType {
 enum FindProcessMode { always, off }
 
 enum InterfaceNameMode { clear, follow, custom }
-
-enum RestoreOption { all, onlyProfiles }
 
 enum ProxiesType { tab, list }
 
@@ -610,16 +601,17 @@ enum RuleAction {
 
   const RuleAction(this.value);
 
+  /// Actions a user may add to a rule. `UID` matches Linux user IDs, which
+  /// Android still provides, so it is hidden only on the Windows and macOS
+  /// desktop builds.
   static List<RuleAction> get addedRuleActions {
-    return RuleAction.values
-        .where(
-          (item) => ![
-            RuleAction.MATCH,
-            RuleAction.RULE_SET,
-            RuleAction.SUB_RULE,
-          ].contains(item),
-        )
-        .toList();
+    final hidden = {
+      RuleAction.MATCH,
+      RuleAction.RULE_SET,
+      RuleAction.SUB_RULE,
+      if (!system.isAndroid) RuleAction.UID,
+    };
+    return RuleAction.values.where((item) => !hidden.contains(item)).toList();
   }
 }
 
@@ -851,8 +843,6 @@ enum RuleProviderBehavior { domain, ipcidr, classical }
 
 enum RuleProviderFormat { yaml, text, mrs }
 
-enum RestoreStrategy { compatible, override }
-
 enum TabAnimation { slide, fade }
 
 enum LiquidGlassMode { none, standard, ultra }
@@ -868,7 +858,6 @@ enum LoadingTag {
   scripts,
   ruleProviders,
   iconSets,
-  backup_restore,
   access,
   proxies,
   checkUpdate,

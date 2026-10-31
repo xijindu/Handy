@@ -90,7 +90,8 @@ class Migration {
   static const currentVersion = 1;
 
   /// One-off setting changes for upgrades, apart from [currentVersion], which
-  /// backups carry and an older app refuses when it is newer than its own.
+  /// a migrated config carries and an older app refuses when it is newer than
+  /// its own.
   static const upgradeVersion = 4;
 
   static const Map<int, Config Function(Config config)> _upgrades = {
@@ -143,13 +144,6 @@ class Migration {
         config = Config.realFromJson(configMap);
       }
       if (config != null) {
-        final storedDavPassword = _getStoredDavPassword(configMap);
-        final hasPlainTextDavPassword =
-            storedDavPassword != null &&
-            storedDavPassword == config.davProps?.password;
-        if (hasPlainTextDavPassword && !await _store.saveConfig(config)) {
-          throw StateError('Failed to obfuscate the legacy WebDAV password');
-        }
         return config;
       }
     }
@@ -240,14 +234,5 @@ Config _turnOffSidebarBlur(Config config) =>
 
 bool _isV0(Map<String, Object?>? configMap) =>
     configMap?['proxiesStyle'] != null;
-
-String? _getStoredDavPassword(Map<String, Object?>? configMap) {
-  final dav = configMap?['davProps'] ?? configMap?['dav'];
-  if (dav is! Map) {
-    return null;
-  }
-  final password = dav['password'];
-  return password is String && password.isNotEmpty ? password : null;
-}
 
 final migration = Migration(store: const _AppMigrationStore());

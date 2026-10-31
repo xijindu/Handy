@@ -63,7 +63,7 @@ docs/
 /android/core/**/cmake-build-*/
 /android/core/**/jniLibs/
 
-#FlClash
+#Handy
 /libclash/
 /android/app/src/main/jniLibs/
 /services/helper/target
@@ -79,3 +79,9 @@ devtools_options.yaml
 .fvm/
 .fvmrc
 /coverage/lcov.info
+
+# Build outputs inside workspace packages (plugin hooks, example apps)
+**/build/
+
+# Agent workspace data
+.workbuddy/

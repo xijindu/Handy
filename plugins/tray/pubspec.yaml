@@ -1,5 +1,5 @@
 name: tray
-description: System tray integration for FlClash on Linux, macOS and Windows.
+description: System tray integration for Handy on macOS and Windows.
 version: 0.0.1
 
 environment:
@@ -19,8 +19,6 @@ dev_dependencies:
 flutter:
   plugin:
     platforms:
-      linux:
-        pluginClass: TrayPlugin
       macos:
         pluginClass: TrayPlugin
       windows:

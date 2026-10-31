@@ -32,7 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m4(detail) => "Не удалось очистить данные: ${detail}";
 
   static String m5(code) =>
-      "Windows отказалась запускать FlClashCore.exe (ошибка ${code}). Политики контроля приложений, такие как Smart App Control или AppLocker, блокируют неподписанные программы; разрешите FlClash в этой политике или отключите её и повторите попытку.";
+      "Windows отказалась запускать HandyCore.exe (ошибка ${code}). Политики контроля приложений, такие как Smart App Control или AppLocker, блокируют неподписанные программы; разрешите Handy в этой политике или отключите её и повторите попытку.";
 
   static String m6(name) =>
       "Приложение два раза подряд не смогло завершить запуск. Чтобы разорвать цикл, профиль ${name} снят с выбора, а автоматическая настройка пропущена. Вы можете выбрать его снова в любой момент.";
@@ -293,10 +293,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "additionalPrefix": MessageLookupByLibrary.simpleMessage("Префикс имени"),
     "additionalSuffix": MessageLookupByLibrary.simpleMessage("Суффикс имени"),
     "address": MessageLookupByLibrary.simpleMessage("Адрес"),
-    "addressHelp": MessageLookupByLibrary.simpleMessage("Адрес сервера WebDAV"),
-    "addressTip": MessageLookupByLibrary.simpleMessage(
-      "Введите корректный адрес WebDAV",
-    ),
     "advancedConfig": MessageLookupByLibrary.simpleMessage(
       "Расширенная конфигурация",
     ),
@@ -375,16 +371,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "back": MessageLookupByLibrary.simpleMessage("Назад"),
     "backgroundBlur": MessageLookupByLibrary.simpleMessage("Размытие фона"),
-    "backup": MessageLookupByLibrary.simpleMessage("Резервное копирование"),
-    "backupAndRestore": MessageLookupByLibrary.simpleMessage(
-      "Резервное копирование и восстановление",
-    ),
-    "backupFromNewerVersion": MessageLookupByLibrary.simpleMessage(
-      "Резервная копия создана более новой версией приложения. Обновите приложение перед восстановлением",
-    ),
-    "backupSuccess": MessageLookupByLibrary.simpleMessage(
-      "Резервная копия создана",
-    ),
     "basicInfo": MessageLookupByLibrary.simpleMessage("Основная информация"),
     "basicStrategy": MessageLookupByLibrary.simpleMessage("Базовые политики"),
     "batchAdd": MessageLookupByLibrary.simpleMessage("Массовое добавление"),
@@ -405,7 +391,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "batteryOptimizationDesc": MessageLookupByLibrary.simpleMessage(
       "Игнорирование оптимизации батареи позволяет приложению работать в фоне.",
     ),
-    "bind": MessageLookupByLibrary.simpleMessage("Привязать"),
     "blacklistMode": MessageLookupByLibrary.simpleMessage(
       "Режим чёрного списка",
     ),
@@ -457,7 +442,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Проверять TLS-сертификаты",
     ),
     "checkCertificateDesc": MessageLookupByLibrary.simpleMessage(
-      "Без проверки TLS-сертификатов подписки и резервные копии уязвимы для атаки «человек посередине».",
+      "Без проверки TLS-сертификатов подписки и загрузки уязвимы для атаки «человек посередине».",
     ),
     "checkUpdate": MessageLookupByLibrary.simpleMessage("Проверить обновления"),
     "checkUpdateError": MessageLookupByLibrary.simpleMessage(
@@ -527,7 +512,6 @@ class MessageLookup extends MessageLookupByLibrary {
       "Подключения, запросы и DNS-запросы",
     ),
     "connections": MessageLookupByLibrary.simpleMessage("Соединения"),
-    "connectivity": MessageLookupByLibrary.simpleMessage("Подключение: "),
     "content": MessageLookupByLibrary.simpleMessage("Содержимое"),
     "contentNotEmpty": MessageLookupByLibrary.simpleMessage(
       "Содержимое не может быть пустым",
@@ -544,7 +528,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "core": MessageLookupByLibrary.simpleMessage("Ядро"),
     "coreBlockedByPolicyTip": m5,
     "coreBlockedBySmartAppControlTip": MessageLookupByLibrary.simpleMessage(
-      "Smart App Control в Windows заблокировал неподписанный FlClashCore.exe. Откройте Безопасность Windows → Управление приложениями и браузером → Параметры Smart App Control, выберите «Выкл.» и снова запустите FlClash. Повторно включить Smart App Control без переустановки Windows нельзя.",
+      "Smart App Control в Windows заблокировал неподписанный HandyCore.exe. Откройте Безопасность Windows → Управление приложениями и браузером → Параметры Smart App Control, выберите «Выкл.» и снова запустите Handy. Повторно включить Smart App Control без переустановки Windows нельзя.",
     ),
     "coreStatus": MessageLookupByLibrary.simpleMessage("Статус ядра"),
     "country": MessageLookupByLibrary.simpleMessage("Регион"),
@@ -650,96 +634,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "disabled": MessageLookupByLibrary.simpleMessage("Выключено"),
     "discardChanges": MessageLookupByLibrary.simpleMessage(
       "Отменить изменения?",
-    ),
-    "disclaimer": MessageLookupByLibrary.simpleMessage(
-      "Отказ от ответственности",
-    ),
-    "disclaimerAcceptContent": MessageLookupByLibrary.simpleMessage(
-      "Устанавливая, копируя или используя Программу, вы подтверждаете, что прочитали и приняли это заявление полностью. Если вы не согласны с каким-либо его условием, немедленно прекратите использование и удалите Программу.",
-    ),
-    "disclaimerAcceptTitle": MessageLookupByLibrary.simpleMessage(
-      "Принятие условий",
-    ),
-    "disclaimerAcknowledgeLabel": MessageLookupByLibrary.simpleMessage(
-      "Я прочитал(а) и понимаю это заявление",
-    ),
-    "disclaimerAcknowledgeTip": MessageLookupByLibrary.simpleMessage(
-      "Чтобы подтвердить, что вы ознакомились с ним, прочитайте следующее заявление и отметьте пункт ниже:",
-    ),
-    "disclaimerAcknowledgeTitle": MessageLookupByLibrary.simpleMessage(
-      "Подтвердите заявление",
-    ),
-    "disclaimerChangesContent": MessageLookupByLibrary.simpleMessage(
-      "Разработчики могут изменять это заявление в любом выпуске; изменения вступают в силу с момента публикации выпуска. Продолжая пользоваться Программой после обновления, вы принимаете изменённое заявление.",
-    ),
-    "disclaimerChangesTitle": MessageLookupByLibrary.simpleMessage(
-      "Изменения заявления",
-    ),
-    "disclaimerDesc": MessageLookupByLibrary.simpleMessage(
-      "Перед использованием FlClash (далее — «Программа») внимательно прочитайте это заявление и убедитесь, что понимаете его полностью. Нажимая «Согласен», вы подтверждаете, что прочитали, поняли и принимаете все приведённые ниже условия. Если вы не согласны, нажмите «Выход» и прекратите использование Программы.",
-    ),
-    "disclaimerLiabilityContent": MessageLookupByLibrary.simpleMessage(
-      "В максимальной степени, допустимой применимым законодательством, ни разработчики, ни участники проекта не несут ответственности за любой прямой, косвенный, случайный, особый, штрафной или последующий ущерб, возникший в результате использования или невозможности использования Программы, включая, помимо прочего, потерю данных, повреждение устройства, сбои сети, прерывание деятельности, упущенную выгоду или связанные с этим правовые споры, даже если они были предупреждены о возможности такого ущерба.",
-    ),
-    "disclaimerLiabilityTitle": MessageLookupByLibrary.simpleMessage(
-      "Ограничение ответственности",
-    ),
-    "disclaimerLicenseContent": MessageLookupByLibrary.simpleMessage(
-      "Программа распространяется с открытым исходным кодом по лицензии GPL-3.0. Вы можете свободно использовать, изменять и распространять её при соблюдении этой лицензии: производные работы также должны распространяться по GPL-3.0 с сохранением уведомлений об авторских правах.\n\nСторонние компоненты Программы, включая ядро Clash.Meta, распространяются по своим собственным лицензиям. Авторы оригинала не несут ответственности за проблемы, возникшие в изменённых или распространяемых третьими лицами версиях.",
-    ),
-    "disclaimerLicenseTitle": MessageLookupByLibrary.simpleMessage(
-      "Лицензия с открытым исходным кодом",
-    ),
-    "disclaimerNoServiceStatement": MessageLookupByLibrary.simpleMessage(
-      "Сама Программа не предоставляет прокси-серверы, узлы, подписки или услуги доступа к сети и не состоит в партнёрских, агентских или гарантийных отношениях с поставщиками таких услуг.",
-    ),
-    "disclaimerPrivacyContent": MessageLookupByLibrary.simpleMessage(
-      "Программа не собирает и не отправляет адреса ваших подписок, сведения об узлах, содержимое конфигураций, посещённые сайты, записи о подключениях, содержимое трафика и журналы. Эти данные хранятся только на вашем устройстве, и у разработчиков нет к ним доступа.\n\nПрограмма обращается к сети только при использовании соответствующих функций, например загружает указанный вами адрес подписки при обновлении профиля или обращается к GitHub при проверке обновлений.\n\nПрограмма не содержит никаких сервисов статистики или отчётов о сбоях ни на одной платформе.",
-    ),
-    "disclaimerPrivacyTitle": MessageLookupByLibrary.simpleMessage(
-      "Сбор данных и конфиденциальность",
-    ),
-    "disclaimerResponsibilityContent": MessageLookupByLibrary.simpleMessage(
-      "Вы самостоятельно убеждаетесь, что использование Программы законно в вашей стране или регионе, и единолично несёте юридическую ответственность за все действия с ней и их последствия.\n\nПодписки, узлы и конфигурации, которые вы импортируете, выбираете вы сами. Законность их источника, безопасность содержимого и надёжность сервиса — вопрос между вами и их поставщиками.",
-    ),
-    "disclaimerResponsibilityTitle": MessageLookupByLibrary.simpleMessage(
-      "Ваша ответственность",
-    ),
-    "disclaimerRestateHint": MessageLookupByLibrary.simpleMessage(
-      "Введите заявление выше",
-    ),
-    "disclaimerRestateMismatch": MessageLookupByLibrary.simpleMessage(
-      "Не совпадает с текстом заявления",
-    ),
-    "disclaimerRestateTip": MessageLookupByLibrary.simpleMessage(
-      "Чтобы подтвердить, что вы ознакомились с ним, полностью введите следующее заявление в поле ниже:",
-    ),
-    "disclaimerRestateTitle": MessageLookupByLibrary.simpleMessage(
-      "Повторите заявление",
-    ),
-    "disclaimerSoftwareContent": MessageLookupByLibrary.simpleMessage(
-      "Программа — это клиент сетевого прокси с открытым исходным кодом на основе ядра Clash.Meta (mihomo). Она предоставляет только локальные инструменты: управление конфигурациями, маршрутизацию по правилам и пересылку трафика.",
-    ),
-    "disclaimerSoftwareTitle": MessageLookupByLibrary.simpleMessage(
-      "Характер программы",
-    ),
-    "disclaimerThirdPartyContent": MessageLookupByLibrary.simpleMessage(
-      "Ссылки на подписки, файлы конфигурации, наборы правил, скрипты, внешние ресурсы и внешние ссылки предоставляются третьими лицами. Разработчики не могут проверять и не проверяют их законность, точность, безопасность и доступность и не дают на них никаких гарантий.\n\nУтечка данных, финансовые потери, блокировка аккаунта или иной ущерб, вызванные сторонним контентом, урегулируются между вами и третьим лицом; разработчики не несут за это никакой ответственности.",
-    ),
-    "disclaimerThirdPartyTitle": MessageLookupByLibrary.simpleMessage(
-      "Сторонний контент",
-    ),
-    "disclaimerUsageContent": MessageLookupByLibrary.simpleMessage(
-      "Программа предназначена только для некоммерческого использования: обучения, обмена опытом и технических исследований. Любое коммерческое использование строго запрещено, включая, помимо прочего, платное распространение, продажу в комплекте, использование в составе коммерческого сервиса или ведение деятельности от имени Программы. Любая коммерческая деятельность не имеет отношения к Программе и её разработчикам.\n\nСтрого запрещено использовать Программу для действий, нарушающих законы вашей страны или региона, включая, помимо прочего, обход законно установленных ограничений доступа к сети, распространение незаконной информации, сетевые атаки и нарушение законных прав других лиц.",
-    ),
-    "disclaimerUsageTitle": MessageLookupByLibrary.simpleMessage(
-      "Ограничения использования",
-    ),
-    "disclaimerWarrantyContent": MessageLookupByLibrary.simpleMessage(
-      "Программа предоставляется «как есть» и «по мере доступности», без каких-либо явных или подразумеваемых гарантий, включая, помимо прочего, гарантии товарной пригодности, пригодности для определённой цели, ненарушения прав, бесперебойной работы, отсутствия ошибок и уязвимостей.\n\nРазработчики не гарантируют, что Программа будет соответствовать вашим потребностям или работать без сбоев и ошибок.",
-    ),
-    "disclaimerWarrantyTitle": MessageLookupByLibrary.simpleMessage(
-      "Отсутствие гарантий",
     ),
     "disconnected": MessageLookupByLibrary.simpleMessage("Отключено"),
     "discoverNewVersion": MessageLookupByLibrary.simpleMessage(
@@ -918,7 +812,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "healthCheck": MessageLookupByLibrary.simpleMessage("Проверка состояния"),
     "helperCorruptTip": MessageLookupByLibrary.simpleMessage(
-      "Служба Helper недоступна, поэтому TUN-режим включить нельзя. Переустановите FlClash.",
+      "Служба Helper недоступна, поэтому TUN-режим включить нельзя. Переустановите Handy.",
     ),
     "hex": MessageLookupByLibrary.simpleMessage("Hex"),
     "hideFromList": MessageLookupByLibrary.simpleMessage("Скрыть из списка"),
@@ -985,7 +879,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "init": MessageLookupByLibrary.simpleMessage("Инициализация"),
     "initFailed": MessageLookupByLibrary.simpleMessage("Не удалось запустить"),
     "initFailedTip": MessageLookupByLibrary.simpleMessage(
-      "При запуске FlClash произошла ошибка, и работа не может быть продолжена. Скопируйте подробности, чтобы сообщить о проблеме. Если ошибка повторяется, очистка данных обычно позволяет снова запустить приложение.",
+      "При запуске Handy произошла ошибка, и работа не может быть продолжена. Скопируйте подробности, чтобы сообщить о проблеме. Если ошибка повторяется, очистка данных обычно позволяет снова запустить приложение.",
     ),
     "initiator": MessageLookupByLibrary.simpleMessage("Инициатор"),
     "initiatorShort": MessageLookupByLibrary.simpleMessage("Источник"),
@@ -995,9 +889,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "inputRuleContent": MessageLookupByLibrary.simpleMessage(
       "Введите содержимое правила",
     ),
-    "installedAppsPermissionDeniedMessage": MessageLookupByLibrary.simpleMessage(
-      "Разрешение на список приложений отклонено, поэтому установленные приложения недоступны. Предоставьте его вручную в системных настройках.",
-    ),
+    "installedAppsPermissionDeniedMessage":
+        MessageLookupByLibrary.simpleMessage(
+          "Разрешение на список приложений отклонено, поэтому установленные приложения недоступны. Предоставьте его вручную в системных настройках.",
+        ),
     "installedAppsPermissionDesc": MessageLookupByLibrary.simpleMessage(
       "Эта система не выдаёт список установленных приложений без разрешения. Предоставьте его, чтобы настроить прокси для отдельных приложений.",
     ),
@@ -1023,9 +918,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "internet": MessageLookupByLibrary.simpleMessage("Интернет"),
     "interval": MessageLookupByLibrary.simpleMessage("Интервал"),
     "intranetIP": MessageLookupByLibrary.simpleMessage("Внутренний IP"),
-    "invalidBackupFile": MessageLookupByLibrary.simpleMessage(
-      "Недопустимый файл резервной копии",
-    ),
     "invalidCidrContent": MessageLookupByLibrary.simpleMessage(
       "Введите диапазон IP в формате CIDR, например 192.168.0.0/16",
     ),
@@ -1134,7 +1026,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Метка маршрутизации",
     ),
     "listenRoutingMarkDesc": MessageLookupByLibrary.simpleMessage(
-      "Метка маршрутизации действует только в Linux.",
+      "Метка маршрутизации действует только в Android.",
     ),
     "liveConnections": MessageLookupByLibrary.simpleMessage(
       "Активные соединения",
@@ -1228,9 +1120,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "minutesAgoShort": m49,
     "mixedPort": MessageLookupByLibrary.simpleMessage("Смешанный порт"),
     "mode": MessageLookupByLibrary.simpleMessage("Режим"),
-    "monochromeIcon": MessageLookupByLibrary.simpleMessage(
-      "Монохромный значок",
-    ),
     "monochromeScheme": MessageLookupByLibrary.simpleMessage("Монохром"),
     "monthsAgo": m50,
     "monthsAgoShort": m51,
@@ -1269,7 +1158,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "nextMatch": MessageLookupByLibrary.simpleMessage("Следующее совпадение"),
     "no": MessageLookupByLibrary.simpleMessage("Нет"),
     "noData": MessageLookupByLibrary.simpleMessage("Нет данных"),
-    "noInfo": MessageLookupByLibrary.simpleMessage("Нет информации"),
     "noLongerRemind": MessageLookupByLibrary.simpleMessage(
       "Больше не напоминать",
     ),
@@ -1346,9 +1234,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "pickFromAlbum": MessageLookupByLibrary.simpleMessage("Выбрать из галереи"),
     "pinWindow": MessageLookupByLibrary.simpleMessage(
       "Закрепить поверх всех окон",
-    ),
-    "pleaseBindWebDAV": MessageLookupByLibrary.simpleMessage(
-      "Привяжите WebDAV",
     ),
     "pleaseEnterScriptName": MessageLookupByLibrary.simpleMessage(
       "Введите название скрипта",
@@ -1508,25 +1393,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "restartCoreTip": MessageLookupByLibrary.simpleMessage(
       "Вы уверены, что хотите перезапустить ядро?",
     ),
-    "restore": MessageLookupByLibrary.simpleMessage("Восстановить"),
-    "restoreAllData": MessageLookupByLibrary.simpleMessage(
-      "Восстановить все данные",
-    ),
-    "restoreOnlyConfig": MessageLookupByLibrary.simpleMessage(
-      "Восстановить только профили",
-    ),
-    "restoreStrategy": MessageLookupByLibrary.simpleMessage(
-      "Стратегия восстановления",
-    ),
-    "restoreStrategyCompatible": MessageLookupByLibrary.simpleMessage(
-      "Совместимость",
-    ),
-    "restoreStrategyOverride": MessageLookupByLibrary.simpleMessage(
-      "Перезапись",
-    ),
-    "restoreSuccess": MessageLookupByLibrary.simpleMessage(
-      "Восстановление выполнено",
-    ),
     "result": MessageLookupByLibrary.simpleMessage("Результат"),
     "retry": MessageLookupByLibrary.simpleMessage("Повторить"),
     "routeAddress": MessageLookupByLibrary.simpleMessage("Адреса маршрутов"),
@@ -1645,7 +1511,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Переход к подправилу; обратите внимание на скобки",
     ),
     "ruleActionUidDesc": MessageLookupByLibrary.simpleMessage(
-      "Сопоставить Linux USER ID",
+      "Сопоставить Android USER ID",
     ),
     "ruleEmpty": MessageLookupByLibrary.simpleMessage("Правило пусто"),
     "ruleListInvalid": MessageLookupByLibrary.simpleMessage(
@@ -1736,10 +1602,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Отправлено. Подтвердите импорт на другом устройстве.",
     ),
     "sendFromPhonePageTitle": MessageLookupByLibrary.simpleMessage(
-      "Отправить ссылку в FlClash",
+      "Отправить ссылку в Handy",
     ),
     "sendFromPhonePermissionDenied": MessageLookupByLibrary.simpleMessage(
-      "Чтобы получить ссылку с телефона, FlClash нужно разрешение «Устройства поблизости» для доступа к локальной сети. Включите его в настройках приложения.",
+      "Чтобы получить ссылку с телефона, Handy нужно разрешение «Устройства поблизости» для доступа к локальной сети. Включите его в настройках приложения.",
     ),
     "sendFromPhoneTip": MessageLookupByLibrary.simpleMessage(
       "Отсканируйте код камерой телефона и вставьте ссылку на открывшейся странице. Оба устройства должны быть в одной сети.",
@@ -1781,7 +1647,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Не удалось прочитать прокси из ссылок",
     ),
     "shareQrcodeTip": MessageLookupByLibrary.simpleMessage(
-      "Отсканируйте в FlClash на другом устройстве, чтобы импортировать этот профиль.",
+      "Отсканируйте в Handy на другом устройстве, чтобы импортировать этот профиль.",
     ),
     "show": MessageLookupByLibrary.simpleMessage("Показать"),
     "showLess": MessageLookupByLibrary.simpleMessage("Свернуть"),
@@ -1872,9 +1738,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "submit": MessageLookupByLibrary.simpleMessage("Отправить"),
     "subscriptionInfo": MessageLookupByLibrary.simpleMessage(
       "Информация о подписке",
-    ),
-    "sudoPasswordTitle": MessageLookupByLibrary.simpleMessage(
-      "Введите пароль для sudo",
     ),
     "suspended": MessageLookupByLibrary.simpleMessage("Приостановлено…"),
     "switchProfile": MessageLookupByLibrary.simpleMessage("Сменить профиль"),
@@ -1979,9 +1842,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "vpnEnableDesc": MessageLookupByLibrary.simpleMessage(
       "VPN автоматически направляет весь системный трафик через VpnService.",
-    ),
-    "webDAVConfiguration": MessageLookupByLibrary.simpleMessage(
-      "Настройка WebDAV",
     ),
     "whitelistMode": MessageLookupByLibrary.simpleMessage(
       "Режим белого списка",

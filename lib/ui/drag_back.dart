@@ -279,8 +279,10 @@ class _DragBackGestureRecognizer extends HorizontalDragGestureRecognizer {
     double? deviceTouchSlop,
   ) {
     final slop = switch (defaultTargetPlatform) {
-      TargetPlatform.linux || TargetPlatform.macOS || TargetPlatform.windows =>
-        computePanSlop(pointerDeviceKind, gestureSettings),
+      TargetPlatform.macOS || TargetPlatform.windows => computePanSlop(
+        pointerDeviceKind,
+        gestureSettings,
+      ),
       _ => computeHitSlop(pointerDeviceKind, gestureSettings),
     };
     return globalDistanceMoved * towardEnd > slop;

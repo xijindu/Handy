@@ -3,11 +3,11 @@ import 'package:flutter/widgets.dart';
 
 /// Keyboard shortcuts used by the [CodeForge].
 ///
-/// The default constructor follows the Windows and Linux conventions, with
-/// `Ctrl` as the primary modifier. [CodeForgeKeyboardShortcuts.apple] follows
-/// the macOS and iOS conventions: `Cmd` as the primary modifier, `Option` for
-/// word-wise movement and deletion, `Cmd + arrow` for line and document
-/// boundaries. [CodeForge] picks one through [forPlatform].
+/// The default constructor follows the Windows conventions, with `Ctrl` as
+/// the primary modifier. [CodeForgeKeyboardShortcuts.apple] follows the macOS
+/// and iOS conventions: `Cmd` as the primary modifier, `Option` for word-wise
+/// movement and deletion, `Cmd + arrow` for line and document boundaries.
+/// [CodeForge] picks one through [forPlatform].
 class CodeForgeKeyboardShortcuts {
   final ShortcutActivator jumpToDocumentStart;
   final ShortcutActivator jumpToDocumentEnd;

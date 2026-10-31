@@ -19,7 +19,6 @@ const _pageTransitionsTheme = PageTransitionsTheme(
   builders: <TargetPlatform, PageTransitionsBuilder>{
     TargetPlatform.android: commonSharedXPageTransitions,
     TargetPlatform.windows: commonSharedXPageTransitions,
-    TargetPlatform.linux: commonSharedXPageTransitions,
     TargetPlatform.macOS: commonSharedXPageTransitions,
   },
 );

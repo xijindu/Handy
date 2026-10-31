@@ -28,16 +28,28 @@ Map<String, String> _bindgenEnvironment(BuildInput input) {
     return const {};
   }
   final llvmRoot = File.fromUri(compiler).parent.parent;
-  for (final name in const ['lib', 'lib64']) {
-    final directory = Directory(
-      '${llvmRoot.path}${Platform.pathSeparator}$name',
-    );
-    if (directory.existsSync() && directory.listSync().any(_isLibclang)) {
-      return {'LIBCLANG_PATH': directory.path};
+  final pathSep = Platform.pathSeparator;
+  final env = <String, String>{};
+  final pathDirs = <String>[];
+  // Capture the current PATH so we can append directories to it.
+  final currentPath = Platform.environment['PATH'] ?? '';
+  for (final name in const ['bin', 'lib', 'lib64']) {
+    final directory = Directory('${llvmRoot.path}$pathSep$name');
+    if (!directory.existsSync()) continue;
+    pathDirs.add(directory.path);
+    if (directory.listSync().any(_isLibclang)) {
+      env['LIBCLANG_PATH'] = directory.path;
     }
   }
+  if (env.containsKey('LIBCLANG_PATH')) {
+    env['PATH'] = [
+      ...pathDirs,
+      currentPath,
+    ].join(Platform.isWindows ? ';' : ':');
+    return env;
+  }
   throw StateError(
-    'No libclang under ${llvmRoot.path} (lib or lib64); the NDK Flutter '
+    'No libclang under ${llvmRoot.path} (bin, lib or lib64); the NDK Flutter '
     'passed cannot run bindgen for rquickjs',
   );
 }

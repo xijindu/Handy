@@ -1,7 +1,7 @@
 import Foundation
 import ObjectiveC
 
-// flutter/flutter#185394, see "Wrong-size back buffer on macOS" in .agents/flutter-upgrade.md.
+// flutter/flutter#185394: a resize can leave a wrong-size back buffer on macOS.
 enum BackBufferCacheGuard {
     private static var installed = false
 

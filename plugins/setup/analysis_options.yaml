@@ -9,4 +9,3 @@ analyzer:
     - web/**
     - windows/**
     - macos/**
-    - linux/**

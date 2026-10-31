@@ -1119,7 +1119,7 @@ as int?,
 /// @nodoc
 mixin _$TrayState {
 
- Mode get mode; int get port; bool get autoLaunch; bool get systemProxy; bool get tunEnable; bool get isStart; bool get suspended; List<Group> get groups; Map<String, String> get selectedMap; bool get showTrayTitle; bool get monochromeTrayIcon; bool get safeMode; Map<HotAction, HotKeyAction> get hotKeys;
+ Mode get mode; int get port; bool get autoLaunch; bool get systemProxy; bool get tunEnable; bool get isStart; bool get suspended; List<Group> get groups; Map<String, String> get selectedMap; bool get showTrayTitle; bool get safeMode; Map<HotAction, HotKeyAction> get hotKeys;
 /// Create a copy of TrayState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1131,20 +1131,20 @@ $TrayStateCopyWith<TrayState> get copyWith => _$TrayStateCopyWithImpl<TrayState>
 @override
 bool operator ==(Object other) {
   final _this = this as TrayState;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is TrayState&&(identical(other.mode, _this.mode) || other.mode == _this.mode)&&(identical(other.port, _this.port) || other.port == _this.port)&&(identical(other.autoLaunch, _this.autoLaunch) || other.autoLaunch == _this.autoLaunch)&&(identical(other.systemProxy, _this.systemProxy) || other.systemProxy == _this.systemProxy)&&(identical(other.tunEnable, _this.tunEnable) || other.tunEnable == _this.tunEnable)&&(identical(other.isStart, _this.isStart) || other.isStart == _this.isStart)&&(identical(other.suspended, _this.suspended) || other.suspended == _this.suspended)&&const DeepCollectionEquality().equals(other.groups, _this.groups)&&const DeepCollectionEquality().equals(other.selectedMap, _this.selectedMap)&&(identical(other.showTrayTitle, _this.showTrayTitle) || other.showTrayTitle == _this.showTrayTitle)&&(identical(other.monochromeTrayIcon, _this.monochromeTrayIcon) || other.monochromeTrayIcon == _this.monochromeTrayIcon)&&(identical(other.safeMode, _this.safeMode) || other.safeMode == _this.safeMode)&&const DeepCollectionEquality().equals(other.hotKeys, _this.hotKeys));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TrayState&&(identical(other.mode, _this.mode) || other.mode == _this.mode)&&(identical(other.port, _this.port) || other.port == _this.port)&&(identical(other.autoLaunch, _this.autoLaunch) || other.autoLaunch == _this.autoLaunch)&&(identical(other.systemProxy, _this.systemProxy) || other.systemProxy == _this.systemProxy)&&(identical(other.tunEnable, _this.tunEnable) || other.tunEnable == _this.tunEnable)&&(identical(other.isStart, _this.isStart) || other.isStart == _this.isStart)&&(identical(other.suspended, _this.suspended) || other.suspended == _this.suspended)&&const DeepCollectionEquality().equals(other.groups, _this.groups)&&const DeepCollectionEquality().equals(other.selectedMap, _this.selectedMap)&&(identical(other.showTrayTitle, _this.showTrayTitle) || other.showTrayTitle == _this.showTrayTitle)&&(identical(other.safeMode, _this.safeMode) || other.safeMode == _this.safeMode)&&const DeepCollectionEquality().equals(other.hotKeys, _this.hotKeys));
 }
 
 
 @override
 int get hashCode {
   final _this = this as TrayState;
-  return Object.hash(runtimeType,_this.mode,_this.port,_this.autoLaunch,_this.systemProxy,_this.tunEnable,_this.isStart,_this.suspended,const DeepCollectionEquality().hash(_this.groups),const DeepCollectionEquality().hash(_this.selectedMap),_this.showTrayTitle,_this.monochromeTrayIcon,_this.safeMode,const DeepCollectionEquality().hash(_this.hotKeys));
+  return Object.hash(runtimeType,_this.mode,_this.port,_this.autoLaunch,_this.systemProxy,_this.tunEnable,_this.isStart,_this.suspended,const DeepCollectionEquality().hash(_this.groups),const DeepCollectionEquality().hash(_this.selectedMap),_this.showTrayTitle,_this.safeMode,const DeepCollectionEquality().hash(_this.hotKeys));
 }
 
 @override
 String toString() {
   final _this = this as TrayState;
-  return 'TrayState(mode: ${_this.mode}, port: ${_this.port}, autoLaunch: ${_this.autoLaunch}, systemProxy: ${_this.systemProxy}, tunEnable: ${_this.tunEnable}, isStart: ${_this.isStart}, suspended: ${_this.suspended}, groups: ${_this.groups}, selectedMap: ${_this.selectedMap}, showTrayTitle: ${_this.showTrayTitle}, monochromeTrayIcon: ${_this.monochromeTrayIcon}, safeMode: ${_this.safeMode}, hotKeys: ${_this.hotKeys})';
+  return 'TrayState(mode: ${_this.mode}, port: ${_this.port}, autoLaunch: ${_this.autoLaunch}, systemProxy: ${_this.systemProxy}, tunEnable: ${_this.tunEnable}, isStart: ${_this.isStart}, suspended: ${_this.suspended}, groups: ${_this.groups}, selectedMap: ${_this.selectedMap}, showTrayTitle: ${_this.showTrayTitle}, safeMode: ${_this.safeMode}, hotKeys: ${_this.hotKeys})';
 }
 
 
@@ -1155,7 +1155,7 @@ abstract mixin class $TrayStateCopyWith<$Res>  {
   factory $TrayStateCopyWith(TrayState value, $Res Function(TrayState) _then) = _$TrayStateCopyWithImpl;
 @useResult
 $Res call({
- Mode mode, int port, bool autoLaunch, bool systemProxy, bool tunEnable, bool isStart, bool suspended, List<Group> groups, Map<String, String> selectedMap, bool showTrayTitle, bool monochromeTrayIcon, bool safeMode, Map<HotAction, HotKeyAction> hotKeys
+ Mode mode, int port, bool autoLaunch, bool systemProxy, bool tunEnable, bool isStart, bool suspended, List<Group> groups, Map<String, String> selectedMap, bool showTrayTitle, bool safeMode, Map<HotAction, HotKeyAction> hotKeys
 });
 
 
@@ -1172,7 +1172,7 @@ class _$TrayStateCopyWithImpl<$Res>
 
 /// Create a copy of TrayState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? mode = null,Object? port = null,Object? autoLaunch = null,Object? systemProxy = null,Object? tunEnable = null,Object? isStart = null,Object? suspended = null,Object? groups = null,Object? selectedMap = null,Object? showTrayTitle = null,Object? monochromeTrayIcon = null,Object? safeMode = null,Object? hotKeys = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? mode = null,Object? port = null,Object? autoLaunch = null,Object? systemProxy = null,Object? tunEnable = null,Object? isStart = null,Object? suspended = null,Object? groups = null,Object? selectedMap = null,Object? showTrayTitle = null,Object? safeMode = null,Object? hotKeys = null,}) {
   return _then(TrayState(
 mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
 as Mode,port: null == port ? _self.port : port // ignore: cast_nullable_to_non_nullable
@@ -1184,7 +1184,6 @@ as bool,suspended: null == suspended ? _self.suspended : suspended // ignore: ca
 as bool,groups: null == groups ? _self.groups : groups // ignore: cast_nullable_to_non_nullable
 as List<Group>,selectedMap: null == selectedMap ? _self.selectedMap : selectedMap // ignore: cast_nullable_to_non_nullable
 as Map<String, String>,showTrayTitle: null == showTrayTitle ? _self.showTrayTitle : showTrayTitle // ignore: cast_nullable_to_non_nullable
-as bool,monochromeTrayIcon: null == monochromeTrayIcon ? _self.monochromeTrayIcon : monochromeTrayIcon // ignore: cast_nullable_to_non_nullable
 as bool,safeMode: null == safeMode ? _self.safeMode : safeMode // ignore: cast_nullable_to_non_nullable
 as bool,hotKeys: null == hotKeys ? _self.hotKeys : hotKeys // ignore: cast_nullable_to_non_nullable
 as Map<HotAction, HotKeyAction>,
@@ -1272,10 +1271,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Mode mode,  int port,  bool autoLaunch,  bool systemProxy,  bool tunEnable,  bool isStart,  bool suspended,  List<Group> groups,  Map<String, String> selectedMap,  bool showTrayTitle,  bool monochromeTrayIcon,  bool safeMode,  Map<HotAction, HotKeyAction> hotKeys)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Mode mode,  int port,  bool autoLaunch,  bool systemProxy,  bool tunEnable,  bool isStart,  bool suspended,  List<Group> groups,  Map<String, String> selectedMap,  bool showTrayTitle,  bool safeMode,  Map<HotAction, HotKeyAction> hotKeys)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TrayState() when $default != null:
-return $default(_that.mode,_that.port,_that.autoLaunch,_that.systemProxy,_that.tunEnable,_that.isStart,_that.suspended,_that.groups,_that.selectedMap,_that.showTrayTitle,_that.monochromeTrayIcon,_that.safeMode,_that.hotKeys);case _:
+return $default(_that.mode,_that.port,_that.autoLaunch,_that.systemProxy,_that.tunEnable,_that.isStart,_that.suspended,_that.groups,_that.selectedMap,_that.showTrayTitle,_that.safeMode,_that.hotKeys);case _:
   return orElse();
 
 }
@@ -1293,10 +1292,10 @@ return $default(_that.mode,_that.port,_that.autoLaunch,_that.systemProxy,_that.t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Mode mode,  int port,  bool autoLaunch,  bool systemProxy,  bool tunEnable,  bool isStart,  bool suspended,  List<Group> groups,  Map<String, String> selectedMap,  bool showTrayTitle,  bool monochromeTrayIcon,  bool safeMode,  Map<HotAction, HotKeyAction> hotKeys)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Mode mode,  int port,  bool autoLaunch,  bool systemProxy,  bool tunEnable,  bool isStart,  bool suspended,  List<Group> groups,  Map<String, String> selectedMap,  bool showTrayTitle,  bool safeMode,  Map<HotAction, HotKeyAction> hotKeys)  $default,) {final _that = this;
 switch (_that) {
 case _TrayState():
-return $default(_that.mode,_that.port,_that.autoLaunch,_that.systemProxy,_that.tunEnable,_that.isStart,_that.suspended,_that.groups,_that.selectedMap,_that.showTrayTitle,_that.monochromeTrayIcon,_that.safeMode,_that.hotKeys);case _:
+return $default(_that.mode,_that.port,_that.autoLaunch,_that.systemProxy,_that.tunEnable,_that.isStart,_that.suspended,_that.groups,_that.selectedMap,_that.showTrayTitle,_that.safeMode,_that.hotKeys);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -1313,10 +1312,10 @@ return $default(_that.mode,_that.port,_that.autoLaunch,_that.systemProxy,_that.t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Mode mode,  int port,  bool autoLaunch,  bool systemProxy,  bool tunEnable,  bool isStart,  bool suspended,  List<Group> groups,  Map<String, String> selectedMap,  bool showTrayTitle,  bool monochromeTrayIcon,  bool safeMode,  Map<HotAction, HotKeyAction> hotKeys)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Mode mode,  int port,  bool autoLaunch,  bool systemProxy,  bool tunEnable,  bool isStart,  bool suspended,  List<Group> groups,  Map<String, String> selectedMap,  bool showTrayTitle,  bool safeMode,  Map<HotAction, HotKeyAction> hotKeys)?  $default,) {final _that = this;
 switch (_that) {
 case _TrayState() when $default != null:
-return $default(_that.mode,_that.port,_that.autoLaunch,_that.systemProxy,_that.tunEnable,_that.isStart,_that.suspended,_that.groups,_that.selectedMap,_that.showTrayTitle,_that.monochromeTrayIcon,_that.safeMode,_that.hotKeys);case _:
+return $default(_that.mode,_that.port,_that.autoLaunch,_that.systemProxy,_that.tunEnable,_that.isStart,_that.suspended,_that.groups,_that.selectedMap,_that.showTrayTitle,_that.safeMode,_that.hotKeys);case _:
   return null;
 
 }
@@ -1328,7 +1327,7 @@ return $default(_that.mode,_that.port,_that.autoLaunch,_that.systemProxy,_that.t
 
 
 class _TrayState implements TrayState {
-  const _TrayState({required this.mode, required this.port, required this.autoLaunch, required this.systemProxy, required this.tunEnable, required this.isStart, this.suspended = false, required  List<Group> groups, required  Map<String, String> selectedMap, required this.showTrayTitle, this.monochromeTrayIcon = true, required this.safeMode,  Map<HotAction, HotKeyAction> hotKeys = const {}}): _groups = groups,_selectedMap = selectedMap,_hotKeys = hotKeys;
+  const _TrayState({required this.mode, required this.port, required this.autoLaunch, required this.systemProxy, required this.tunEnable, required this.isStart, this.suspended = false, required  List<Group> groups, required  Map<String, String> selectedMap, required this.showTrayTitle, required this.safeMode,  Map<HotAction, HotKeyAction> hotKeys = const {}}): _groups = groups,_selectedMap = selectedMap,_hotKeys = hotKeys;
   
 
 @override final  Mode mode;
@@ -1353,7 +1352,6 @@ class _TrayState implements TrayState {
 }
 
 @override final  bool showTrayTitle;
-@override@JsonKey() final  bool monochromeTrayIcon;
 @override final  bool safeMode;
  final  Map<HotAction, HotKeyAction> _hotKeys;
 @override@JsonKey() Map<HotAction, HotKeyAction> get hotKeys {
@@ -1373,18 +1371,18 @@ _$TrayStateCopyWith<_TrayState> get copyWith => __$TrayStateCopyWithImpl<_TraySt
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _TrayState&&(identical(other.mode, mode) || other.mode == mode)&&(identical(other.port, port) || other.port == port)&&(identical(other.autoLaunch, autoLaunch) || other.autoLaunch == autoLaunch)&&(identical(other.systemProxy, systemProxy) || other.systemProxy == systemProxy)&&(identical(other.tunEnable, tunEnable) || other.tunEnable == tunEnable)&&(identical(other.isStart, isStart) || other.isStart == isStart)&&(identical(other.suspended, suspended) || other.suspended == suspended)&&const DeepCollectionEquality().equals(other.groups, _groups)&&const DeepCollectionEquality().equals(other.selectedMap, _selectedMap)&&(identical(other.showTrayTitle, showTrayTitle) || other.showTrayTitle == showTrayTitle)&&(identical(other.monochromeTrayIcon, monochromeTrayIcon) || other.monochromeTrayIcon == monochromeTrayIcon)&&(identical(other.safeMode, safeMode) || other.safeMode == safeMode)&&const DeepCollectionEquality().equals(other.hotKeys, _hotKeys));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _TrayState&&(identical(other.mode, mode) || other.mode == mode)&&(identical(other.port, port) || other.port == port)&&(identical(other.autoLaunch, autoLaunch) || other.autoLaunch == autoLaunch)&&(identical(other.systemProxy, systemProxy) || other.systemProxy == systemProxy)&&(identical(other.tunEnable, tunEnable) || other.tunEnable == tunEnable)&&(identical(other.isStart, isStart) || other.isStart == isStart)&&(identical(other.suspended, suspended) || other.suspended == suspended)&&const DeepCollectionEquality().equals(other.groups, _groups)&&const DeepCollectionEquality().equals(other.selectedMap, _selectedMap)&&(identical(other.showTrayTitle, showTrayTitle) || other.showTrayTitle == showTrayTitle)&&(identical(other.safeMode, safeMode) || other.safeMode == safeMode)&&const DeepCollectionEquality().equals(other.hotKeys, _hotKeys));
 }
 
 
 @override
 int get hashCode {
-    return Object.hash(runtimeType,mode,port,autoLaunch,systemProxy,tunEnable,isStart,suspended,const DeepCollectionEquality().hash(_groups),const DeepCollectionEquality().hash(_selectedMap),showTrayTitle,monochromeTrayIcon,safeMode,const DeepCollectionEquality().hash(_hotKeys));
+    return Object.hash(runtimeType,mode,port,autoLaunch,systemProxy,tunEnable,isStart,suspended,const DeepCollectionEquality().hash(_groups),const DeepCollectionEquality().hash(_selectedMap),showTrayTitle,safeMode,const DeepCollectionEquality().hash(_hotKeys));
 }
 
 @override
 String toString() {
-    return 'TrayState(mode: $mode, port: $port, autoLaunch: $autoLaunch, systemProxy: $systemProxy, tunEnable: $tunEnable, isStart: $isStart, suspended: $suspended, groups: $groups, selectedMap: $selectedMap, showTrayTitle: $showTrayTitle, monochromeTrayIcon: $monochromeTrayIcon, safeMode: $safeMode, hotKeys: $hotKeys)';
+    return 'TrayState(mode: $mode, port: $port, autoLaunch: $autoLaunch, systemProxy: $systemProxy, tunEnable: $tunEnable, isStart: $isStart, suspended: $suspended, groups: $groups, selectedMap: $selectedMap, showTrayTitle: $showTrayTitle, safeMode: $safeMode, hotKeys: $hotKeys)';
 }
 
 
@@ -1395,7 +1393,7 @@ abstract mixin class _$TrayStateCopyWith<$Res> implements $TrayStateCopyWith<$Re
   factory _$TrayStateCopyWith(_TrayState value, $Res Function(_TrayState) _then) = __$TrayStateCopyWithImpl;
 @override @useResult
 $Res call({
- Mode mode, int port, bool autoLaunch, bool systemProxy, bool tunEnable, bool isStart, bool suspended, List<Group> groups, Map<String, String> selectedMap, bool showTrayTitle, bool monochromeTrayIcon, bool safeMode, Map<HotAction, HotKeyAction> hotKeys
+ Mode mode, int port, bool autoLaunch, bool systemProxy, bool tunEnable, bool isStart, bool suspended, List<Group> groups, Map<String, String> selectedMap, bool showTrayTitle, bool safeMode, Map<HotAction, HotKeyAction> hotKeys
 });
 
 
@@ -1412,7 +1410,7 @@ class __$TrayStateCopyWithImpl<$Res>
 
 /// Create a copy of TrayState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? mode = null,Object? port = null,Object? autoLaunch = null,Object? systemProxy = null,Object? tunEnable = null,Object? isStart = null,Object? suspended = null,Object? groups = null,Object? selectedMap = null,Object? showTrayTitle = null,Object? monochromeTrayIcon = null,Object? safeMode = null,Object? hotKeys = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? mode = null,Object? port = null,Object? autoLaunch = null,Object? systemProxy = null,Object? tunEnable = null,Object? isStart = null,Object? suspended = null,Object? groups = null,Object? selectedMap = null,Object? showTrayTitle = null,Object? safeMode = null,Object? hotKeys = null,}) {
   return _then(_TrayState(
 mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
 as Mode,port: null == port ? _self.port : port // ignore: cast_nullable_to_non_nullable
@@ -1424,7 +1422,6 @@ as bool,suspended: null == suspended ? _self.suspended : suspended // ignore: ca
 as bool,groups: null == groups ? _self._groups : groups // ignore: cast_nullable_to_non_nullable
 as List<Group>,selectedMap: null == selectedMap ? _self._selectedMap : selectedMap // ignore: cast_nullable_to_non_nullable
 as Map<String, String>,showTrayTitle: null == showTrayTitle ? _self.showTrayTitle : showTrayTitle // ignore: cast_nullable_to_non_nullable
-as bool,monochromeTrayIcon: null == monochromeTrayIcon ? _self.monochromeTrayIcon : monochromeTrayIcon // ignore: cast_nullable_to_non_nullable
 as bool,safeMode: null == safeMode ? _self.safeMode : safeMode // ignore: cast_nullable_to_non_nullable
 as bool,hotKeys: null == hotKeys ? _self._hotKeys : hotKeys // ignore: cast_nullable_to_non_nullable
 as Map<HotAction, HotKeyAction>,
@@ -6329,7 +6326,7 @@ $ProfileOverridesCopyWith<$Res> get overrides {
 /// @nodoc
 mixin _$MigrationData {
 
- Map<String, Object?>? get configMap; List<Rule> get rules; List<Script> get scripts; List<Profile> get profiles; List<DisabledRule> get disabledRules; List<ProxyGroup> get proxyGroups; List<ClashProvider> get clashProviders; List<CustomProxy> get customProxies; List<ProxyDialer> get proxyDialers;
+ Map<String, Object?>? get configMap; List<Rule> get rules; List<Script> get scripts; List<Profile> get profiles; List<DisabledRule> get disabledRules; List<ProxyGroup> get proxyGroups; List<ClashProvider> get clashProviders;
 /// Create a copy of MigrationData
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -6341,20 +6338,20 @@ $MigrationDataCopyWith<MigrationData> get copyWith => _$MigrationDataCopyWithImp
 @override
 bool operator ==(Object other) {
   final _this = this as MigrationData;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MigrationData&&const DeepCollectionEquality().equals(other.configMap, _this.configMap)&&const DeepCollectionEquality().equals(other.rules, _this.rules)&&const DeepCollectionEquality().equals(other.scripts, _this.scripts)&&const DeepCollectionEquality().equals(other.profiles, _this.profiles)&&const DeepCollectionEquality().equals(other.disabledRules, _this.disabledRules)&&const DeepCollectionEquality().equals(other.proxyGroups, _this.proxyGroups)&&const DeepCollectionEquality().equals(other.clashProviders, _this.clashProviders)&&const DeepCollectionEquality().equals(other.customProxies, _this.customProxies)&&const DeepCollectionEquality().equals(other.proxyDialers, _this.proxyDialers));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MigrationData&&const DeepCollectionEquality().equals(other.configMap, _this.configMap)&&const DeepCollectionEquality().equals(other.rules, _this.rules)&&const DeepCollectionEquality().equals(other.scripts, _this.scripts)&&const DeepCollectionEquality().equals(other.profiles, _this.profiles)&&const DeepCollectionEquality().equals(other.disabledRules, _this.disabledRules)&&const DeepCollectionEquality().equals(other.proxyGroups, _this.proxyGroups)&&const DeepCollectionEquality().equals(other.clashProviders, _this.clashProviders));
 }
 
 
 @override
 int get hashCode {
   final _this = this as MigrationData;
-  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.configMap),const DeepCollectionEquality().hash(_this.rules),const DeepCollectionEquality().hash(_this.scripts),const DeepCollectionEquality().hash(_this.profiles),const DeepCollectionEquality().hash(_this.disabledRules),const DeepCollectionEquality().hash(_this.proxyGroups),const DeepCollectionEquality().hash(_this.clashProviders),const DeepCollectionEquality().hash(_this.customProxies),const DeepCollectionEquality().hash(_this.proxyDialers));
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.configMap),const DeepCollectionEquality().hash(_this.rules),const DeepCollectionEquality().hash(_this.scripts),const DeepCollectionEquality().hash(_this.profiles),const DeepCollectionEquality().hash(_this.disabledRules),const DeepCollectionEquality().hash(_this.proxyGroups),const DeepCollectionEquality().hash(_this.clashProviders));
 }
 
 @override
 String toString() {
   final _this = this as MigrationData;
-  return 'MigrationData(configMap: ${_this.configMap}, rules: ${_this.rules}, scripts: ${_this.scripts}, profiles: ${_this.profiles}, disabledRules: ${_this.disabledRules}, proxyGroups: ${_this.proxyGroups}, clashProviders: ${_this.clashProviders}, customProxies: ${_this.customProxies}, proxyDialers: ${_this.proxyDialers})';
+  return 'MigrationData(configMap: ${_this.configMap}, rules: ${_this.rules}, scripts: ${_this.scripts}, profiles: ${_this.profiles}, disabledRules: ${_this.disabledRules}, proxyGroups: ${_this.proxyGroups}, clashProviders: ${_this.clashProviders})';
 }
 
 
@@ -6365,7 +6362,7 @@ abstract mixin class $MigrationDataCopyWith<$Res>  {
   factory $MigrationDataCopyWith(MigrationData value, $Res Function(MigrationData) _then) = _$MigrationDataCopyWithImpl;
 @useResult
 $Res call({
- Map<String, Object?>? configMap, List<Rule> rules, List<Script> scripts, List<Profile> profiles, List<DisabledRule> disabledRules, List<ProxyGroup> proxyGroups, List<ClashProvider> clashProviders, List<CustomProxy> customProxies, List<ProxyDialer> proxyDialers
+ Map<String, Object?>? configMap, List<Rule> rules, List<Script> scripts, List<Profile> profiles, List<DisabledRule> disabledRules, List<ProxyGroup> proxyGroups, List<ClashProvider> clashProviders
 });
 
 
@@ -6382,7 +6379,7 @@ class _$MigrationDataCopyWithImpl<$Res>
 
 /// Create a copy of MigrationData
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? configMap = freezed,Object? rules = null,Object? scripts = null,Object? profiles = null,Object? disabledRules = null,Object? proxyGroups = null,Object? clashProviders = null,Object? customProxies = null,Object? proxyDialers = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? configMap = freezed,Object? rules = null,Object? scripts = null,Object? profiles = null,Object? disabledRules = null,Object? proxyGroups = null,Object? clashProviders = null,}) {
   return _then(MigrationData(
 configMap: freezed == configMap ? _self.configMap : configMap // ignore: cast_nullable_to_non_nullable
 as Map<String, Object?>?,rules: null == rules ? _self.rules : rules // ignore: cast_nullable_to_non_nullable
@@ -6391,9 +6388,7 @@ as List<Script>,profiles: null == profiles ? _self.profiles : profiles // ignore
 as List<Profile>,disabledRules: null == disabledRules ? _self.disabledRules : disabledRules // ignore: cast_nullable_to_non_nullable
 as List<DisabledRule>,proxyGroups: null == proxyGroups ? _self.proxyGroups : proxyGroups // ignore: cast_nullable_to_non_nullable
 as List<ProxyGroup>,clashProviders: null == clashProviders ? _self.clashProviders : clashProviders // ignore: cast_nullable_to_non_nullable
-as List<ClashProvider>,customProxies: null == customProxies ? _self.customProxies : customProxies // ignore: cast_nullable_to_non_nullable
-as List<CustomProxy>,proxyDialers: null == proxyDialers ? _self.proxyDialers : proxyDialers // ignore: cast_nullable_to_non_nullable
-as List<ProxyDialer>,
+as List<ClashProvider>,
   ));
 }
 
@@ -6478,10 +6473,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Map<String, Object?>? configMap,  List<Rule> rules,  List<Script> scripts,  List<Profile> profiles,  List<DisabledRule> disabledRules,  List<ProxyGroup> proxyGroups,  List<ClashProvider> clashProviders,  List<CustomProxy> customProxies,  List<ProxyDialer> proxyDialers)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Map<String, Object?>? configMap,  List<Rule> rules,  List<Script> scripts,  List<Profile> profiles,  List<DisabledRule> disabledRules,  List<ProxyGroup> proxyGroups,  List<ClashProvider> clashProviders)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _MigrationData() when $default != null:
-return $default(_that.configMap,_that.rules,_that.scripts,_that.profiles,_that.disabledRules,_that.proxyGroups,_that.clashProviders,_that.customProxies,_that.proxyDialers);case _:
+return $default(_that.configMap,_that.rules,_that.scripts,_that.profiles,_that.disabledRules,_that.proxyGroups,_that.clashProviders);case _:
   return orElse();
 
 }
@@ -6499,10 +6494,10 @@ return $default(_that.configMap,_that.rules,_that.scripts,_that.profiles,_that.d
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Map<String, Object?>? configMap,  List<Rule> rules,  List<Script> scripts,  List<Profile> profiles,  List<DisabledRule> disabledRules,  List<ProxyGroup> proxyGroups,  List<ClashProvider> clashProviders,  List<CustomProxy> customProxies,  List<ProxyDialer> proxyDialers)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Map<String, Object?>? configMap,  List<Rule> rules,  List<Script> scripts,  List<Profile> profiles,  List<DisabledRule> disabledRules,  List<ProxyGroup> proxyGroups,  List<ClashProvider> clashProviders)  $default,) {final _that = this;
 switch (_that) {
 case _MigrationData():
-return $default(_that.configMap,_that.rules,_that.scripts,_that.profiles,_that.disabledRules,_that.proxyGroups,_that.clashProviders,_that.customProxies,_that.proxyDialers);case _:
+return $default(_that.configMap,_that.rules,_that.scripts,_that.profiles,_that.disabledRules,_that.proxyGroups,_that.clashProviders);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -6519,10 +6514,10 @@ return $default(_that.configMap,_that.rules,_that.scripts,_that.profiles,_that.d
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Map<String, Object?>? configMap,  List<Rule> rules,  List<Script> scripts,  List<Profile> profiles,  List<DisabledRule> disabledRules,  List<ProxyGroup> proxyGroups,  List<ClashProvider> clashProviders,  List<CustomProxy> customProxies,  List<ProxyDialer> proxyDialers)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Map<String, Object?>? configMap,  List<Rule> rules,  List<Script> scripts,  List<Profile> profiles,  List<DisabledRule> disabledRules,  List<ProxyGroup> proxyGroups,  List<ClashProvider> clashProviders)?  $default,) {final _that = this;
 switch (_that) {
 case _MigrationData() when $default != null:
-return $default(_that.configMap,_that.rules,_that.scripts,_that.profiles,_that.disabledRules,_that.proxyGroups,_that.clashProviders,_that.customProxies,_that.proxyDialers);case _:
+return $default(_that.configMap,_that.rules,_that.scripts,_that.profiles,_that.disabledRules,_that.proxyGroups,_that.clashProviders);case _:
   return null;
 
 }
@@ -6534,7 +6529,7 @@ return $default(_that.configMap,_that.rules,_that.scripts,_that.profiles,_that.d
 
 
 class _MigrationData implements MigrationData {
-  const _MigrationData({ Map<String, Object?>? configMap,  List<Rule> rules = const [],  List<Script> scripts = const [],  List<Profile> profiles = const [],  List<DisabledRule> disabledRules = const [],  List<ProxyGroup> proxyGroups = const [],  List<ClashProvider> clashProviders = const [],  List<CustomProxy> customProxies = const [],  List<ProxyDialer> proxyDialers = const []}): _configMap = configMap,_rules = rules,_scripts = scripts,_profiles = profiles,_disabledRules = disabledRules,_proxyGroups = proxyGroups,_clashProviders = clashProviders,_customProxies = customProxies,_proxyDialers = proxyDialers;
+  const _MigrationData({ Map<String, Object?>? configMap,  List<Rule> rules = const [],  List<Script> scripts = const [],  List<Profile> profiles = const [],  List<DisabledRule> disabledRules = const [],  List<ProxyGroup> proxyGroups = const [],  List<ClashProvider> clashProviders = const []}): _configMap = configMap,_rules = rules,_scripts = scripts,_profiles = profiles,_disabledRules = disabledRules,_proxyGroups = proxyGroups,_clashProviders = clashProviders;
   
 
  final  Map<String, Object?>? _configMap;
@@ -6588,20 +6583,6 @@ class _MigrationData implements MigrationData {
   return EqualUnmodifiableListView(_clashProviders);
 }
 
- final  List<CustomProxy> _customProxies;
-@override@JsonKey() List<CustomProxy> get customProxies {
-  if (_customProxies is EqualUnmodifiableListView) return _customProxies;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_customProxies);
-}
-
- final  List<ProxyDialer> _proxyDialers;
-@override@JsonKey() List<ProxyDialer> get proxyDialers {
-  if (_proxyDialers is EqualUnmodifiableListView) return _proxyDialers;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_proxyDialers);
-}
-
 
 /// Create a copy of MigrationData
 /// with the given fields replaced by the non-null parameter values.
@@ -6613,18 +6594,18 @@ _$MigrationDataCopyWith<_MigrationData> get copyWith => __$MigrationDataCopyWith
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _MigrationData&&const DeepCollectionEquality().equals(other.configMap, _configMap)&&const DeepCollectionEquality().equals(other.rules, _rules)&&const DeepCollectionEquality().equals(other.scripts, _scripts)&&const DeepCollectionEquality().equals(other.profiles, _profiles)&&const DeepCollectionEquality().equals(other.disabledRules, _disabledRules)&&const DeepCollectionEquality().equals(other.proxyGroups, _proxyGroups)&&const DeepCollectionEquality().equals(other.clashProviders, _clashProviders)&&const DeepCollectionEquality().equals(other.customProxies, _customProxies)&&const DeepCollectionEquality().equals(other.proxyDialers, _proxyDialers));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _MigrationData&&const DeepCollectionEquality().equals(other.configMap, _configMap)&&const DeepCollectionEquality().equals(other.rules, _rules)&&const DeepCollectionEquality().equals(other.scripts, _scripts)&&const DeepCollectionEquality().equals(other.profiles, _profiles)&&const DeepCollectionEquality().equals(other.disabledRules, _disabledRules)&&const DeepCollectionEquality().equals(other.proxyGroups, _proxyGroups)&&const DeepCollectionEquality().equals(other.clashProviders, _clashProviders));
 }
 
 
 @override
 int get hashCode {
-    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_configMap),const DeepCollectionEquality().hash(_rules),const DeepCollectionEquality().hash(_scripts),const DeepCollectionEquality().hash(_profiles),const DeepCollectionEquality().hash(_disabledRules),const DeepCollectionEquality().hash(_proxyGroups),const DeepCollectionEquality().hash(_clashProviders),const DeepCollectionEquality().hash(_customProxies),const DeepCollectionEquality().hash(_proxyDialers));
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_configMap),const DeepCollectionEquality().hash(_rules),const DeepCollectionEquality().hash(_scripts),const DeepCollectionEquality().hash(_profiles),const DeepCollectionEquality().hash(_disabledRules),const DeepCollectionEquality().hash(_proxyGroups),const DeepCollectionEquality().hash(_clashProviders));
 }
 
 @override
 String toString() {
-    return 'MigrationData(configMap: $configMap, rules: $rules, scripts: $scripts, profiles: $profiles, disabledRules: $disabledRules, proxyGroups: $proxyGroups, clashProviders: $clashProviders, customProxies: $customProxies, proxyDialers: $proxyDialers)';
+    return 'MigrationData(configMap: $configMap, rules: $rules, scripts: $scripts, profiles: $profiles, disabledRules: $disabledRules, proxyGroups: $proxyGroups, clashProviders: $clashProviders)';
 }
 
 
@@ -6635,7 +6616,7 @@ abstract mixin class _$MigrationDataCopyWith<$Res> implements $MigrationDataCopy
   factory _$MigrationDataCopyWith(_MigrationData value, $Res Function(_MigrationData) _then) = __$MigrationDataCopyWithImpl;
 @override @useResult
 $Res call({
- Map<String, Object?>? configMap, List<Rule> rules, List<Script> scripts, List<Profile> profiles, List<DisabledRule> disabledRules, List<ProxyGroup> proxyGroups, List<ClashProvider> clashProviders, List<CustomProxy> customProxies, List<ProxyDialer> proxyDialers
+ Map<String, Object?>? configMap, List<Rule> rules, List<Script> scripts, List<Profile> profiles, List<DisabledRule> disabledRules, List<ProxyGroup> proxyGroups, List<ClashProvider> clashProviders
 });
 
 
@@ -6652,7 +6633,7 @@ class __$MigrationDataCopyWithImpl<$Res>
 
 /// Create a copy of MigrationData
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? configMap = freezed,Object? rules = null,Object? scripts = null,Object? profiles = null,Object? disabledRules = null,Object? proxyGroups = null,Object? clashProviders = null,Object? customProxies = null,Object? proxyDialers = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? configMap = freezed,Object? rules = null,Object? scripts = null,Object? profiles = null,Object? disabledRules = null,Object? proxyGroups = null,Object? clashProviders = null,}) {
   return _then(_MigrationData(
 configMap: freezed == configMap ? _self._configMap : configMap // ignore: cast_nullable_to_non_nullable
 as Map<String, Object?>?,rules: null == rules ? _self._rules : rules // ignore: cast_nullable_to_non_nullable
@@ -6661,9 +6642,7 @@ as List<Script>,profiles: null == profiles ? _self._profiles : profiles // ignor
 as List<Profile>,disabledRules: null == disabledRules ? _self._disabledRules : disabledRules // ignore: cast_nullable_to_non_nullable
 as List<DisabledRule>,proxyGroups: null == proxyGroups ? _self._proxyGroups : proxyGroups // ignore: cast_nullable_to_non_nullable
 as List<ProxyGroup>,clashProviders: null == clashProviders ? _self._clashProviders : clashProviders // ignore: cast_nullable_to_non_nullable
-as List<ClashProvider>,customProxies: null == customProxies ? _self._customProxies : customProxies // ignore: cast_nullable_to_non_nullable
-as List<CustomProxy>,proxyDialers: null == proxyDialers ? _self._proxyDialers : proxyDialers // ignore: cast_nullable_to_non_nullable
-as List<ProxyDialer>,
+as List<ClashProvider>,
   ));
 }
 

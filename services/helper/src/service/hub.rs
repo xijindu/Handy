@@ -4,15 +4,9 @@ use sha2::{Digest, Sha256};
 use std::collections::VecDeque;
 use std::convert::Infallible;
 use std::fs::{File, OpenOptions};
-#[cfg(all(
-    not(all(feature = "windows-service", target_os = "windows")),
-    not(target_os = "linux")
-))]
+#[cfg(not(all(feature = "windows-service", target_os = "windows")))]
 use std::future::pending;
-#[cfg(not(any(
-    all(feature = "windows-service", target_os = "windows"),
-    target_os = "linux"
-)))]
+#[cfg(not(all(feature = "windows-service", target_os = "windows")))]
 use std::future::Future;
 use std::io::{BufRead, Error, Read};
 #[cfg(windows)]
@@ -37,18 +31,10 @@ use windows_sys::Win32::System::JobObjects::{
     JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE,
 };
 
-#[cfg(not(any(
-    all(feature = "windows-service", target_os = "windows"),
-    target_os = "linux"
-)))]
+#[cfg(not(all(feature = "windows-service", target_os = "windows")))]
 const LISTEN_PORT: u16 = 47890;
-#[cfg(not(target_os = "linux"))]
-const CORE_PIPE_PREFIX: &str = r"\\.\pipe\FlClashCore_";
-#[cfg(target_os = "linux")]
-const CORE_SOCKET_PREFIX: &str = "/tmp/FlClashSocket_";
-#[cfg(target_os = "linux")]
-const CORE_SOCKET_SUFFIX: &str = ".sock";
-const PROTOCOL_VERSION_HEADER: &str = "x-flclash-helper-protocol";
+const CORE_PIPE_PREFIX: &str = r"\\.\pipe\HandyCore_";
+const PROTOCOL_VERSION_HEADER: &str = "x-handy-helper-protocol";
 #[cfg(windows)]
 const PROTOCOL_VERSION: &str = "8";
 #[cfg(not(windows))]
@@ -57,7 +43,6 @@ const EXPECTED_CORE_SHA256: &str = env!("CORE_SHA256");
 const LOG_CAPACITY: usize = 100;
 const MAX_REQUEST_BODY_BYTES: u64 = 4096;
 const CORE_EXIT_TIMEOUT: Duration = Duration::from_millis(1500);
-const CORE_GRACEFUL_EXIT_TIMEOUT: Duration = Duration::from_millis(3000);
 const CORE_EXIT_POLL_INTERVAL: Duration = Duration::from_millis(20);
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
@@ -132,9 +117,6 @@ impl ManagedCore {
     }
 
     fn terminate(&mut self) -> Result<(), Error> {
-        if self.request_exit() && self.wait_for_exit(CORE_GRACEFUL_EXIT_TIMEOUT)? {
-            return Ok(());
-        }
         let _ = self.child.kill();
         if self.wait_for_exit(CORE_EXIT_TIMEOUT)? {
             return Ok(());
@@ -153,19 +135,6 @@ impl ManagedCore {
             }
             thread::sleep(CORE_EXIT_POLL_INTERVAL);
         }
-    }
-
-    /// Only the TUN device dies with the process; SIGTERM lets the Core remove
-    /// the policy routes sing-tun installed for it.
-    #[cfg(target_os = "linux")]
-    fn request_exit(&mut self) -> bool {
-        // SAFETY: the child is unreaped, so its pid cannot have been recycled.
-        unsafe { libc::kill(self.child.id() as libc::pid_t, libc::SIGTERM) == 0 }
-    }
-
-    #[cfg(not(target_os = "linux"))]
-    fn request_exit(&mut self) -> bool {
-        false
     }
 }
 
@@ -241,29 +210,8 @@ impl VerifiedCore {
             .current_dir(&self.directory)
             .stderr(Stdio::piped())
             .arg(address);
-        #[cfg(target_os = "linux")]
-        adopt_core_owner(&mut command)?;
         command.spawn()
     }
-}
-
-/// The Core hands files back to its real UID only when that differs from its
-/// effective one, so the child needs a setuid Core's split credentials.
-#[cfg(target_os = "linux")]
-fn adopt_core_owner(command: &mut Command) -> Result<(), Error> {
-    use std::os::unix::process::CommandExt;
-
-    let (uid, gid) = super::linux::core_owner()?;
-    // SAFETY: async-signal-safe calls touching only this child, before exec.
-    unsafe {
-        command.pre_exec(move || {
-            if libc::setresgid(gid, 0, 0) != 0 || libc::setresuid(uid, 0, 0) != 0 {
-                return Err(Error::last_os_error());
-            }
-            Ok(())
-        });
-    }
-    Ok(())
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -315,23 +263,11 @@ fn open_verified_core(path: &Path, expected_sha256: &str) -> Result<File, Error>
     Ok(core_file)
 }
 
-#[cfg(not(target_os = "linux"))]
 fn is_allowed_core_address(address: &str) -> bool {
     let Some(suffix) = address.strip_prefix(CORE_PIPE_PREFIX) else {
         return false;
     };
     is_valid_session_id(suffix)
-}
-
-#[cfg(target_os = "linux")]
-fn is_allowed_core_address(address: &str) -> bool {
-    let Some(suffix) = address.strip_prefix(CORE_SOCKET_PREFIX) else {
-        return false;
-    };
-    let Some(digits) = suffix.strip_suffix(CORE_SOCKET_SUFFIX) else {
-        return false;
-    };
-    !digits.is_empty() && digits.len() <= 10 && digits.bytes().all(|byte| byte.is_ascii_digit())
 }
 
 fn is_valid_session_id(value: &str) -> bool {
@@ -446,10 +382,6 @@ fn start(start_params: StartParams) -> warp::reply::Response {
             "invalid Core session ID",
             StatusCode::BAD_REQUEST,
         );
-    }
-    #[cfg(target_os = "linux")]
-    if let Err(error) = super::linux::ensure_owner_socket(&start_params.address) {
-        return error_response("invalidRequest", error.to_string(), StatusCode::BAD_REQUEST);
     }
     launch(start_params)
 }
@@ -771,7 +703,7 @@ pub(super) fn routes() -> impl Filter<Extract = (impl Reply,), Error = Infallibl
             let local_host = host.is_none_or(|host| {
                 host.parse::<warp::http::uri::Authority>()
                     .is_ok_and(|authority| {
-                        ["127.0.0.1", "localhost", "FlClashHelperService"]
+                        ["127.0.0.1", "localhost", "HandyHelperService"]
                             .iter()
                             .any(|host| authority.host().eq_ignore_ascii_case(host))
                     })
@@ -830,18 +762,12 @@ pub(super) fn release_managed_core_on_shutdown() {
     }
 }
 
-#[cfg(all(
-    not(all(feature = "windows-service", target_os = "windows")),
-    not(target_os = "linux")
-))]
+#[cfg(not(all(feature = "windows-service", target_os = "windows")))]
 pub async fn run_service() -> anyhow::Result<()> {
     run_service_until(pending(), || Ok(())).await
 }
 
-#[cfg(not(any(
-    all(feature = "windows-service", target_os = "windows"),
-    target_os = "linux"
-)))]
+#[cfg(not(all(feature = "windows-service", target_os = "windows")))]
 async fn run_service_until<F, S>(shutdown: F, on_started: S) -> anyhow::Result<()>
 where
     F: Future<Output = ()> + Send + 'static,
@@ -872,10 +798,7 @@ mod tests {
             .unwrap_or_else(|error| error.into_inner())
     }
 
-    #[cfg(not(target_os = "linux"))]
-    const ALLOWED_CORE_ADDRESS: &str = r"\\.\pipe\FlClashCore_0123456789abcdef0123456789abcdef";
-    #[cfg(target_os = "linux")]
-    const ALLOWED_CORE_ADDRESS: &str = "/tmp/FlClashSocket_4821.sock";
+    const ALLOWED_CORE_ADDRESS: &str = r"\\.\pipe\HandyCore_0123456789abcdef0123456789abcdef";
 
     fn spawn_placeholder_core() -> Child {
         #[cfg(windows)]
@@ -944,7 +867,7 @@ mod tests {
 
     #[tokio::test]
     async fn ping_returns_running_helper_path_for_verified_core() {
-        let response = ping_response(Ok(PathBuf::from("FlClashHelperService.exe")));
+        let response = ping_response(Ok(PathBuf::from("HandyHelperService.exe")));
 
         assert_eq!(response.status(), StatusCode::OK);
         assert_eq!(
@@ -955,7 +878,7 @@ mod tests {
             warp::hyper::body::to_bytes(response.into_body())
                 .await
                 .unwrap(),
-            "FlClashHelperService.exe"
+            "HandyHelperService.exe"
         );
     }
 
@@ -1228,59 +1151,6 @@ mod tests {
         release_managed_core(&mut managed).unwrap();
     }
 
-    #[cfg(target_os = "linux")]
-    fn spawn_shell_core_once_ready(script: &str) -> Child {
-        let mut child = Command::new("sh")
-            .args(["-c", script])
-            .stdout(Stdio::piped())
-            .stderr(Stdio::null())
-            .spawn()
-            .expect("spawn shell core");
-        let mut ready = String::new();
-        std::io::BufReader::new(child.stdout.take().expect("piped stdout"))
-            .read_line(&mut ready)
-            .expect("read readiness");
-        assert_eq!(ready, "ready\n");
-        child
-    }
-
-    #[cfg(target_os = "linux")]
-    #[test]
-    fn terminate_lets_the_core_exit_on_its_own_before_killing_it() {
-        use std::os::unix::process::ExitStatusExt;
-
-        let mut core = ManagedCore::adopt(
-            "0123456789abcdef0123456789abcdef".to_string(),
-            spawn_shell_core_once_ready(
-                "trap 'exit 0' TERM; echo ready; while :; do sleep 0.05; done",
-            ),
-        )
-        .unwrap();
-
-        core.terminate().unwrap();
-
-        let status = core.child.try_wait().unwrap().expect("Core exited");
-        assert_eq!(status.code(), Some(0));
-        assert_eq!(status.signal(), None);
-    }
-
-    #[cfg(target_os = "linux")]
-    #[test]
-    fn terminate_kills_a_core_that_ignores_the_exit_request() {
-        use std::os::unix::process::ExitStatusExt;
-
-        let mut core = ManagedCore::adopt(
-            "0123456789abcdef0123456789abcdef".to_string(),
-            spawn_shell_core_once_ready("trap '' TERM; echo ready; exec sleep 30"),
-        )
-        .unwrap();
-
-        core.terminate().unwrap();
-
-        let status = core.child.try_wait().unwrap().expect("Core exited");
-        assert_eq!(status.signal(), Some(libc::SIGKILL));
-    }
-
     #[cfg(windows)]
     #[test]
     fn closing_the_job_takes_the_core_down_with_the_helper() {
@@ -1338,7 +1208,7 @@ mod tests {
     #[test]
     fn verifies_core_sha256_in_all_build_modes() {
         let path =
-            std::env::temp_dir().join(format!("flclash-helper-core-sha256-{}", std::process::id()));
+            std::env::temp_dir().join(format!("handy-helper-core-sha256-{}", std::process::id()));
         let mut file = File::create(&path).unwrap();
         file.write_all(b"test").unwrap();
         drop(file);
@@ -1440,7 +1310,7 @@ mod tests {
                     .is_none());
             }
         }
-        for host in ["127.0.0.1:47890", "localhost:47890", "FlClashHelperService"] {
+        for host in ["127.0.0.1:47890", "localhost:47890", "HandyHelperService"] {
             let response = warp::test::request()
                 .path("/logs")
                 .header("host", host)
@@ -1472,37 +1342,23 @@ mod tests {
         }
     }
 
-    #[cfg(not(target_os = "linux"))]
     #[test]
     fn only_accepts_random_core_pipe_namespace() {
         assert!(is_allowed_core_address(
-            r"\\.\pipe\FlClashCore_0123456789abcdef0123456789abcdef"
+            r"\\.\pipe\HandyCore_0123456789abcdef0123456789abcdef"
         ));
-        assert!(!is_allowed_core_address(r"\\.\pipe\FlClashCore"));
+        assert!(!is_allowed_core_address(r"\\.\pipe\HandyCore"));
         assert!(!is_allowed_core_address(
             r"\\.\pipe\Other_0123456789abcdef0123456789abcdef"
         ));
         assert!(!is_allowed_core_address(
-            r"\\.\pipe\FlClashCore_0123456789abcdef"
+            r"\\.\pipe\HandyCore_0123456789abcdef"
         ));
         assert!(!is_allowed_core_address(
-            r"\\.\pipe\FlClashCore_0123456789abcdef0123456789abcdeg"
+            r"\\.\pipe\HandyCore_0123456789abcdef0123456789abcdeg"
         ));
         assert!(!is_allowed_core_address(
-            r"\\.\pipe\FlClashCore_ABCDEF0123456789abcdef0123456789"
-        ));
-    }
-
-    #[cfg(target_os = "linux")]
-    #[test]
-    fn only_accepts_random_core_socket_namespace() {
-        assert!(is_allowed_core_address("/tmp/FlClashSocket_4821.sock"));
-        assert!(!is_allowed_core_address("/tmp/FlClashSocket_.sock"));
-        assert!(!is_allowed_core_address("/tmp/FlClashSocket_4821"));
-        assert!(!is_allowed_core_address("/tmp/Other_4821.sock"));
-        assert!(!is_allowed_core_address("/tmp/FlClashSocket_../x.sock"));
-        assert!(!is_allowed_core_address(
-            "/tmp/FlClashSocket_12345678901.sock"
+            r"\\.\pipe\HandyCore_ABCDEF0123456789abcdef0123456789"
         ));
     }
 

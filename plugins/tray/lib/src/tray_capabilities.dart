@@ -33,14 +33,6 @@ final class TrayCapabilities {
     menuControl: true,
   );
 
-  static const TrayCapabilities linux = TrayCapabilities(
-    supported: true,
-    title: true,
-    toolTip: true,
-    iconEvents: false,
-    menuControl: false,
-  );
-
   static const TrayCapabilities none = TrayCapabilities(
     supported: false,
     title: false,
@@ -53,7 +45,6 @@ final class TrayCapabilities {
     return switch (platform) {
       TargetPlatform.macOS => macOS,
       TargetPlatform.windows => windows,
-      TargetPlatform.linux => linux,
       _ => none,
     };
   }

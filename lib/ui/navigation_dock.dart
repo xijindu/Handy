@@ -369,7 +369,7 @@ class NavigationDock extends StatelessWidget {
       ),
     );
     // The bar rebuilds every frame its lens or a press moves; a scope of its
-    // own keeps that to the dock (.agents/architecture.md, Rebuild Scopes).
+    // own keeps that to the dock.
     return SizedBox(
       width: double.infinity,
       height: _shadowRoom + height + _bottomMarginOf(context),
