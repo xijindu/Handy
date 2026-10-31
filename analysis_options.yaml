@@ -7,8 +7,6 @@ analyzer:
     - lib/**/generated/**
     - plugins/**
     - android/**
-    - ios/**
-    - web/**
     - windows/**
     - macos/**
   errors:
