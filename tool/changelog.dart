@@ -7,7 +7,7 @@ import 'src/changelog/git.dart';
 import 'src/changelog/models.dart';
 import 'src/changelog/render.dart';
 
-const _repository = 'chen08209/FlClash';
+const _repository = 'xijindu/Handy';
 
 Future<void> main(List<String> arguments) async {
   final parser = ArgParser()
@@ -67,8 +67,7 @@ int _release(String root, ArgResults command) {
   );
   _printWarnings(result.warnings);
   _writeData(root, result.changelog);
-  _writeMarkdown(root, result.changelog);
-  stdout.writeln('Wrote $changelogMarkdownPath and $changelogDataPath');
+  stdout.writeln('Wrote $changelogDataPath');
   return 0;
 }
 
@@ -145,7 +144,6 @@ int _render(String root, ArgResults command) {
 
 int _verify(String root) {
   final dataFile = resolve(root, changelogDataPath);
-  final markdownFile = resolve(root, changelogMarkdownPath);
   final problems = <String>[];
 
   if (!dataFile.existsSync()) {
@@ -153,17 +151,6 @@ int _verify(String root) {
   }
 
   final changelog = decodeChangelog(dataFile.readAsStringSync());
-
-  final markdown = markdownFile.readAsStringSync();
-  if (!markdown.contains(changelogFrozenMarker)) {
-    problems.add('$changelogMarkdownPath is missing the frozen marker');
-  } else if (markdownHead(markdown).trimRight() !=
-      renderMarkdown(changelog).trimRight()) {
-    problems.add(
-      '$changelogMarkdownPath does not match $changelogDataPath; '
-      'run tool/changelog.dart release to regenerate it',
-    );
-  }
 
   final git = Git(workingDirectory: root);
   final expected = ChangelogBuilder(git).build();
@@ -254,12 +241,6 @@ void _writeData(String root, Changelog changelog) {
   file.writeAsStringSync(encodeChangelog(changelog));
 }
 
-void _writeMarkdown(String root, Changelog changelog) {
-  final file = resolve(root, changelogMarkdownPath);
-  final existing = file.existsSync() ? file.readAsStringSync() : '';
-  file.writeAsStringSync(mergeMarkdown(renderMarkdown(changelog), existing));
-}
-
 void _printWarnings(List<String> warnings) {
   for (final warning in warnings) {
     stderr.writeln('! $warning');
@@ -270,7 +251,7 @@ String _usage(ArgParser parser) => '''
 Usage: dart run tool/changelog.dart <command> [options]
 
 Commands:
-  release --version X   Rewrite CHANGELOG.md and changelog.json.
+  release --version X   Rewrite changelog.json.
   build [--unreleased]  Rewrite changelog.json only.
   render <release|telegram> [--tag vX] [--out file]
   verify                Check the committed changelog against git.

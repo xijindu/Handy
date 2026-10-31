@@ -4,15 +4,12 @@ import 'dart:io';
 import 'git.dart';
 import 'models.dart';
 import 'parser.dart';
-import 'render.dart';
 
 /// Versions up to and including this tag are frozen: they predate the
-/// structured pipeline and are kept verbatim at the bottom of `CHANGELOG.md`.
+/// structured pipeline and are carried over from `changelog.json` verbatim.
 const frozenBoundaryTag = 'v0.8.96';
 
 const changelogDataPath = 'changelog.json';
-
-const changelogMarkdownPath = 'CHANGELOG.md';
 
 class PendingVersion {
   const PendingVersion({
@@ -103,43 +100,6 @@ class ChangelogBuilder {
 
   Set<String> _idsOf(List<RawCommit> commits) =>
       commits.map((commit) => commit.shortHash).toSet();
-}
-
-final _frozenComment = RegExp(r'\s*<!--.*?-->', dotAll: true);
-
-/// End of the generated head: the frozen marker plus whatever comment lines
-/// follow it. Matching comments by shape rather than by text means the note can
-/// be reworded without stranding the previous wording in the frozen tail.
-int _frozenBoundary(String content) {
-  final markerIndex = content.indexOf(changelogFrozenMarker);
-  if (markerIndex < 0) {
-    return -1;
-  }
-  var cursor = markerIndex + changelogFrozenMarker.length;
-  while (true) {
-    final match = _frozenComment.matchAsPrefix(content, cursor);
-    if (match == null) {
-      return cursor;
-    }
-    cursor = match.end;
-  }
-}
-
-String mergeMarkdown(String rendered, String existing) {
-  final boundary = _frozenBoundary(existing);
-  if (boundary < 0) {
-    var tail = existing.trimLeft();
-    if (tail.startsWith(changelogTitle)) {
-      tail = tail.substring(changelogTitle.length).trimLeft();
-    }
-    return '$rendered$tail';
-  }
-  return '$rendered${existing.substring(boundary).trimLeft()}';
-}
-
-String markdownHead(String content) {
-  final boundary = _frozenBoundary(content);
-  return boundary < 0 ? content : content.substring(0, boundary);
 }
 
 /// Tags [derived] has a version for that [recorded] never wrote down.
